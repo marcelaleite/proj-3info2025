@@ -2,13 +2,14 @@ create schema BioLineage;
 use BioLineage;
 
 CREATE TABLE IF NOT EXISTS usuario (
-  id_usuario INT PRIMARY KEY  auto_increment,
+  id INT PRIMARY KEY  auto_increment,
   nome VARCHAR(45) NOT NULL,
   email VARCHAR(45) NULL,
   telefone VARCHAR(45) NULL,
   senha VARCHAR(45) NULL,
-  dataNascimento date NULL,
-  Instituicao VARCHAR(45) NULL,
+  confirmar VARCHAR(45) NULL,
+  dt_nascimento date NULL,
+  instituicao VARCHAR(45) NULL,
   descricao VARCHAR(45) NULL);
 
 CREATE TABLE IF NOT EXISTS perfil (

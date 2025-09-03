@@ -1,31 +1,30 @@
 <?php
-
-
 class Usuario{
     private $id;
     private $nome;
-    private $email; // login
+    private $email;
+    private $telefone;
     private $senha;
-    private $matricula;
-    private $contato;
-    private $login; // objeto login
+    private $confirmar;
+    private $dt_nascimento;
+    private $instituicao;
+    private $descricao; // objeto login
 
     // construtor da classe
-    public function __construct($id,$nome,$email,$senha, $matricula, $contato){
+    public function __construct($id,$nome,$email,$telefone,$senha,$confirmar,$dt_nascimento,$instituicao,$descricao){
         $this->setId($id);
         $this->setNome($nome);
         $this->setEmail($email);
+        $this->setTelefone($telefone);
         $this->setSenha($senha);
-        $this->setMatricula($matricula);
-        $this->setContato($contato);
+        $this->setConfirmar($confirmar);
+        $this->setDt_nascimento($dt_nascimento);
+        $this->setInstituicao($instituicao);
+        $this->setDescricao($descricao);
       //  $this->login->setIdSession(1);
     }
 
-    public function setLogin(Login $login){
-        $this->login = $login;
-    }
-
-    public function setId($id){
+     public function setId($id){
         if ($id < 0)
             throw new Exception('Erro. O ID deve ser maior ou igual a 0');
         else
@@ -47,6 +46,12 @@ class Usuario{
             $this->email = $email;
     }
 
+    public function setTelefone($telefone){
+        if ($telefone == "")
+            throw new Exception('Erro. Informe um telefone.');
+        else
+            $this->telefone = $telefone;
+    }
 
     public function setSenha($senha){
         if ($senha == "") // regras para senha
@@ -55,43 +60,63 @@ class Usuario{
             $this->senha = $senha;
     }
 
-    public function setMatricula($matricula){
-        if ($matricula == "") // regras para matricula
-            throw new Exception('Erro. Informe uma matricula válida.');
+    public function setConfirmar($confirmar){
+        if ($confirmar == "")
+            throw new Exception('Erro. Confirme sua senha.');
         else
-            $this->matricula = $matricula;
+            $this->confirmar = $confirmar;
     }
 
-    public function setContato($contato){
-        if ($contato == "") // regras para contato
-            throw new Exception('Erro. Informe um contato válida.');
+    public function setDt_nascimento($dt_nascimento){
+        if ($dt_nascimento == "") // regras para dt_nascimento
+            throw new Exception('Erro. Informe sua data de nascimento.');
         else
-            $this->contato = $contato;
+            $this->dt_nascimento = $dt_nascimento;
     }
+
+    public function setInstituicao($instituicao){
+        if ($instituicao == "") // regras para instituicao
+            throw new Exception('Erro. Informe sua instituicao.');
+        else
+            $this->instituicao = $instituicao;
+    }
+    public function setDescricao($descricao){
+        if ($descricao == "")
+            throw new Exception('Erro. Descreva.');
+        else
+            $this->descricao = $descricao;
+    }
+
 
     public function getId(){return $this->id;}
     public function getNome(){return $this->nome;}
     public function getEmail(){return $this->email;}
+    public function getTelefone(){return $this->telefone;}
     public function getSenha(){return $this->senha;}
-    public function getMatricula(){return $this->matricula;}
-    public function getContato(){return $this->contato;}
+    public function getConfirmar(){return $this->confirmar;}
+    public function getDt_nascimento(){return $this->dt_nascimento;}
+    public function getInstituicao(){return $this->instituicao;}
+    public function Descricao(){return $this->descricao;}
 
     // método mágico para imprimir uma atividade
     public function __toString():String{  
-        $str = "Usuario: $this->getId() - $this->getNome() - $this->getEmail()";        
+        $str = "Usuario: $this->getId() - $this->getNome() - $this->getEmail() - $this->getTelefone() - $this->getSenha() - $this->getConfirmar() - $this->getDt_nascimento() - $this->getInstituicao() - $this->getDescricao()";        
         return $str;
     }
     
     public function inserir():Bool{
         $sql = "INSERT INTO Usuario 
-                    (nome, email, senha, matricula, contato)
-                    VALUES(:nome, :email, :senha, :matricula, :contato)";
+                    (nome, email, telefone, senha, confirmar, dt_nascimento, instituicao, descricao)
+                    VALUES(:nome, :email, :telefone, :senha, :confirmar, :dt_nascimento, :instituicao, :descricao)";
         
         $parametros = array(':nome'=>$this->getNome(),
                             ':email'=>$this->getEmail(),
+                            ':telefone'=>$this->getTelefone(),
                             ':senha'=>$this->getSenha(),
-                            ':matricula'=>$this->getMatricula(),
-                            ':contato'=>$this->getContato());
+                            ':confirmar'=>$this->getConfirmar(),
+                            ':dt_nascimento'=>$this->getDt_nascimento(),
+                            ':instituicao'=>$this->getInstituicao(),
+                            ':descricao'=>$this->getDescricao());
         
         return Database::executar($sql, $parametros) == true;
     }
