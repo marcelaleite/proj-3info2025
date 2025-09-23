@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Tipo Sanguíneo</title>
+</head>
+<body>
+    <h1>Calculadora de Tipo Sanguíneo</h1>
+    <form action="../Control/controle_TipoSanguineo.php" method="post">
+        <label for="pai">Tipo Sanguíneo do Pai:</label>
+        <select name="pai_tipo" id="pai_tipo">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="AB">AB</option>
+            <option value="O">O</option>
+        </select>
+        <select name="pai_rh" id="pai_rh">
+            <option value="+">+</option>
+            <option value="-">-</option>
+        </select>
+        <br><br>
+        <label for="mae">Tipo Sanguíneo da Mãe:</label>
+        <select name="mae_tipo" id="mae_tipo">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="AB">AB</option>
+            <option value="O">O</option>
+        </select>
+        <select name="mae_rh" id="mae_rh">
+            <option value="+">+</option>
+            <option value="-">-</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Calcular">
+    </form>
+</body>
+</html>

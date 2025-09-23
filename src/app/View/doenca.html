@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Probabilidade de Doença</title>
+</head>
+<body>
+    <h2>Calcular probabilidade</h2>
+    <form method="POST" action="../Model/probabildade_doenca_class.php">
+        
+
+        <label for="doenca">Doença:</label>
+        <select name="doenca" id="doenca" required>
+            <option value="">Selecione uma doença</option>
+            <option value="doenca1">Doença 1</option>
+            <option value="doenca2">Doença 2</option>
+            <option value="doenca3">Doença 3</option>
+        </select><br><br>
+
+        <input type="submit" value="Calcular">
+    </form>
+    <br>
+    <a href="cadastro_doenca.html">Cadastrar Nova Doença</a>
+</body>
+</html>

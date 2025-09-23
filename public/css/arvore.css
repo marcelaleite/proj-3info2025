@@ -1,0 +1,328 @@
+/* cadastro.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #000;
+    color: #fff;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  #page-cadastro {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .topbar {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-inner {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+  }
+  
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #1CECE7;
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+  }
+  
+  .background-video video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(10, 10, 20, 0.4) 0%, rgba(0, 0, 0, 0.9) 70%);
+    z-index: -1;
+  }
+  
+  .register-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 2rem;
+  }
+  
+  .bg-decor {
+    position: absolute;
+    right: -100px;
+    bottom: -100px;
+    width: 600px;
+    height: 600px;
+    opacity: 0.3;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  .register-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    gap: 2rem;
+    margin: 0 auto;
+  }
+  
+  .form-card {
+    flex: 1;
+    background: rgba(20, 20, 35, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    border: 1px solid rgba(93, 224, 255, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .form-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-weight: 700;
+  }
+  
+  .form-header p {
+    color: #ccc;
+    margin-bottom: 0.5rem;
+  }
+  
+  .micro {
+    font-size: 0.85rem;
+    color: #999;
+  }
+  
+  .row {
+    margin: 1.5rem 0;
+  }
+  
+  .row.two-cols {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .row.two-cols > div {
+    flex: 1;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="date"]:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    border-color: #1CECE7;
+    box-shadow: 0 0 0 2px rgba(28, 204, 231, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 16px;
+    padding-right: 2.5rem;
+  }
+  
+  .radio-group,
+  .checkbox-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .radio-label,
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+  
+  input[type="radio"],
+  input[type="checkbox"] {
+    accent-color: #1CECE7;
+  }
+  
+  input[type="radio"] {
+    width: auto;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    gap: 1rem;
+  }
+  
+  .btn {
+    padding: 0.8rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+  }
+  
+  .btn.ghost {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+  }
+  
+  .btn.ghost:hover {
+    border-color: #1CECE7;
+    color: #1CECE7;
+    background: rgba(28, 204, 231, 0.1);
+  }
+  
+  .btn.primary {
+    background: linear-gradient(135deg, #1CECE7, #5DE0FF);
+    border: none;
+    color: #000;
+    font-weight: 700;
+  }
+  
+  .btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(28, 204, 231, 0.4);
+  }
+  
+  .info-side {
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .info-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .info-card h3 {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .info-card ul {
+    list-style: none;
+    margin: 1rem 0;
+    color: #ccc;
+    font-size: 0.95rem;
+  }
+  
+  .info-card ul li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  
+  .info-card ul li::before {
+    content: "•";
+    color: #1CECE7;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+  }
+  
+  .small {
+    font-size: 0.85rem;
+    color: #999;
+  }
+  
+  .small a {
+    color: #1CECE7;
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 900px) {
+    .register-wrapper {
+      flex-direction: column;
+    }
+    
+    .info-side {
+      flex: auto;
+      max-width: 100%;
+    }
+    
+    .row.two-cols {
+      flex-direction: column;
+    }
+  }
+.select{
+    color: black;
+}

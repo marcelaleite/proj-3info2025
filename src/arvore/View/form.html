@@ -1,0 +1,217 @@
+<main class="register-screen" role="main" aria-label="Cadastro">
+    <!-- decorative blob SVG -->
+    <svg class="bg-decor" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stop-color="#1CECE7" stop-opacity="0.85"/>
+          <stop offset="1" stop-color="#5DE0FF" stop-opacity="0.6"/>
+        </linearGradient>
+        <filter id="f1" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="30" result="b"/>
+          <feBlend in="SourceGraphic" in2="b"/>
+        </filter>
+      </defs>
+      <g filter="url(#f1)">
+        <path fill="url(#g1)" d="M421.7,345.2Q384,440,290.7,426.3Q197.5,412.6,144,350.5Q90.5,288.4,108.3,198.2Q126.2,108,213.2,86.5Q300.2,65,373.2,114.2Q446.2,163.5,421.7,345.2Z"/>
+      </g>
+    </svg>
+
+    <div class="register-wrapper" role="region" aria-labelledby="formTitle">
+      <div class="form-card">
+        <div class="form-header">
+          <h2 id="formTitle">Cadastre o perfil do usuario</h2>
+          <p>Cadastre o perfil para construir sua arvore genealógica</p>
+          <p class="micro">Preencha os campos abaixo — você poderá editar seu perfil depois.</p>
+        </div>
+
+        <!-- Formulário de cadastro completo -->
+        <form id="genealogicForm">
+          <div class="row">
+            <label for="nomeCompleto">Nome completo</label>
+            <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Seu nome completo" required />
+          </div>
+
+          <div class="row two-cols">
+            <div>
+              <label for="corOlho">Cor do olho</label>
+              <input type="text" id="corOlho" name="corOlho" placeholder="verde" required />
+            </div>
+            <div>
+              <label for="corCabelo">Cor do cabelo</label>
+              <input type="text" id="corCabelo" name="corCabelo" placeholder="loiro" required />
+            </div>
+          </div>
+
+          <div class="row two-cols">
+            <div>
+                <label for="tipoSanguineo">Tipo sanguíneo</label>
+                <select id="tipoSanguineo" name="tipoSanguineo" placeholder="Selecione" required class="select" style="color: white; background-color: #222;">
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+            </div>
+            
+            <div>
+                <label for="nacionalidade">País de Origem/Nacionalidade</label>
+                <select id="nacionalidade" name="nacionalidade" required class="select" style="color: white; background-color: #222;">
+                    <option value="Afeganistão">Afeganistão</option>
+                    <option value="África do Sul">África do Sul</option>
+                    <option value="Albânia">Albânia</option>
+                    <option value="Alemanha">Alemanha</option>
+                    <option value="Andorra">Andorra</option>
+                    <option value="Angola">Angola</option>
+                    <option value="Arábia Saudita">Arábia Saudita</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="Armênia">Armênia</option>
+                    <option value="Austrália">Austrália</option>
+                    <option value="Áustria">Áustria</option>
+                    <option value="Bahamas">Bahamas</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="Barbados">Barbados</option>
+                    <option value="Bélgica">Bélgica</option>
+                    <option value="Bolívia">Bolívia</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Bulgária">Bulgária</option>
+                    <option value="Cabo Verde">Cabo Verde</option>
+                    <option value="Camarões">Camarões</option>
+                    <option value="Canadá">Canadá</option>
+                    <option value="Chile">Chile</option>
+                    <option value="China">China</option>
+                    <option value="Colômbia">Colômbia</option>
+                    <option value="Coreia do Sul">Coreia do Sul</option>
+                    <option value="Costa Rica">Costa Rica</option>
+                    <option value="Croácia">Croácia</option>
+                    <option value="Cuba">Cuba</option>
+                    <option value="Dinamarca">Dinamarca</option>
+                    <option value="Egito">Egito</option>
+                    <option value="El Salvador">El Salvador</option>
+                    <option value="Equador">Equador</option>
+                    <option value="Espanha">Espanha</option>
+                    <option value="Estados Unidos">Estados Unidos</option>
+                    <option value="Estônia">Estônia</option>
+                    <option value="Etiópia">Etiópia</option>
+                    <option value="Filipinas">Filipinas</option>
+                    <option value="Finlândia">Finlândia</option>
+                    <option value="França">França</option>
+                    <option value="Grécia">Grécia</option>
+                    <option value="Guatemala">Guatemala</option>
+                    <option value="Haiti">Haiti</option>
+                    <option value="Holanda">Holanda</option>
+                    <option value="Honduras">Honduras</option>
+                    <option value="Hungria">Hungria</option>
+                    <option value="Índia">Índia</option>
+                    <option value="Indonésia">Indonésia</option>
+                    <option value="Inglaterra">Inglaterra</option>
+                    <option value="Irlanda">Irlanda</option>
+                    <option value="Islândia">Islândia</option>
+                    <option value="Israel">Israel</option>
+                    <option value="Itália">Itália</option>
+                    <option value="Jamaica">Jamaica</option>
+                    <option value="Japão">Japão</option>
+                    <option value="Jordânia">Jordânia</option>
+                    <option value="Letônia">Letônia</option>
+                    <option value="Líbano">Líbano</option>
+                    <option value="Lituânia">Lituânia</option>
+                    <option value="Luxemburgo">Luxemburgo</option>
+                    <option value="Malásia">Malásia</option>
+                    <option value="Marrocos">Marrocos</option>
+                    <option value="México">México</option>
+                    <option value="Moçambique">Moçambique</option>
+                    <option value="Noruega">Noruega</option>
+                    <option value="Nova Zelândia">Nova Zelândia</option>
+                    <option value="Panamá">Panamá</option>
+                    <option value="Paraguai">Paraguai</option>
+                    <option value="Peru">Peru</option>
+                    <option value="Polônia">Polônia</option>
+                    <option value="Portugal">Portugal</option>
+                    <option value="Quênia">Quênia</option>
+                    <option value="Reino Unido">Reino Unido</option>
+                    <option value="República Dominicana">República Dominicana</option>
+                    <option value="Romênia">Romênia</option>
+                    <option value="Rússia">Rússia</option>
+                    <option value="Senegal">Senegal</option>
+                    <option value="Singapura">Singapura</option>
+                    <option value="Suécia">Suécia</option>
+                    <option value="Suíça">Suíça</option>
+                    <option value="Tailândia">Tailândia</option>
+                    <option value="Tanzânia">Tanzânia</option>
+                    <option value="Turquia">Turquia</option>
+                    <option value="Ucrânia">Ucrânia</option>
+                    <option value="Uganda">Uganda</option>
+                    <option value="Uruguai">Uruguai</option>
+                    <option value="Venezuela">Venezuela</option>
+                    <option value="Vietnã">Vietnã</option>
+                </select>
+            </div>
+            
+          </div>
+
+          <div class="row two-cols">
+            <div>
+              <label for="covinhas">Covinhas</label>
+              <div class="checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="covinhas" value="buchechar" />
+                  <span>Bucheca</span>
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="covinhas" value="queixo" />
+                  <span>Queixo</span>
+                </label>
+              </div>
+            </div>
+
+            
+            <div>
+              <label for="tipoOrelha">Tipo de orelha</label>
+              <div class="radio-group">
+                <label class="radio-label">
+                  <input type="radio" name="tipoOrelha" value="solta" required />
+                  <span>Solta</span>
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="tipoOrelha" value="presa" />
+                  <span>Presa</span>
+                </label>
+              </div>
+            </div>
+            
+            <script>
+                document.getElementById('genealogicForm').addEventListener('submit', function(e) {
+                    const input = document.getElementById('nacionalidade');
+                    const datalist = document.getElementById('paises');
+                    const options = Array.from(datalist.options).map(opt => opt.value.trim().toLowerCase());
+                    if (!options.includes(input.value.trim().toLowerCase())) {
+                        input.setCustomValidity('Escolha um país da lista.');
+                        input.reportValidity();
+                        e.preventDefault();
+                    } else {
+                        input.setCustomValidity('');
+                    }
+                });
+                document.getElementById('nacionalidade').addEventListener('input', function() {
+                    this.setCustomValidity('');
+                });
+            </script>
+
+          </div>
+
+          <div class="row">
+            <label for="doencaGenealogica">Doença genealógica (opcional)</label>
+            <textarea id="doencaGenealogica" name="doencaGenealogica" rows="3" 
+                      placeholder="Ex.: Alzheimer, Hemofilia, Daltonismo..."></textarea>
+          </div>
+
+          <div class="form-actions">
+            <a class="btn ghost" href="homescreen.html">Voltar</a>
+            <button type="submit" class="btn primary">Cadastrar</button>
+          </div>
+        </form>
+      </div>
+      <br>
