@@ -108,4 +108,8 @@ select
    from usuario u
    inner join perfil pe on (pe.usuario_idusuario = u.id_usuario)
    left outer join usuario mae on (mae.id_usuario = pe.id_mae);
+<<<<<<< HEAD
    left outer join usuario pai on (pai.id_usuario = pe.id_pai);
+=======
+   left outer join usuario pai on (pai.id_usuario = pe.id_pai);
+>>>>>>> origin/main

@@ -26,8 +26,9 @@ class AlbinismoDAO
 
     public function update(Albinismo $a): bool
     {
-        $sql = "UPDATE albinismo SET usuario_id_usuario=:u, id_pai=:p, id_mae=:m, 
-                possui_albinismo=:alb WHERE id_albinismo=:id";
+        $sql = "UPDATE albinismo 
+                   SET usuario_id_usuario=:u, id_pai=:p, id_mae=:m, possui_albinismo=:alb 
+                 WHERE id_albinismo=:id";
         $st = $this->pdo->prepare($sql);
         return $st->execute([
             ':u'   => $a->getUsuarioId(),
@@ -47,9 +48,9 @@ class AlbinismoDAO
     public function findById(int $idAlbinismo): ?array
     {
         $sql = "SELECT a.*, u.nome as usuario_nome
-                FROM albinismo a
-                JOIN usuario u ON u.id_usuario = a.usuario_id_usuario
-                WHERE a.id_albinismo = :id";
+                  FROM albinismo a
+                  JOIN usuario u ON u.id_usuario = a.usuario_id_usuario
+                 WHERE a.id_albinismo = :id";
         $st = $this->pdo->prepare($sql);
         $st->execute([':id' => $idAlbinismo]);
         $row = $st->fetch(PDO::FETCH_ASSOC);
@@ -60,11 +61,21 @@ class AlbinismoDAO
     {
         $sql = "SELECT a.*, u.nome as usuario_nome,
                        pai.nome as nome_pai, mae.nome as nome_mae
-                FROM albinismo a
-                JOIN usuario u ON u.id_usuario = a.usuario_id_usuario
-                LEFT JOIN usuario pai ON pai.id_usuario = a.id_pai
-                LEFT JOIN usuario mae ON mae.id_usuario = a.id_mae
-                ORDER BY u.nome";
+                  FROM albinismo a
+                  JOIN usuario u ON u.id_usuario = a.usuario_id_usuario
+             LEFT JOIN usuario pai ON pai.id_usuario = a.id_pai
+             LEFT JOIN usuario mae ON mae.id_usuario = a.id_mae
+              ORDER BY u.nome";
+        return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // 🔹 Facilita a listagem de usuários que já têm perfil de albinismo
+    public function listUsuariosComPerfil(): array
+    {
+        $sql = "SELECT u.id_usuario, u.nome
+                  FROM usuario u
+                 WHERE EXISTS (SELECT 1 FROM albinismo a WHERE a.usuario_id_usuario = u.id_usuario)
+              ORDER BY u.nome";
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -111,9 +122,16 @@ class AlbinismoDAO
     {
         $pais = $this->getPais($idUsuario);
         if (empty($pais['id_pai']) || empty($pais['id_mae'])) return [];
-        $st = $this->pdo->prepare("SELECT a.* FROM albinismo a
-            WHERE a.id_pai = :p AND a.id_mae = :m AND a.usuario_id_usuario <> :u");
-        $st->execute([':p' => $pais['id_pai'], ':m' => $pais['id_mae'], ':u' => $idUsuario]);
+        $st = $this->pdo->prepare("SELECT a.* 
+                                     FROM albinismo a
+                                    WHERE a.id_pai = :p 
+                                      AND a.id_mae = :m 
+                                      AND a.usuario_id_usuario <> :u");
+        $st->execute([
+            ':p' => $pais['id_pai'], 
+            ':m' => $pais['id_mae'], 
+            ':u' => $idUsuario
+        ]);
         return $st->fetchAll(PDO::FETCH_ASSOC);
     }
 }
