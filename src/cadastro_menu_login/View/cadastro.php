@@ -106,7 +106,7 @@
           if ($stmt->execute()) {
               echo "<p style='color:green;text-align:center;'>Cadastro realizado com sucesso!</p>";
               // redireciona para menu
-              echo "<script>setTimeout(() => { window.location.href='menu.html'; }, 1500);</script>";
+              echo "<script>setTimeout(() => { window.location.href='menu.php'; }, 1500);</script>";
           } else {
               echo "<p style='color:red;text-align:center;'>Erro: " . $stmt->error . "</p>";
           }

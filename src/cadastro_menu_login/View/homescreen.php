@@ -11,14 +11,18 @@
 </head>
 <body id="page-home">
 
-  <!-- Top navigation bar -->
+  <!--  
   <header class="topbar" id="topbar" role="navigation" aria-label="Navegação principal">
     <nav class="nav-inner" id="navInner">
       <a href="sobre.html" class="nav-link">Sobre</a>
       <a href="objetivo.html" class="nav-link">Objetivo</a>
       <a href="contato.html" class="nav-link">Contato</a>
     </nav>
-  </header>
+  </header> -->
+
+  <?php
+  include 'navbar.php';
+  ?>
 
   <!-- vídeo de fundo -->
   <div class="background-video" aria-hidden="true">
