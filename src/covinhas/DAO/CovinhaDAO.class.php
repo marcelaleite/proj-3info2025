@@ -78,4 +78,4 @@ class CovinhaDAO
         $sql = "SELECT id_usuario, nome FROM usuario ORDER BY nome ASC";
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
-}
+};
