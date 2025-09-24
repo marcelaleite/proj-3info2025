@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Marcela — Cadastro</title>
+  <title>Biolineage — Cadastro</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../public/css/styles.css">
 </head>
@@ -27,7 +27,7 @@
         </div>
 
         <!-- Formulário -->
-        <form method="POST" action="menu.php">
+        <form method="POST" action="cadastro.php">
           <div class="row">
             <label>Nome completo</label>
             <input type="text" name="nome" placeholder="Seu nome completo" required />
@@ -76,6 +76,8 @@
             <button type="submit" class="btn primary">Cadastrar</button>
           </div>
         </form>
+
+        <p class="already-account">Já tem uma conta? <a href="login.php">Faça login aqui</a></p>
       </div>
     </div>
   </main>
@@ -95,7 +97,7 @@
           echo "<p style='color:red;text-align:center;'>As senhas não coincidem!</p>";
       } else {
           // Cria hash da senha antes de salvar
-          $senhaHash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+          $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
           $sql = "INSERT INTO usuario (nome, email, telefone, senha, dataNascimento, instituicao, descricao) 
                   VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -105,8 +107,8 @@
 
           if ($stmt->execute()) {
               echo "<p style='color:green;text-align:center;'>Cadastro realizado com sucesso!</p>";
-              // redireciona para menu
-              echo "<script>setTimeout(() => { window.location.href='menu.php'; }, 1500);</script>";
+              // redireciona para login
+              echo "<script>setTimeout(() => { window.location.href='login.php'; }, 1500);</script>";
           } else {
               echo "<p style='color:red;text-align:center;'>Erro: " . $stmt->error . "</p>";
           }
