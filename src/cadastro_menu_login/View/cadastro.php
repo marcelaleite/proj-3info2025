@@ -27,7 +27,7 @@
         </div>
 
         <!-- Formulário -->
-        <form method="POST" action="menu.html">
+        <form method="POST" action="menu.php">
           <div class="row">
             <label>Nome completo</label>
             <input type="text" name="nome" placeholder="Seu nome completo" required />
