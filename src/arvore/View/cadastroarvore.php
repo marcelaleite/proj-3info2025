@@ -17,12 +17,15 @@
             transition: all 0.3s ease;
             z-index: 10;
         }
-        
         .node:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        
+        .node.selected .male,
+        .node.selected .female {
+            border-color: #10b981;
+            box-shadow: 0 0 0 2px #10b981;
+        }
         .male {
             width: 40px;
             height: 40px;
@@ -35,7 +38,6 @@
             font-size: 14px;
             color: #374151;
         }
-        
         .female {
             width: 40px;
             height: 40px;
@@ -48,35 +50,29 @@
             font-size: 14px;
             color: #374151;
         }
-        
         .presence {
             background-color: #10b981;
             border: 2px solid #374151;
             border-radius: 50%;
         }
-        
         .absence {
             background-color: #1f2937;
             border: 2px solid #374151;
             border-radius: 50%;
         }
-        
         .connection-line {
             position: absolute;
             background-color: #374151;
             z-index: 1;
         }
-        
         .vertical-line {
             width: 2px;
             background-color: #374151;
         }
-        
         .horizontal-line {
             height: 2px;
             background-color: #374151;
         }
-        
         .marriage-line {
             width: 20px;
             height: 2px;
@@ -84,14 +80,12 @@
             position: absolute;
             z-index: 2;
         }
-        
         .sibling-line {
             height: 2px;
             background-color: #6366f1;
             position: absolute;
             z-index: 2;
         }
-        
         .label {
             text-align: center;
             font-size: 12px;
@@ -100,7 +94,6 @@
             max-width: 80px;
             word-wrap: break-word;
         }
-        
         .modal {
             display: none;
             position: fixed;
@@ -111,7 +104,6 @@
             height: 100%;
             background-color: rgba(0,0,0,0.5);
         }
-        
         .modal-content {
             background-color: white;
             margin: 10% auto;
@@ -121,7 +113,6 @@
             max-width: 90%;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        
         .close {
             color: #aaa;
             float: right;
@@ -129,35 +120,28 @@
             font-weight: bold;
             cursor: pointer;
         }
-        
         .close:hover {
             color: black;
         }
-        
         .form-group {
             margin-bottom: 15px;
         }
-        
         label {
             display: block;
             margin-bottom: 5px;
             font-weight: 500;
             color: #374151;
         }
-        
         .row {
             margin-bottom: 15px;
         }
-        
         .two-cols {
             display: flex;
             gap: 15px;
         }
-        
         .two-cols > div {
             flex: 1;
         }
-        
         input[type="text"], select, textarea {
             width: 100%;
             padding: 8px;
@@ -165,7 +149,6 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
-        
         .select {
             color: white;
             background-color: #222;
@@ -175,34 +158,28 @@
             width: 100%;
             box-sizing: border-box;
         }
-        
         .checkbox-group, .radio-group {
             display: flex;
             gap: 15px;
             margin-top: 5px;
         }
-        
         .checkbox-label, .radio-label {
             display: flex;
             align-items: center;
             gap: 5px;
             cursor: pointer;
         }
-        
         .checkbox-label input, .radio-label input {
             margin: 0;
         }
-        
         textarea {
             resize: vertical;
         }
-        
         .form-actions {
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
         }
-        
         .btn {
             padding: 10px 15px;
             border-radius: 4px;
@@ -211,41 +188,34 @@
             text-decoration: none;
             display: inline-block;
         }
-        
         .btn.primary {
             background-color: #10b981;
             color: white;
             border: none;
         }
-        
         .btn.ghost {
             background-color: transparent;
             color: #374151;
             border: 1px solid #d1d5da;
         }
-        
         .btn.primary:hover {
             background-color: #059669;
         }
-        
         .btn.ghost:hover {
             background-color: #f3f4f6;
         }
-        
         .legend-item {
             display: flex;
             align-items: center;
             margin-bottom: 8px;
             font-size: 14px;
         }
-        
         .legend-icon {
             width: 20px;
             height: 20px;
             margin-right: 8px;
             border: 2px solid #374151;
         }
-        
         .tool-panel {
             position: fixed;
             top: 20px;
@@ -258,7 +228,6 @@
             display: flex;
             flex-direction: column;
         }
-        
         .tool-btn {
             width: 40px;
             height: 40px;
@@ -272,16 +241,13 @@
             background-color: #f3f4f6;
             border: 1px solid #d1d5da;
         }
-        
         .tool-btn:hover {
             background-color: #e5e7eb;
         }
-        
         .active {
             background-color: #10b981;
             color: white;
         }
-        
         .tree-container {
             position: relative;
             width: 100%;
@@ -291,7 +257,6 @@
             padding: 20px;
             background-color: #f9fafb;
         }
-        
         .drag-handle {
             width: 100%;
             height: 100%;
@@ -301,7 +266,6 @@
             cursor: grab;
             z-index: 0;
         }
-        
         .zoom-controls {
             position: fixed;
             bottom: 20px;
@@ -310,7 +274,6 @@
             gap: 10px;
             z-index: 100;
         }
-        
         .zoom-btn {
             width: 40px;
             height: 40px;
@@ -323,11 +286,9 @@
             cursor: pointer;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        
         .zoom-btn:hover {
             background-color: #f3f4f6;
         }
-        
         .zoom-level {
             width: 60px;
             text-align: center;
@@ -337,7 +298,6 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        
         .connections-container {
             position: absolute;
             top: 0;
@@ -347,19 +307,99 @@
             pointer-events: none;
             z-index: 5;
         }
-        
         .sibling-group-line {
             height: 2px;
             background-color: #6366f1;
             position: absolute;
             z-index: 2;
         }
+        /* Estilo para destacar o nó selecionado */
+        .node.selected .male,
+        .node.selected .female {
+            border-color: #10b981;
+            box-shadow: 0 0 0 2px #10b981;
+        }
+        
+        /* Melhorias na estética das conexões */
+        .connection-line {
+            background-color: #4b5563;
+            opacity: 0.8;
+            transition: all 0.2s ease;
+        }
+        
+        .vertical-line:hover, .horizontal-line:hover {
+            background-color: #10b981;
+            opacity: 1;
+        }
+        
+        /* Animação suave para os nós */
+        .node {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        /* Estilo para campo de vida */
+        .alive-switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
+        
+        .alive-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 20px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: #10b981;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+        
+        /* Estilo para o campo de traço simplificado */
+        .trait-container {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .trait-option {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
     </style>
 </head>
 <body class="bg-gray-100 font-sans">
     <div class="container mx-auto p-4">
         <h1 class="text-3xl font-bold text-center mb-6 text-gray-800">Árvore Genealógica Personalizável</h1>
-        
         <!-- Tool Panel -->
         <div class="tool-panel">
             <div class="tool-btn active" id="select-tool" title="Selecionar">
@@ -390,7 +430,7 @@
             </div>
             <div class="tool-btn" id="new-tree-tool" title="Nova Árvore">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.356-2m15.356 2H15" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.356-2m15.356 2H15" />
                 </svg>
             </div>
             <div class="tool-btn" id="save-tool" title="Salvar">
@@ -399,7 +439,6 @@
                 </svg>
             </div>
         </div>
-
         <!-- Legend -->
         <div class="absolute top-20 left-20 bg-white p-4 rounded-lg shadow-md z-10">
             <h3 class="font-bold text-lg mb-2">Legenda</h3>
@@ -434,32 +473,76 @@
                 </div>
             </div>
         </div>
-
         <!-- Tree Container -->
         <div class="tree-container" id="tree-container">
             <div class="drag-handle" id="drag-handle"></div>
             <div id="connections-container" class="connections-container"></div>
             <div id="family-tree"></div>
         </div>
-
         <!-- Zoom Controls -->
         <div class="zoom-controls">
             <div class="zoom-btn" id="zoom-out">-</div>
             <div class="zoom-level" id="zoom-level">100%</div>
             <div class="zoom-btn" id="zoom-in">+</div>
         </div>
-
         <!-- Add/Edit Person Modal -->
         <div id="person-modal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
+                <div id="relationship-info" style="display: none;"></div>
                 <h2 class="text-xl font-bold mb-4">Informações Genealógicas</h2>
                 <form id="genealogicForm">
+                    <div class="row two-cols">
+                        <div>
+                            <label for="gender">Gênero</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="male" required checked>
+                                    <span>Masculino</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="gender" value="female">
+                                    <span>Feminino</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="trait">Porta o traço genético?</label>
+                            <div class="trait-container">
+                                <div class="trait-option">
+                                    <input type="radio" id="trait-presence" name="trait" value="presence" checked>
+                                    <label for="trait-presence">Sim</label>
+                                </div>
+                                <div class="trait-option">
+                                    <input type="radio" id="trait-absence" name="trait" value="absence">
+                                    <label for="trait-absence">Não</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <label for="nomeCompleto">Nome completo</label>
                         <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Seu nome completo" required />
                     </div>
-
+                    <div class="row two-cols">
+                        <div>
+                            <label for="birthYear">Ano de Nascimento</label>
+                            <input type="number" id="birthYear" name="birthYear" placeholder="Ex: 1980" required />
+                        </div>
+                        <div>
+                            <label for="deathYear">Ano de Falecimento</label>
+                            <div class="relative">
+                                <input type="number" id="deathYear" name="deathYear" placeholder="Ex: 2020" />
+                                <div class="absolute right-0 top-0 mt-1 mr-2">
+                                    <label class="alive-switch">
+                                        <input type="checkbox" id="isAlive" name="isAlive">
+                                        <span class="slider"></span>
+                                    </label>
+                                    <span class="text-xs text-gray-500 ml-2">Vivo(a)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row two-cols">
                         <div>
                             <label for="corOlho">Cor do olho</label>
@@ -470,11 +553,10 @@
                             <input type="text" id="corCabelo" name="corCabelo" placeholder="loiro" required />
                         </div>
                     </div>
-
                     <div class="row two-cols">
                         <div>
                             <label for="tipoSanguineo">Tipo sanguíneo</label>
-                            <select id="tipoSanguineo" name="tipoSanguineo" placeholder="Selecione" required class="select" style="color: white; background-color: #222;">
+                            <select id="tipoSanguineo" name="tipoSanguineo" required class="select" style="color: white; background-color: #222;">
                                 <option value="A+">A+</option>
                                 <option value="A-">A-</option>
                                 <option value="B+">B+</option>
@@ -485,103 +567,30 @@
                                 <option value="O-">O-</option>
                             </select>
                         </div>
-                        
                         <div>
                             <label for="nacionalidade">País de Origem/Nacionalidade</label>
                             <select id="nacionalidade" name="nacionalidade" required class="select" style="color: white; background-color: #222;">
-                                <option value="Afeganistão">Afeganistão</option>
-                                <option value="África do Sul">África do Sul</option>
-                                <option value="Albânia">Albânia</option>
-                                <option value="Alemanha">Alemanha</option>
-                                <option value="Andorra">Andorra</option>
-                                <option value="Angola">Angola</option>
-                                <option value="Arábia Saudita">Arábia Saudita</option>
-                                <option value="Argentina">Argentina</option>
-                                <option value="Armênia">Armênia</option>
-                                <option value="Austrália">Austrália</option>
-                                <option value="Áustria">Áustria</option>
-                                <option value="Bahamas">Bahamas</option>
-                                <option value="Bangladesh">Bangladesh</option>
-                                <option value="Barbados">Barbados</option>
-                                <option value="Bélgica">Bélgica</option>
-                                <option value="Bolívia">Bolívia</option>
                                 <option value="Brasil">Brasil</option>
-                                <option value="Bulgária">Bulgária</option>
-                                <option value="Cabo Verde">Cabo Verde</option>
-                                <option value="Camarões">Camarões</option>
-                                <option value="Canadá">Canadá</option>
-                                <option value="Chile">Chile</option>
-                                <option value="China">China</option>
-                                <option value="Colômbia">Colômbia</option>
-                                <option value="Coreia do Sul">Coreia do Sul</option>
-                                <option value="Costa Rica">Costa Rica</option>
-                                <option value="Croácia">Croácia</option>
-                                <option value="Cuba">Cuba</option>
-                                <option value="Dinamarca">Dinamarca</option>
-                                <option value="Egito">Egito</option>
-                                <option value="El Salvador">El Salvador</option>
-                                <option value="Equador">Equador</option>
-                                <option value="Espanha">Espanha</option>
                                 <option value="Estados Unidos">Estados Unidos</option>
-                                <option value="Estônia">Estônia</option>
-                                <option value="Etiópia">Etiópia</option>
-                                <option value="Filipinas">Filipinas</option>
-                                <option value="Finlândia">Finlândia</option>
-                                <option value="França">França</option>
-                                <option value="Grécia">Grécia</option>
-                                <option value="Guatemala">Guatemala</option>
-                                <option value="Haiti">Haiti</option>
-                                <option value="Holanda">Holanda</option>
-                                <option value="Honduras">Honduras</option>
-                                <option value="Hungria">Hungria</option>
-                                <option value="Índia">Índia</option>
-                                <option value="Indonésia">Indonésia</option>
-                                <option value="Inglaterra">Inglaterra</option>
-                                <option value="Irlanda">Irlanda</option>
-                                <option value="Islândia">Islândia</option>
-                                <option value="Itália">Itália</option>
-                                <option value="Jamaica">Jamaica</option>
-                                <option value="Japão">Japão</option>
-                                <option value="Jordânia">Jordânia</option>
-                                <option value="Letônia">Letônia</option>
-                                <option value="Líbano">Líbano</option>
-                                <option value="Lituânia">Lituânia</option>
-                                <option value="Luxemburgo">Luxemburgo</option>
-                                <option value="Malásia">Malásia</option>
-                                <option value="Marrocos">Marrocos</option>
+                                <option value="Argentina">Argentina</option>
                                 <option value="México">México</option>
-                                <option value="Moçambique">Moçambique</option>
-                                <option value="Noruega">Noruega</option>
-                                <option value="Nova Zelândia">Nova Zelândia</option>
-                                <option value="Palestina">Palestina</option>
-                                <option value="Panamá">Panamá</option>
-                                <option value="Paraguai">Paraguai</option>
+                                <option value="Colômbia">Colômbia</option>
                                 <option value="Peru">Peru</option>
-                                <option value="Polônia">Polônia</option>
+                                <option value="Chile">Chile</option>
+                                <option value="Espanha">Espanha</option>
                                 <option value="Portugal">Portugal</option>
-                                <option value="Quênia">Quênia</option>
+                                <option value="França">França</option>
+                                <option value="Itália">Itália</option>
+                                <option value="Alemanha">Alemanha</option>
                                 <option value="Reino Unido">Reino Unido</option>
-                                <option value="República Dominicana">República Dominicana</option>
-                                <option value="Rojava">Rojava</option>
-                                <option value="Romênia">Romênia</option>
-                                <option value="Rússia">Rússia</option>
-                                <option value="Senegal">Senegal</option>
-                                <option value="Singapura">Singapura</option>
-                                <option value="Suécia">Suécia</option>
-                                <option value="Suíça">Suíça</option>
-                                <option value="Tailândia">Tailândia</option>
-                                <option value="Tanzânia">Tanzânia</option>
-                                <option value="Turquia">Turquia</option>
-                                <option value="Ucrânia">Ucrânia</option>
-                                <option value="Uganda">Uganda</option>
-                                <option value="Uruguai">Uruguai</option>
-                                <option value="Venezuela">Venezuela</option>
-                                <option value="Vietnã">Vietnã</option>
-                                <option value="Zapatistas">Zapatistas</option>
+                                <option value="Japão">Japão</option>
+                                <option value="China">China</option>
+                                <option value="Índia">Índia</option>
+                                <option value="Canadá">Canadá</option>
+                                <option value="Austrália">Austrália</option>
                             </select>
                         </div>
                     </div>
-
                     <div class="row two-cols">
                         <div>
                             <label for="covinhas">Covinhas</label>
@@ -596,12 +605,11 @@
                                 </label>
                             </div>
                         </div>
-
                         <div>
                             <label for="tipoOrelha">Tipo de orelha</label>
                             <div class="radio-group">
                                 <label class="radio-label">
-                                    <input type="radio" name="tipoOrelha" value="solta" required />
+                                    <input type="radio" name="tipoOrelha" value="solta" required checked />
                                     <span>Solta</span>
                                 </label>
                                 <label class="radio-label">
@@ -611,13 +619,11 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <label for="doencaGenealogica">Doença genealógica (opcional)</label>
-                        <textarea id="doencaGenealogica" name="doencaGenealogica" rows="3" 
+                        <textarea id="doencaGenealogica" name="doencaGenealogica" rows="3"
                                   placeholder="Ex.: Alzheimer, Hemofilia, Daltonismo..."></textarea>
                     </div>
-
                     <div class="form-actions">
                         <a class="btn ghost" href="#" id="back-btn">Voltar</a>
                         <button type="submit" class="btn primary">Cadastrar</button>
@@ -625,53 +631,14 @@
                 </form>
             </div>
         </div>
-
-        <!-- Add Relationship Modal -->
-        <div id="relationship-modal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2 class="text-xl font-bold mb-4">Adicionar Relação</h2>
-                <div id="selected-person-display" class="selected-person"></div>
-                <div class="relationship-form">
-                    <div class="form-group">
-                        <label for="relationship-type">Tipo de Relação:</label>
-                        <select id="relationship-type" class="relationship-select">
-                            <option value="spouse">Cônjuge</option>
-                            <option value="child">Filho/Filha</option>
-                            <option value="parent">Pai/Mãe</option>
-                            <option value="sibling">Irmão/Irmã</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="related-person-name">Nome da Pessoa Relacionada:</label>
-                        <input type="text" id="related-person-name" name="related-person-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="related-person-gender">Gênero:</label>
-                        <select id="related-person-gender" class="relationship-select">
-                            <option value="male">Masculino</option>
-                            <option value="female">Feminino</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="related-person-trait">Porta o traço genético?</label>
-                        <select id="related-person-trait" class="relationship-select">
-                            <option value="presence">Sim</option>
-                            <option value="absence">Não</option>
-                            <option value="none">Nenhum</option>
-                        </select>
-                    </div>
-                    <button id="add-relationship-btn" class="w-full bg-purple-500 hover:bg-purple-600 text-white py-2 px-4 rounded">Adicionar Relação</button>
-                </div>
-            </div>
-        </div>
     </div>
-
     <script>
         // Initialize variables
         let selectedTool = 'select';
-        let familyTree = [];
-        let currentId = 1;
+        let familyTree = []; // Array of person objects
+        let familyUnits = []; // Array of family unit objects { id, parents: [], children: [] }
+        let currentPersonId = 1;
+        let currentFamilyUnitId = 1;
         let isDragging = false;
         let dragStartX = 0;
         let dragStartY = 0;
@@ -680,22 +647,21 @@
         let zoomLevel = 100;
         let selectedPersonId = null;
         let editingPersonId = null;
-
+        let relationshipContext = null; // Para armazenar contexto de relacionamento
+        
         // DOM Elements
         const treeContainer = document.getElementById('tree-container');
         const familyTreeElement = document.getElementById('family-tree');
         const connectionsContainer = document.getElementById('connections-container');
         const dragHandle = document.getElementById('drag-handle');
         const personModal = document.getElementById('person-modal');
-        const relationshipModal = document.getElementById('relationship-modal');
         const genealogicForm = document.getElementById('genealogicForm');
         const closeModalBtns = document.querySelectorAll('.close');
         const zoomInBtn = document.getElementById('zoom-in');
         const zoomOutBtn = document.getElementById('zoom-out');
         const zoomLevelDisplay = document.getElementById('zoom-level');
-        const addRelationshipBtn = document.getElementById('add-relationship-btn');
-        const selectedPersonDisplay = document.getElementById('selected-person-display');
         const backBtn = document.getElementById('back-btn');
+        let selectedRelationshipType = null;
 
         // Tools
         document.getElementById('select-tool').addEventListener('click', () => {
@@ -704,9 +670,49 @@
         });
 
         document.getElementById('add-person-tool').addEventListener('click', () => {
-            selectedTool = 'add-person';
-            openPersonModal(null);
-            updateActiveTool();
+            if (familyTree.length === 0) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Primeira Pessoa',
+                    text: 'Clique em "Adicionar Relação" para criar a primeira pessoa da árvore.'
+                });
+                selectedTool = 'select';
+                updateActiveTool();
+                return;
+            }
+            
+            Swal.fire({
+                title: 'Selecione o tipo de relação',
+                input: 'select',
+                inputOptions: {
+                    'spouse': 'Cônjuge',
+                    'child': 'Filho(a)',
+                    'parent': 'Pai/Mãe',
+                    'sibling': 'Irmão(ã)'
+                },
+                inputPlaceholder: 'Escolha o tipo de relação',
+                showCancelButton: true,
+                confirmButtonText: 'Próximo',
+                inputValidator: (value) => {
+                    if (!value) {
+                        return 'Você precisa escolher um tipo de relação!';
+                    }
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Selecione a pessoa',
+                        html: 'Clique na pessoa na árvore com quem deseja criar a relação.',
+                        icon: 'info',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    
+                    selectedTool = 'select-for-relationship';
+                    selectedRelationshipType = result.value;
+                    updateActiveTool();
+                }
+            });
         });
 
         document.getElementById('edit-tool').addEventListener('click', () => {
@@ -720,14 +726,66 @@
         });
 
         document.getElementById('relationship-tool').addEventListener('click', () => {
-            selectedTool = 'relationship';
-            updateActiveTool();
+            if (familyTree.length === 0) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Primeira Pessoa',
+                    text: 'Clique em "Adicionar Relação" para criar a primeira pessoa da árvore.'
+                });
+                selectedTool = 'select';
+                updateActiveTool();
+                return;
+            }
+            
+            Swal.fire({
+                title: 'Selecione o tipo de relação',
+                input: 'select',
+                inputOptions: {
+                    'spouse': 'Cônjuge',
+                    'child': 'Filho(a)',
+                    'parent': 'Pai/Mãe',
+                    'sibling': 'Irmão(ã)'
+                },
+                inputPlaceholder: 'Escolha o tipo de relação',
+                showCancelButton: true,
+                confirmButtonText: 'Próximo',
+                inputValidator: (value) => {
+                    if (!value) {
+                        return 'Você precisa escolher um tipo de relação!';
+                    }
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Selecione a pessoa',
+                        html: 'Clique na pessoa na árvore com quem deseja criar a relação.',
+                        icon: 'info',
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                    
+                    selectedTool = 'select-for-relationship';
+                    selectedRelationshipType = result.value;
+                    updateActiveTool();
+                }
+            });
         });
 
         document.getElementById('new-tree-tool').addEventListener('click', () => {
-            if (confirm('Deseja realmente começar uma nova árvore?')) {
-                resetFamilyTree();
-            }
+            Swal.fire({
+                title: 'Reiniciar árvore genealógica?',
+                text: "Você perderá todos os dados não salvos!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim, reiniciar!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    resetFamilyTree();
+                }
+            });
         });
 
         document.getElementById('save-tool').addEventListener('click', () => {
@@ -740,23 +798,65 @@
                 btn.classList.remove('active');
             });
             if (selectedTool) {
-                document.getElementById(selectedTool + '-tool').classList.add('active');
+                const toolButton = document.getElementById(selectedTool + '-tool');
+                if (toolButton) {
+                    toolButton.classList.add('active');
+                }
             }
         }
 
-        // Open modals
-        function openPersonModal(person = null) {
+        // Open person modal
+        function openPersonModal(person = null, relationshipType = null, relatedPersonId = null) {
             personModal.style.display = 'block';
             editingPersonId = person ? person.id : null;
             
+            // Configurar contexto de relacionamento
+            if (relationshipType && relatedPersonId) {
+                relationshipContext = {
+                    type: relationshipType,
+                    personId: relatedPersonId
+                };
+                
+                // Mostrar informação do relacionamento
+                const relationshipInfo = document.getElementById('relationship-info');
+                if (relationshipInfo) {
+                    const relatedPerson = familyTree.find(p => p.id === relatedPersonId);
+                    relationshipInfo.style.display = 'block';
+                    relationshipInfo.innerHTML = `
+                        <div class="bg-blue-50 p-3 rounded mb-4">
+                            <strong>Adicionando como ${getRelationshipName(relationshipType)}</strong> de 
+                            <span class="font-medium">${relatedPerson?.name || 'Pessoa'}</span>
+                        </div>
+                    `;
+                }
+            } else {
+                relationshipContext = null;
+                const relationshipInfo = document.getElementById('relationship-info');
+                if (relationshipInfo) relationshipInfo.style.display = 'none';
+            }
+            
+            // Preencher formulário com dados existentes ou limpar
             if (person) {
                 // Fill form with existing data
                 document.getElementById('nomeCompleto').value = person.name || '';
+                document.getElementById('birthYear').value = person.birthYear || '';
+                document.getElementById('deathYear').value = person.deathYear || '';
                 document.getElementById('corOlho').value = person.eyeColor || '';
                 document.getElementById('corCabelo').value = person.hairColor || '';
-                document.getElementById('tipoSanguineo').value = person.bloodType || 'A+';
+                document.getElementById('tipoSanguineo').value = person.bloodType || 'O+';
                 document.getElementById('nacionalidade').value = person.nationality || 'Brasil';
                 document.getElementById('doencaGenealogica').value = person.geneticDisease || '';
+                document.getElementById('trait').value = person.trait || 'presence';
+                
+                // Handle gender
+                const genderRadios = document.querySelectorAll('input[name="gender"]');
+                genderRadios.forEach(radio => {
+                    radio.checked = false;
+                    if (person.gender && radio.value === person.gender) {
+                        radio.checked = true;
+                    }
+                });
+                if (!person.gender) genderRadios[0].checked = true;
                 
                 // Handle checkboxes
                 const covinhasCheckboxes = document.querySelectorAll('input[name="covinhas"]');
@@ -774,38 +874,45 @@
                 if (person.earType) {
                     const radio = document.querySelector(`input[name="tipoOrelha"][value="${person.earType}"]`);
                     if (radio) radio.checked = true;
+                } else {
+                    orelhaRadios[0].checked = true;
                 }
+                
+                // Handle alive status
+                const isAliveCheckbox = document.getElementById('isAlive');
+                isAliveCheckbox.checked = person.alive || false;
+                if (person.alive) {
+                    document.getElementById('deathYear').disabled = true;
+                }
+                
+                // Handle trait
+                document.getElementById('trait-presence').checked = person.trait === 'presence';
+                document.getElementById('trait-absence').checked = person.trait === 'absence';
             } else {
                 // Clear form for new person
                 genealogicForm.reset();
-                const orelhaRadios = document.querySelectorAll('input[name="tipoOrelha"]');
-                orelhaRadios[0].checked = true; // Default to "solta"
+                document.querySelector('input[name="gender"][value="male"]').checked = true;
+                document.getElementById('tipoSanguineo').value = 'O+';
+                document.getElementById('nacionalidade').value = 'Brasil';
+                document.querySelector('input[name="tipoOrelha"][value="solta"]').checked = true;
+                document.getElementById('trait-presence').checked = true;
+                document.getElementById('isAlive').checked = false;
+                document.getElementById('deathYear').disabled = false;
             }
-        }
-
-        function openRelationshipModal(person) {
-            relationshipModal.style.display = 'block';
-            selectedPersonId = person.id;
-            selectedPersonDisplay.textContent = `Adicionando relação para: ${person.name}`;
-            document.getElementById('related-person-name').value = '';
-            document.getElementById('related-person-gender').value = 'male';
-            document.getElementById('related-person-trait').value = 'none';
         }
 
         // Close modals
         closeModalBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 personModal.style.display = 'none';
-                relationshipModal.style.display = 'none';
+                relationshipContext = null;
             });
         });
 
         window.addEventListener('click', (event) => {
             if (event.target === personModal) {
                 personModal.style.display = 'none';
-            }
-            if (event.target === relationshipModal) {
-                relationshipModal.style.display = 'none';
+                relationshipContext = null;
             }
         });
 
@@ -818,10 +925,15 @@
         backBtn.addEventListener('click', (e) => {
             e.preventDefault();
             personModal.style.display = 'none';
+            relationshipContext = null;
         });
-
-        addRelationshipBtn.addEventListener('click', () => {
-            addRelationship();
+        
+        // Handle alive checkbox
+        document.getElementById('isAlive').addEventListener('change', function() {
+            document.getElementById('deathYear').disabled = this.checked;
+            if (this.checked) {
+                document.getElementById('deathYear').value = '';
+            }
         });
 
         // Drag and zoom functionality
@@ -864,156 +976,56 @@
             treeContainer.style.transform = `translate(${treeOffsetX}px, ${treeOffsetY}px) scale(${zoomLevel / 100})`;
         }
 
-        // Initial setup
-        function initializeFamilyTree() {
-            // Create initial sample data with all new fields
-            const initialData = [
-                {
-                    id: 1,
-                    name: 'Frank Harris',
-                    birthYear: 1908,
-                    deathYear: 2001,
-                    gender: 'male',
-                    trait: 'presence',
-                    x: 400,
-                    y: 100,
-                    children: [3],
-                    spouse: 2,
-                    eyeColor: 'azul',
-                    hairColor: 'cinza',
-                    bloodType: 'O+',
-                    nationality: 'Estados Unidos',
-                    dimples: ['buchechar'],
-                    earType: 'solta',
-                    geneticDisease: 'Alzheimer'
-                },
-                {
-                    id: 2,
-                    name: 'Shirley Johns',
-                    birthYear: 1910,
-                    deathYear: 2000,
-                    gender: 'female',
-                    trait: 'absence',
-                    x: 600,
-                    y: 100,
-                    children: [3],
-                    spouse: 1,
-                    eyeColor: 'verde',
-                    hairColor: 'loiro',
-                    bloodType: 'A-',
-                    nationality: 'Canadá',
-                    dimples: ['queixo'],
-                    earType: 'presa',
-                    geneticDisease: ''
-                },
-                {
-                    id: 3,
-                    name: 'Edward Harris',
-                    birthYear: 1935,
-                    deathYear: 2015,
-                    gender: 'male',
-                    trait: 'presence',
-                    x: 500,
-                    y: 200,
-                    children: [5],
-                    spouse: 4,
-                    eyeColor: 'castanho',
-                    hairColor: 'preto',
-                    bloodType: 'B+',
-                    nationality: 'Estados Unidos',
-                    dimples: ['buchechar', 'queixo'],
-                    earType: 'solta',
-                    geneticDisease: 'Hemofilia'
-                },
-                {
-                    id: 4,
-                    name: 'Patricia Anderson',
-                    birthYear: 1935,
-                    deathYear: 2010,
-                    gender: 'female',
-                    trait: 'absence',
-                    x: 700,
-                    y: 200,
-                    children: [5],
-                    spouse: 3,
-                    eyeColor: 'azul',
-                    hairColor: 'ruivo',
-                    bloodType: 'AB-',
-                    nationality: 'Inglaterra',
-                    dimples: [],
-                    earType: 'solta',
-                    geneticDisease: ''
-                },
-                {
-                    id: 5,
-                    name: 'Tony Harris',
-                    birthYear: 1940,
-                    deathYear: 2020,
-                    gender: 'male',
-                    trait: 'absence',
-                    x: 600,
-                    y: 300,
-                    children: [6, 7],
-                    spouse: 6,
-                    eyeColor: 'verde',
-                    hairColor: 'loiro',
-                    bloodType: 'O-',
-                    nationality: 'Estados Unidos',
-                    dimples: ['buchechar'],
-                    earType: 'presa',
-                    geneticDisease: 'Daltonismo'
-                },
-                {
-                    id: 6,
-                    name: 'Mary Harris',
-                    birthYear: 1970,
-                    gender: 'female',
-                    trait: 'absence',
-                    x: 700,
-                    y: 300,
-                    children: [5],
-                    spouse: 5,
-                    eyeColor: 'castanho',
-                    hairColor: 'castanho',
-                    bloodType: 'A+',
-                    nationality: 'Estados Unidos',
-                    dimples: [],
-                    earType: 'solta',
-                    geneticDisease: ''
-                },
-                {
-                    id: 7,
-                    name: 'John Harris',
-                    birthYear: 1975,
-                    gender: 'male',
-                    trait: 'presence',
-                    x: 800,
-                    y: 300,
-                    children: [],
-                    spouse: null,
-                    eyeColor: 'azul',
-                    hairColor: 'preto',
-                    bloodType: 'B-',
-                    nationality: 'Estados Unidos',
-                    dimples: ['queixo'],
-                    earType: 'solta',
-                    geneticDisease: ''
-                }
-            ];
-
-            familyTree = initialData;
-            renderFamilyTree();
-            currentId = 8;
+        // Family Unit Management
+        function getOrCreateFamilyUnitForParents(parent1Id, parent2Id = null) {
+            // Find a family unit that contains both parents (if provided)
+            let unit = familyUnits.find(fu => {
+                const hasParent1 = fu.parents.includes(parent1Id);
+                const hasParent2 = parent2Id ? fu.parents.includes(parent2Id) : true;
+                return hasParent1 && hasParent2;
+            });
+            if (!unit) {
+                // Create a new family unit
+                unit = {
+                    id: currentFamilyUnitId++,
+                    parents: [],
+                    children: []
+                };
+                if (parent1Id) unit.parents.push(parent1Id);
+                if (parent2Id) unit.parents.push(parent2Id);
+                familyUnits.push(unit);
+            }
+            return unit;
         }
 
+        function getFamilyUnitForChild(childId) {
+            return familyUnits.find(fu => fu.children.includes(childId));
+        }
+
+        function getFamilyUnitForParent(parentId) {
+            return familyUnits.find(fu => fu.parents.includes(parentId));
+        }
+
+        function getFamilyUnitForParents(parentIds) {
+            return familyUnits.find(fu => {
+                // Verifica se todos os pais estão na unidade
+                return parentIds.every(id => fu.parents.includes(id));
+            });
+        }
+
+        // Reset family tree
         function resetFamilyTree() {
             familyTree = [];
-            currentId = 1;
+            familyUnits = [];
+            currentPersonId = 1;
+            currentFamilyUnitId = 1;
             selectedPersonId = null;
             editingPersonId = null;
+            relationshipContext = null;
+            
             familyTreeElement.innerHTML = '';
             connectionsContainer.innerHTML = '';
-            renderFamilyTree();
+            
             Swal.fire({
                 icon: 'success',
                 title: 'Árvore reiniciada!',
@@ -1021,13 +1033,125 @@
             });
         }
 
+        // Save family tree
         function saveFamilyTree() {
             Swal.fire({
-                icon: 'success',
-                title: 'Árvore salva!',
-                text: 'Seu arquivo foi salvo com sucesso.',
-                timer: 1500
+                title: 'Salvando...',
+                text: 'Aguarde enquanto salvamos sua árvore genealógica',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                }
             });
+
+            // Primeiro tenta salvar no servidor (API real)
+            const userId = localStorage.getItem('userId') || 'guest';
+            const token = localStorage.getItem('authToken');
+            
+            fetch('https://api.genealogy.com/save-tree', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token ? `Bearer ${token}` : ''
+                },
+                body: JSON.stringify({
+                    familyTree: familyTree,
+                    familyUnits: familyUnits,
+                    userId: userId
+                })
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Falha na comunicação com o servidor');
+                return response.json();
+            })
+            .then(data => {
+                // Salva também no localStorage como backup
+                localStorage.setItem('familyTreeBackup', JSON.stringify({
+                    familyTree: familyTree,
+                    familyUnits: familyUnits,
+                    timestamp: new Date().toISOString(),
+                    userId: userId
+                }));
+                
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Salvo com sucesso!',
+                    text: 'Sua árvore foi salva no servidor e em backup local',
+                    timer: 2000
+                });
+            })
+            .catch(error => {
+                console.error('Erro ao salvar:', error);
+                
+                // Se falhar no servidor, salva só no localStorage
+                localStorage.setItem('familyTreeBackup', JSON.stringify({
+                    familyTree: familyTree,
+                    familyUnits: familyUnits,
+                    timestamp: new Date().toISOString(),
+                    userId: userId
+                }));
+                
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Salvo localmente',
+                    html: 'Não foi possível salvar no servidor.<br>Seus dados foram armazenados no navegador como backup.',
+                    footer: '<a href="#" id="retry-save">Tentar novamente</a>'
+                });
+                
+                // Permite tentar novamente
+                document.getElementById('retry-save')?.addEventListener('click', () => {
+                    saveFamilyTree();
+                });
+            });
+        }
+
+        // Load saved data
+        function loadSavedData() {
+            // Primeiro tenta carregar do servidor se estiver autenticado
+            const userId = localStorage.getItem('userId');
+            const token = localStorage.getItem('authToken');
+            
+            if (userId && token) {
+                fetch(`https://api.genealogy.com/load-tree/${userId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                })
+                .then(response => {
+                    if (response.ok) return response.json();
+                    throw new Error('Dados não encontrados no servidor');
+                })
+                .then(data => {
+                    familyTree = data.familyTree;
+                    familyUnits = data.familyUnits;
+                    currentPersonId = Math.max(...familyTree.map(p => p.id), 0) + 1;
+                    currentFamilyUnitId = Math.max(...familyUnits.map(u => u.id), 0) + 1;
+                    renderFamilyTree();
+                })
+                .catch(() => {
+                    // Se falhar no servidor, tenta carregar do localStorage
+                    loadFromLocalStorage();
+                });
+            } else {
+                // Para usuários não autenticados, carrega só do localStorage
+                loadFromLocalStorage();
+            }
+        }
+
+        function loadFromLocalStorage() {
+            const backup = localStorage.getItem('familyTreeBackup');
+            if (backup) {
+                try {
+                    const { familyTree: ft, familyUnits: fu } = JSON.parse(backup);
+                    familyTree = ft;
+                    familyUnits = fu;
+                    currentPersonId = Math.max(...familyTree.map(p => p.id), 0) + 1;
+                    currentFamilyUnitId = Math.max(...familyUnits.map(u => u.id), 0) + 1;
+                    renderFamilyTree();
+                } catch (e) {
+                    console.error('Erro ao carregar dados do localStorage:', e);
+                }
+            }
         }
 
         function savePersonData() {
@@ -1036,14 +1160,19 @@
             document.querySelectorAll('input[name="covinhas"]:checked').forEach(cb => {
                 dimples.push(cb.value);
             });
-
+            
             const dimplesValue = dimples.length > 0 ? dimples : null;
-
+            const isAlive = document.getElementById('isAlive').checked;
+            
             if (editingPersonId) {
-                // Edit existing person
+                // Atualizar pessoa existente
                 const personIndex = familyTree.findIndex(p => p.id === editingPersonId);
                 if (personIndex !== -1) {
+                    // Atualizar todos os campos
                     familyTree[personIndex].name = formData.get('nomeCompleto');
+                    familyTree[personIndex].birthYear = formData.get('birthYear') ? parseInt(formData.get('birthYear')) : null;
+                    familyTree[personIndex].deathYear = isAlive ? null : (formData.get('deathYear') ? parseInt(formData.get('deathYear')) : null);
+                    familyTree[personIndex].alive = isAlive;
                     familyTree[personIndex].eyeColor = formData.get('corOlho');
                     familyTree[personIndex].hairColor = formData.get('corCabelo');
                     familyTree[personIndex].bloodType = formData.get('tipoSanguineo');
@@ -1051,29 +1180,27 @@
                     familyTree[personIndex].dimples = dimplesValue;
                     familyTree[personIndex].earType = formData.get('tipoOrelha');
                     familyTree[personIndex].geneticDisease = formData.get('doencaGenealogica') || '';
+                    familyTree[personIndex].gender = formData.get('gender');
+                    familyTree[personIndex].trait = formData.get('trait');
                     
                     renderFamilyTree();
                     personModal.style.display = 'none';
-                    
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Pessoa atualizada!',
-                        text: 'As informações foram atualizadas com sucesso.'
-                    });
+                    relationshipContext = null;
+                    Swal.fire('Atualizado!', 'Informações atualizadas com sucesso.', 'success');
                 }
             } else {
-                // Add new person
+                // Adicionar nova pessoa
                 const person = {
-                    id: currentId++,
+                    id: currentPersonId++,
                     name: formData.get('nomeCompleto'),
-                    birthYear: null,
-                    deathYear: null,
-                    gender: 'male', // Default to male, will be set properly in relationship
-                    trait: 'none',
+                    birthYear: formData.get('birthYear') ? parseInt(formData.get('birthYear')) : null,
+                    deathYear: isAlive ? null : (formData.get('deathYear') ? parseInt(formData.get('deathYear')) : null),
+                    alive: isAlive,
+                    gender: formData.get('gender') || 'male',
+                    trait: formData.get('trait') || 'presence',
                     x: 200 + Math.random() * 600,
                     y: 200 + Math.random() * 400,
-                    children: [],
-                    spouse: null,
+                    // Todos os campos adicionais
                     eyeColor: formData.get('corOlho'),
                     hairColor: formData.get('corCabelo'),
                     bloodType: formData.get('tipoSanguineo'),
@@ -1082,114 +1209,149 @@
                     earType: formData.get('tipoOrelha'),
                     geneticDisease: formData.get('doencaGenealogica') || ''
                 };
-
+                
                 familyTree.push(person);
+                
+                // Se estiver em contexto de relacionamento, criar a relação
+                if (relationshipContext) {
+                    createRelationship(
+                        person.id,
+                        relationshipContext.personId,
+                        relationshipContext.type
+                    );
+                }
+                
                 renderFamilyTree();
                 personModal.style.display = 'none';
+                relationshipContext = null;
                 
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Pessoa adicionada!',
-                    text: 'A pessoa foi adicionada à árvore genealógica.'
-                });
+                Swal.fire('Sucesso!', 'Pessoa adicionada com todos os detalhes.', 'success');
             }
         }
 
-        function addRelationship() {
-            const relatedName = document.getElementById('related-person-name').value;
-            const gender = document.getElementById('related-person-gender').value;
-            const trait = document.getElementById('related-person-trait').value;
-            const relationshipType = document.getElementById('relationship-type').value;
-
-            if (!relatedName) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Erro!',
-                    text: 'Por favor, insira o nome da pessoa relacionada.'
-                });
-                return;
-            }
-
-            if (!selectedPersonId) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Erro!',
-                    text: 'Por favor, selecione uma pessoa primeiro.'
-                });
-                return;
-            }
-
-            const selectedPerson = familyTree.find(p => p.id === selectedPersonId);
-            if (!selectedPerson) {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Erro!',
-                    text: 'Pessoa selecionada não encontrada.'
-                });
-                return;
-            }
-
-            // Create new person
-            const newPerson = {
-                id: currentId++,
-                name: relatedName,
-                birthYear: null,
-                deathYear: null,
-                gender: gender,
-                trait: trait,
-                x: selectedPerson.x,
-                y: selectedPerson.y,
-                children: [],
-                spouse: null,
-                eyeColor: 'castanho',
-                hairColor: 'preto',
-                bloodType: 'A+',
-                nationality: 'Brasil',
-                dimples: null,
-                earType: 'solta',
-                geneticDisease: ''
-            };
-
-            // Adjust position based on relationship
-            if (relationshipType === 'child') {
-                newPerson.y = selectedPerson.y + 120;
-                newPerson.x = selectedPerson.x + (selectedPerson.children.length * 100) - 50;
-                selectedPerson.children.push(newPerson.id);
-            } else if (relationshipType === 'parent') {
-                newPerson.y = selectedPerson.y - 120;
-                newPerson.x = selectedPerson.x + (Math.random() > 0.5 ? 100 : -100);
-                newPerson.children.push(selectedPerson.id);
-            } else if (relationshipType === 'sibling') {
-                // Find parent to position sibling correctly
-                const parent = familyTree.find(p => p.children && p.children.includes(selectedPersonId));
-                if (parent) {
-                    newPerson.y = selectedPerson.y;
-                    newPerson.x = parent.x + (parent.children.length * 80) - 40;
-                } else {
-                    newPerson.y = selectedPerson.y;
-                    newPerson.x = selectedPerson.x + 100;
-                }
-                // Add to same parent's children
-                if (parent) {
-                    parent.children.push(newPerson.id);
-                }
-            } else { // spouse
-                newPerson.y = selectedPerson.y;
-                newPerson.x = selectedPerson.x + (selectedPerson.gender === 'male' ? 150 : -150);
-                newPerson.spouse = selectedPersonId;
-                selectedPerson.spouse = newPerson.id;
-            }
-
-            familyTree.push(newPerson);
-            renderFamilyTree();
-            relationshipModal.style.display = 'none';
-            selectedPersonId = null;
+        function createRelationship(newPersonId, existingPersonId, relationshipType) {
+            const newPerson = familyTree.find(p => p.id === newPersonId);
+            const existingPerson = familyTree.find(p => p.id === existingPersonId);
             
-            Swal.fire({
-                icon: 'success',
-                title: 'Relação adicionada!',
-                text: `A relação de ${getRelationshipName(relationshipType)} foi criada com sucesso.`
-            });
+            if (!newPerson || !existingPerson) return;
+            
+            if (relationshipType === 'spouse') {
+                // Encontrar ou criar unidade familiar
+                let unit = getFamilyUnitForParent(existingPersonId);
+                if (!unit) {
+                    unit = getOrCreateFamilyUnitForParents(existingPersonId);
+                }
+                
+                // Adicionar como cônjuge
+                if (!unit.parents.includes(newPersonId)) {
+                    unit.parents.push(newPersonId);
+                }
+                
+                // Posicionar corretamente
+                newPerson.gender = document.querySelector('input[name="gender"]:checked')?.value || 'male';
+                newPerson.x = existingPerson.x + (newPerson.gender === 'male' ? 100 : -100);
+                newPerson.y = existingPerson.y;
+                newPerson.trait = document.getElementById('trait').value || 'none';
+            } 
+            else if (relationshipType === 'child') {
+                // Encontrar ou criar unidade familiar
+                let unit = getFamilyUnitForParent(existingPersonId);
+                if (!unit) {
+                    unit = getOrCreateFamilyUnitForParents(existingPersonId);
+                }
+                
+                // Adicionar como filho
+                if (!unit.children.includes(newPersonId)) {
+                    unit.children.push(newPersonId);
+                }
+                
+                // Posicionar corretamente
+                newPerson.y = existingPerson.y + 150;
+                
+                // Posicionar horizontalmente baseado nos irmãos existentes
+                const siblingCount = unit.children.length - 1;
+                if (siblingCount > 0) {
+                    // Calcular a posição média dos irmãos existentes
+                    const children = unit.children
+                        .map(id => familyTree.find(p => p.id === id))
+                        .filter(Boolean)
+                        .sort((a, b) => a.x - b.x);
+                    
+                    const firstChild = children[0];
+                    const lastChild = children[children.length - 1];
+                    const totalWidth = lastChild.x - firstChild.x + 40;
+                    const averageSpacing = totalWidth / (children.length - 1);
+                    
+                    // Posicionar o novo irmão de forma equidistante
+                    newPerson.x = firstChild.x + (siblingCount * averageSpacing);
+                } else {
+                    newPerson.x = existingPerson.x;
+                }
+                newPerson.trait = document.getElementById('trait').value || 'none';
+            }
+            else if (relationshipType === 'parent') {
+                // Criar nova unidade familiar
+                let unit = getOrCreateFamilyUnitForParents(newPersonId);
+                if (!unit.children.includes(existingPersonId)) {
+                    unit.children.push(existingPersonId);
+                }
+                
+                // Posicionar corretamente
+                newPerson.y = existingPerson.y - 150;
+                newPerson.x = existingPerson.x;
+                newPerson.trait = document.getElementById('trait').value || 'none';
+            }
+            else if (relationshipType === 'sibling') {
+                // Encontrar unidade familiar
+                let unit = getFamilyUnitForChild(existingPersonId) || getFamilyUnitForParent(existingPersonId);
+                if (!unit) {
+                    unit = getOrCreateFamilyUnitForParents(null);
+                    unit.children.push(existingPersonId);
+                }
+                
+                // Adicionar como irmão
+                if (!unit.children.includes(newPersonId)) {
+                    unit.children.push(newPersonId);
+                }
+                
+                // Posicionar corretamente (solução melhorada para evitar sobreposição)
+                const children = unit.children
+                    .map(id => familyTree.find(p => p.id === id))
+                    .filter(Boolean)
+                    .sort((a, b) => a.x - b.x);
+                
+                if (children.length > 1) {
+                    // Calcular a posição média dos irmãos existentes
+                    const firstChild = children[0];
+                    const lastChild = children[children.length - 1];
+                    const totalWidth = lastChild.x - firstChild.x + 40;
+                    const averageSpacing = totalWidth / (children.length - 1);
+                    
+                    // Encontrar o melhor lugar para inserir
+                    let insertIndex = 0;
+                    for (let i = 0; i < children.length - 1; i++) {
+                        const midPoint = (children[i].x + children[i+1].x) / 2;
+                        if (existingPerson.x < midPoint) {
+                            insertIndex = i + 1;
+                            break;
+                        }
+                    }
+                    
+                    // Recalcular posições para manter espaçamento uniforme
+                    children.forEach((child, index) => {
+                        child.x = firstChild.x + (index * averageSpacing);
+                    });
+                    
+                    // Posicionar o novo irmão
+                    newPerson.x = firstChild.x + (insertIndex * averageSpacing);
+                    newPerson.y = existingPerson.y;
+                } else {
+                    // Primeiro irmão, posicionar à direita do irmão existente
+                    newPerson.x = existingPerson.x + 80;
+                    newPerson.y = existingPerson.y;
+                }
+                newPerson.trait = document.getElementById('trait').value || 'none';
+            }
         }
 
         function getRelationshipName(type) {
@@ -1206,16 +1368,16 @@
             // Clear containers
             familyTreeElement.innerHTML = '';
             connectionsContainer.innerHTML = '';
-
+            
             // Sort people by y position to ensure proper layering
             const sortedPeople = [...familyTree].sort((a, b) => a.y - b.y);
-
+            
             // Create all nodes first
             sortedPeople.forEach(person => {
                 const node = createPersonNode(person);
                 familyTreeElement.appendChild(node);
             });
-
+            
             // Draw all connections
             drawConnections();
         }
@@ -1227,7 +1389,7 @@
             node.style.position = 'absolute';
             node.style.left = `${person.x}px`;
             node.style.top = `${person.y}px`;
-
+            
             // Create the person shape based on gender
             const shape = document.createElement('div');
             shape.className = person.gender === 'male' ? 'male' : 'female';
@@ -1239,10 +1401,18 @@
             } else if (person.trait === 'absence') {
                 shape.classList.add('absence');
             }
-
+            
             // Add click event
             node.addEventListener('click', (e) => {
                 e.stopPropagation();
+                
+                if (selectedTool === 'select-for-relationship') {
+                    openPersonModal(null, selectedRelationshipType, person.id);
+                    selectedTool = 'select';
+                    updateActiveTool();
+                    return;
+                }
+                
                 if (selectedTool === 'select') {
                     // Select the node
                     document.querySelectorAll('.node').forEach(n => n.classList.remove('selected'));
@@ -1264,132 +1434,148 @@
                             deletePerson(person.id);
                         }
                     });
-                } else if (selectedTool === 'relationship') {
-                    openRelationshipModal(person);
                 }
             });
-
+            
             // Add double-click to edit
             node.addEventListener('dblclick', (e) => {
                 e.stopPropagation();
-                if (selectedTool !== 'edit') {
+                if (selectedTool !== 'edit' && selectedTool !== 'select-for-relationship') {
                     openPersonModal(person);
                 }
             });
-
+            
             // Add to node
             node.appendChild(shape);
-
+            
             // Add label
             const label = document.createElement('div');
             label.className = 'label';
             label.textContent = person.name;
             if (person.birthYear) {
-                label.textContent += `\n(${person.birthYear}`;
-                if (person.deathYear) {
+                label.textContent += ` (${person.birthYear}`;
+                if (person.alive) {
+                    label.textContent += `-atual`;
+                } else if (person.deathYear) {
                     label.textContent += `-${person.deathYear}`;
                 }
                 label.textContent += ')';
             }
             node.appendChild(label);
-
+            
             return node;
         }
 
         function drawConnections() {
             // Clear existing connections
             connectionsContainer.innerHTML = '';
-
-            // Draw all connections
-            familyTree.forEach(person => {
-                // Draw marriage lines
-                if (person.spouse) {
-                    const spouse = familyTree.find(p => p.id === person.spouse);
-                    if (spouse) {
-                        const marriageLine = document.createElement('div');
-                        marriageLine.className = 'connection-line marriage-line';
-                        
-                        // Position marriage line between spouses
-                        const midX = (person.x + spouse.x) / 2;
-                        marriageLine.style.left = `${midX - 10}px`;
-                        marriageLine.style.top = `${person.y + 20}px`;
-                        marriageLine.style.width = '20px';
-                        marriageLine.style.height = '2px';
-                        
-                        connectionsContainer.appendChild(marriageLine);
-                    }
+            
+            familyUnits.forEach(unit => {
+                if (unit.parents.length === 0 && unit.children.length === 0) {
+                    return;
                 }
-
-                // Draw parent-child lines
-                if (person.children && person.children.length > 0) {
-                    person.children.forEach(childId => {
-                        const child = familyTree.find(p => p.id === childId);
-                        if (child) {
-                            // Draw vertical line from parent to child
-                            const verticalLine = document.createElement('div');
-                            verticalLine.className = 'connection-line vertical-line';
-                            verticalLine.style.left = `${person.x + 20}px`;
-                            verticalLine.style.top = `${person.y + 40}px`;
-                            verticalLine.style.height = `${child.y - person.y - 40}px`;
-                            verticalLine.style.width = '2px';
-                            
-                            connectionsContainer.appendChild(verticalLine);
-                            
-                            // Draw horizontal line to child
-                            const horizontalLine = document.createElement('div');
-                            horizontalLine.className = 'connection-line horizontal-line';
-                            
-                            // Position based on who is on the left
-                            const leftX = Math.min(person.x + 20, child.x + 20);
-                            const width = Math.abs(child.x - person.x);
-                            
-                            horizontalLine.style.left = `${leftX}px`;
-                            horizontalLine.style.top = `${child.y}px`;
-                            horizontalLine.style.width = `${width}px`;
-                            horizontalLine.style.height = '2px';
-                            
-                            connectionsContainer.appendChild(horizontalLine);
-                        }
-                    });
+                
+                // Obter posições dos pais
+                const parents = unit.parents
+                    .map(id => familyTree.find(p => p.id === id))
+                    .filter(Boolean);
+                
+                // Obter posições dos filhos
+                const children = unit.children
+                    .map(id => familyTree.find(p => p.id === id))
+                    .filter(Boolean);
+                
+                if (parents.length === 0 && children.length === 0) return;
+                
+                // Calcular o centro dos pais
+                let centerX;
+                if (parents.length > 0) {
+                    const leftMostParent = Math.min(...parents.map(p => p.x));
+                    const rightMostParent = Math.max(...parents.map(p => p.x + 40)); // 40px é o tamanho do nó
+                    centerX = (leftMostParent + rightMostParent) / 2;
+                } else if (children.length > 0) {
+                    // Se não tem pais, usar centro dos filhos
+                    const leftMostChild = Math.min(...children.map(c => c.x));
+                    const rightMostChild = Math.max(...children.map(c => c.x + 40));
+                    centerX = (leftMostChild + rightMostChild) / 2;
                 }
-
-                // Draw sibling lines
-                if (person.children && person.children.length > 1) {
-                    // Group siblings together
-                    const siblings = person.children.map(childId => 
-                        familyTree.find(p => p.id === childId)
-                    ).filter(sibling => sibling !== undefined);
+                
+                // Calcular a altura da linha dos pais
+                const parentLineY = parents.length > 0 
+                    ? Math.min(...parents.map(p => p.y)) + 40 
+                    : children[0].y - 80;
+                
+                // Calcular a altura da linha dos filhos
+                const childLineY = children.length > 0 
+                    ? Math.min(...children.map(c => c.y)) - 40 
+                    : parents[0].y + 80;
+                
+                // 1. Desenhar linha de casamento entre pais
+                if (parents.length >= 2) {
+                    const sortedParents = [...parents].sort((a, b) => a.x - b.x);
+                    const marriageLine = document.createElement('div');
+                    marriageLine.className = 'connection-line marriage-line';
+                    marriageLine.style.left = `${sortedParents[0].x + 20}px`;
+                    marriageLine.style.top = `${parentLineY - 20}px`;
+                    marriageLine.style.width = `${sortedParents[1].x - sortedParents[0].x - 20}px`;
+                    connectionsContainer.appendChild(marriageLine);
+                }
+                
+                // 2. Desenhar linha vertical principal
+                if (parents.length > 0 && children.length > 0) {
+                    const mainVerticalLine = document.createElement('div');
+                    mainVerticalLine.className = 'connection-line vertical-line';
+                    mainVerticalLine.style.left = `${centerX - 1}px`;
+                    mainVerticalLine.style.top = `${parentLineY}px`;
+                    mainVerticalLine.style.height = `${childLineY - parentLineY}px`;
+                    connectionsContainer.appendChild(mainVerticalLine);
+                }
+                
+                // 3. Desenhar linha horizontal dos filhos
+                if (children.length > 1) {
+                    const sortedChildren = [...children].sort((a, b) => a.x - b.x);
+                    const siblingLine = document.createElement('div');
+                    siblingLine.className = 'connection-line sibling-line';
+                    siblingLine.style.left = `${sortedChildren[0].x + 20}px`;
+                    siblingLine.style.top = `${childLineY}px`;
+                    siblingLine.style.width = `${sortedChildren[sortedChildren.length - 1].x - sortedChildren[0].x}px`;
+                    connectionsContainer.appendChild(siblingLine);
                     
-                    if (siblings.length > 1) {
-                        // Sort siblings by x position
-                        siblings.sort((a, b) => a.x - b.x);
-                        
-                        // Draw line connecting all siblings
-                        const firstSibling = siblings[0];
-                        const lastSibling = siblings[siblings.length - 1];
-                        
-                        const siblingLine = document.createElement('div');
-                        siblingLine.className = 'connection-line sibling-line';
-                        siblingLine.style.left = `${firstSibling.x + 20}px`;
-                        siblingLine.style.top = `${firstSibling.y - 10}px`;
-                        siblingLine.style.width = `${lastSibling.x - firstSibling.x}px`;
-                        siblingLine.style.height = '2px';
-                        
-                        connectionsContainer.appendChild(siblingLine);
-                        
-                        // Draw vertical connectors from parent line to sibling line
-                        siblings.forEach(sibling => {
-                            const connector = document.createElement('div');
-                            connector.className = 'connection-line vertical-line';
-                            connector.style.left = `${sibling.x + 20}px`;
-                            connector.style.top = `${firstSibling.y - 10}px`;
-                            connector.style.height = '10px';
-                            connector.style.width = '2px';
-                            
-                            connectionsContainer.appendChild(connector);
-                        });
-                    }
+                    // Conectar cada filho à linha dos irmãos
+                    children.forEach(child => {
+                        const childConnector = document.createElement('div');
+                        childConnector.className = 'connection-line vertical-line';
+                        childConnector.style.left = `${child.x + 20 - 1}px`;
+                        childConnector.style.top = `${childLineY}px`;
+                        childConnector.style.height = `${child.y - childLineY}px`;
+                        connectionsContainer.appendChild(childConnector);
+                    });
+                } else if (children.length === 1) {
+                    // Conexão direta para único filho
+                    const childConnector = document.createElement('div');
+                    childConnector.className = 'connection-line vertical-line';
+                    childConnector.style.left = `${centerX - 1}px`;
+                    childConnector.style.top = `${parentLineY}px`;
+                    childConnector.style.height = `${children[0].y - parentLineY}px`;
+                    connectionsContainer.appendChild(childConnector);
+                    
+                    const childHorizontalConnector = document.createElement('div');
+                    childHorizontalConnector.className = 'connection-line horizontal-line';
+                    childHorizontalConnector.style.top = `${children[0].y - 1}px`;
+                    childHorizontalConnector.style.left = `${Math.min(centerX, children[0].x + 20)}px`;
+                    childHorizontalConnector.style.width = `${Math.abs(centerX - (children[0].x + 20))}px`;
+                    connectionsContainer.appendChild(childHorizontalConnector);
                 }
+                
+                // 4. Conectar pais à linha vertical
+                parents.forEach(parent => {
+                    const parentConnector = document.createElement('div');
+                    parentConnector.className = 'connection-line horizontal-line';
+                    parentConnector.style.top = `${parent.y + 40 - 1}px`;
+                    parentConnector.style.left = `${Math.min(centerX, parent.x + 20)}px`;
+                    parentConnector.style.width = `${Math.abs(centerX - (parent.x + 20))}px`;
+                    connectionsContainer.appendChild(parentConnector);
+                });
             });
         }
 
@@ -1397,18 +1583,16 @@
             // Find the person
             const personIndex = familyTree.findIndex(p => p.id === id);
             if (personIndex === -1) return;
-
             const person = familyTree[personIndex];
             
-            // Remove from children arrays of other people
-            familyTree.forEach(p => {
-                if (p.children && p.children.includes(id)) {
-                    p.children = p.children.filter(c => c !== id);
-                }
-                if (p.spouse === id) {
-                    p.spouse = null;
-                }
+            // Remove person from all family units
+            familyUnits.forEach(unit => {
+                unit.parents = unit.parents.filter(pid => pid !== id);
+                unit.children = unit.children.filter(cid => cid !== id);
             });
+            
+            // Clean up empty family units
+            familyUnits = familyUnits.filter(unit => unit.parents.length > 0 || unit.children.length > 0);
             
             // Remove the person
             familyTree.splice(personIndex, 1);
@@ -1424,9 +1608,49 @@
         }
 
         // Initialize the app
-        initializeFamilyTree();
-        updateZoom();
+        document.addEventListener('DOMContentLoaded', () => {
+            // Carregar dados salvos
+            loadSavedData();
+            
+            // Atualizar zoom inicial
+            updateZoom();
+            
+            // Adicionar evento para criar primeira pessoa
+            document.getElementById('add-person-tool').addEventListener('click', () => {
+                if (familyTree.length === 0) {
+                    Swal.fire({
+                        title: 'Primeira Pessoa',
+                        text: 'Vamos começar com a primeira pessoa da árvore!',
+                        icon: 'info',
+                        confirmButtonText: 'Cadastrar'
+                    }).then(() => {
+                        openPersonModal();
+                    });
+                }
+            });
+            
+            document.getElementById('relationship-tool').addEventListener('click', () => {
+                if (familyTree.length === 0) {
+                    Swal.fire({
+                        title: 'Primeira Pessoa',
+                        text: 'Vamos começar com a primeira pessoa da árvore!',
+                        icon: 'info',
+                        confirmButtonText: 'Cadastrar'
+                    }).then(() => {
+                        openPersonModal();
+                    });
+                }
+            });
+            
+            // Atualiza o campo de ano de falecimento quando o checkbox de vivo é alterado
+            document.getElementById('isAlive').addEventListener('change', function() {
+                const deathYearInput = document.getElementById('deathYear');
+                deathYearInput.disabled = this.checked;
+                if (this.checked) {
+                    deathYearInput.value = '';
+                }
+            });
+        });
     </script>
 </body>
 </html>
-  
