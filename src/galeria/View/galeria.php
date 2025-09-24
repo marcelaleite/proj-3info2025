@@ -15,13 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === 0) {
         $ext = pathinfo($_FILES['imagem']['name'], PATHINFO_EXTENSION);
-        $novoNome = uniqid('img_') . "." . $ext; // nome único
+        $novoNome = uniqid('img_') . "." . $ext;
 
-        // Pasta IMG dentro da galeria
         $dir = __DIR__ . "/IMG/";
-        if (!is_dir($dir)) {
-            mkdir($dir, 0755, true); // cria a pasta se não existir
-        }
+        if (!is_dir($dir)) mkdir($dir, 0755, true);
 
         $destino = $dir . $novoNome;
 
@@ -69,104 +66,147 @@ body { background: linear-gradient(to bottom right, #89a7b1, #05a862); min-heigh
 .card .prof { max-width:250px; border-radius:15px; transition:0.5s; }
 
 .card:hover .prof,
-.card:hover button { transform: translate3d(0,0,50px); }
+.card:hover .sobre-text { transform: translate3d(0,0,50px); }
 
-.card button {
-  padding:10px 40px; border:2px solid #fff; border-radius:20px; color:#fff; background:transparent;
-  font-size:18px; cursor:pointer; transition:0.5s; position:relative;
+.sobre-text {
+  padding:10px 40px; border:2px solid #fff; border-radius:20px; color:#fff;
+  background:transparent; font-size:18px; font-weight:600;
+  transition:0.5s; position:relative;
+  text-decoration:none;
 }
-.card button:hover { color:#000; }
-.card button::before {
+.sobre-text:hover { color:#000; }
+.sobre-text::before {
   content:''; position:absolute; top:0; left:0; width:100%; height:100%;
   background-color:#fff; border-radius:20px; z-index:-1; transform-origin:left; transform:scaleX(0);
   transition: transform 0.5s cubic-bezier(0.5,1.6,0.4,0.7); box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
-.card button:hover::before { transform: scaleX(1); }
+.sobre-text:hover::before { transform: scaleX(1); }
 
 .preview-box { margin:15px 0; text-align:center; }
 .preview-box img { max-width:200px; max-height:200px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.2); display:none; }
 
 @media (max-width:900px) { .card { width:250px; height:380px; } }
 @media (max-width:600px) { .container2 { flex-direction:column; align-items:center; } .card { width:90%; max-width:350px; margin:10px 0; } }
+
+/* BOTÃO FLUTUANTE */
+#openFormBtn {
+  position: fixed; top: 20px; left: 20px;
+  background: rgba(255,255,255,0.2);
+  color: #fff; border: none;
+  padding: 12px 14px; border-radius: 50%;
+  cursor: pointer; font-size: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1100; transition: 0.3s;
+}
+#openFormBtn:hover { background: #fff; color:#05a862; }
+
+/* MODAL */
+.modal { display: none; position: fixed; z-index: 1200; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); justify-content:center; align-items:center; }
+.modal-content { background: rgba(255,255,255,0.1); padding:30px; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,0.3); width:100%; max-width:500px; color:#fff; }
+.modal-content h2 { margin-bottom:20px; font-size:26px; font-weight:700; text-align:center; }
+.modal-content label { display:block; text-align:left; font-weight:600; margin-bottom:5px; }
+.modal-content input { width:100%; padding:12px 15px; border:none; border-radius:10px; outline:none; font-size:16px; margin-bottom:15px; }
+.modal-content button { display:block; margin: 0 auto; padding:12px 40px; border:none; border-radius:25px; background:#fff; color:#05a862; font-weight:700; font-size:18px; cursor:pointer; transition:0.3s; }
+.modal-content button:hover { background:#00f7ff; color:#000; }
+.close { position:absolute; top:15px; right:20px; font-size:28px; color:#fff; cursor:pointer; }
 </style>
 </head>
 <body>
 
+<!-- BOTÃO -->
+<button id="openFormBtn"><i class="fas fa-plus"></i></button>
+
+<!-- MODAL -->
+<div id="formModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Cadastrar Nova Característica</h2>
+    <form method="POST" enctype="multipart/form-data">
+      <label>Nome da característica</label>
+      <input type="text" name="nome" placeholder="Ex: Covinhas" required>
+      
+      <label>Imagem (upload)</label>
+      <input type="file" id="imagem" name="imagem" accept="image/*" required>
+      <div class="preview-box"><img id="preview-img" src="" alt="Preview"></div>
+      
+      <label>Link do site</label>
+      <input type="text" name="link" placeholder="Ex: https://site.com" required>
+      
+      <button type="submit">Salvar</button>
+    </form>
+  </div>
+</div>
+
 <!-- GALERIA FIXA -->
 <div class="container2">
-    <div class="card" style="background: linear-gradient(45deg,#04ad04,#00f7ff);">
-        <h2>COVINHAS</h2>
-        <img src="public/img/COVINHA.PNG" class="prof">
-        <button><a href="#">SOBRE</a></button>
-    </div>
-    <div class="card" style="background: linear-gradient(45deg,#04ad04,#8cdf8c);">
-        <h2>SARDAS</h2>
-        <img src="public/img/SARDAS.PNG" class="prof">
-        <button><a href="#">SOBRE</a></button>
-    </div>
-    <div class="card" style="background: linear-gradient(45deg,#00f7ff,#05a862);">
-        <h2>LÓBULOS DA ORELHA</h2>
-        <img src="public/img/LOBULO.webp" class="prof">
-        <button><a href="#">SOBRE</a></button>
-    </div>
+  <div class="card" style="background: linear-gradient(45deg,#04ad04,#00f7ff);">
+    <h2>COVINHAS</h2>
+    <img src="../../../public/img/covinha.png" class="prof">
+    <div class="sobre-text">SOBRE</div>
+  </div>
+  <div class="card" style="background: linear-gradient(45deg,#04ad04,#8cdf8c);">
+    <h2>SARDAS</h2>
+    <img src="../../../public/img/sardas.png" class="prof">
+    <div class="sobre-text">SOBRE</div>
+  </div>
+  <div class="card" style="background: linear-gradient(45deg,#00f7ff,#05a862);">
+    <h2>LÓBULOS DA ORELHA</h2>
+    <img src="public/img/LOBULO.webp" class="prof">
+    <div class="sobre-text">SOBRE</div>
+  </div>
 </div>
 
 <!-- CARDS DO BANCO -->
 <div class="container2">
-    <?php
-    $gradientes = [
-        "linear-gradient(45deg,#ff416c,#ff4b2b)",
-        "linear-gradient(45deg,#1a2a6c,#b21f1f,#fdbb2d)",
-        "linear-gradient(45deg,#00c6ff,#0072ff)",
-        "linear-gradient(45deg,#f7971e,#ffd200)",
-        "linear-gradient(45deg,#00f7ff,#05a862)",
-    ];
+<?php
+$gradientes = [
+  "linear-gradient(45deg,#04ad04,#00f7ff)",
+  "linear-gradient(45deg,#04ad04,#8cdf8c)",
+  "linear-gradient(45deg,#00f7ff,#05a862)",
+  "linear-gradient(45deg,#ff416c,#ff4b2b)",
+  "linear-gradient(45deg,#1a2a6c,#b21f1f,#fdbb2d)",
+  "linear-gradient(45deg,#00c6ff,#0072ff)",
+  "linear-gradient(45deg,#f7971e,#ffd200)"
+];
 
-    foreach($cards as $i => $card):
-        $bg = $gradientes[$i % count($gradientes)];
-        echo "<div class='card' style='background: $bg; box-shadow:0 15px 35px rgba(0,0,0,0.4);'>";
-        $cardView = new CardView($card['nome'], '', $card['imagem'], $card['link']);
-        echo $cardView->render(""); // fundo inline já definido
-        echo "</div>";
-    endforeach;
-    ?>
-</div>
-
-<!-- FORMULÁRIO COM UPLOAD -->
-<div style="width:100%; max-width:600px; margin:50px auto; text-align:center;">
-    <h2>Adicionar novo card</h2>
-    <form method="POST" enctype="multipart/form-data">
-        <input type="text" name="nome" placeholder="Nome" required><br>
-        <input type="file" id="imagem" name="imagem" accept="image/*" required><br>
-        <div class="preview-box">
-            <img id="preview-img" src="" alt="Preview">
-        </div>
-        <input type="text" name="link" placeholder="Ex: https://site.com" required><br>
-        <button type="submit">Salvar</button>
-    </form>
+foreach($cards as $i => $card):
+  $bg = $gradientes[$i % count($gradientes)];
+?>
+  <div class="card" style="background: <?= $bg ?>;">
+    <h2><?= htmlspecialchars($card['nome']) ?></h2>
+    <img src="<?= htmlspecialchars($card['imagem']) ?>" class="prof">
+    <a href="<?= htmlspecialchars($card['link']) ?>" class="sobre-text" target="_blank">SOBRE</a>
+  </div>
+<?php endforeach; ?>
 </div>
 
 <script>
+const modal = document.getElementById("formModal");
+const openBtn = document.getElementById("openFormBtn");
+const closeBtn = document.querySelector(".close");
+
+openBtn.onclick = () => modal.style.display = "flex";
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
+
 document.getElementById("imagem").addEventListener("change", function(e){
-    const file = e.target.files[0];
-    if(file){
-        const reader = new FileReader();
-        reader.onload = function(event){
-            const img = document.getElementById("preview-img");
-            img.src = event.target.result;
-            img.style.display="block";
-        }
-        reader.readAsDataURL(file);
+  const file = e.target.files[0];
+  if(file){
+    const reader = new FileReader();
+    reader.onload = function(event){
+      const img = document.getElementById("preview-img");
+      img.src = event.target.result;
+      img.style.display="block";
     }
+    reader.readAsDataURL(file);
+  }
 });
 
 VanillaTilt.init(document.querySelectorAll(".card"), {
-  max: 25,
-  speed: 400,
-  glare: true,
-  "max-glare":0.5
+  max: 25, speed: 400, glare: true, "max-glare":0.5
 });
 </script>
 
 </body>
 </html>
+<?php
+// Fechar conexão se aberta
