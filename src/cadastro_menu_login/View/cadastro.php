@@ -11,6 +11,10 @@
 </head>
 <body id="page-cadastro">
 
+  <?php 
+    include __DIR__ . '/navbar.php'; 
+  ?>
+
   <div class="background-video" aria-hidden="true">
     <video autoplay loop muted playsinline>
       <source src="../../../public/img/fundo_da_tela.mp4" type="video/mp4" />
