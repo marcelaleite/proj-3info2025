@@ -1,14 +1,15 @@
 <?php
 include_once '../../../config/config.inc.php';
+include_once 'Resultado.class.php';
+
+$pdo = new PDO("mysql:host=$db_host;dbname=$db_name;charset=utf8", $db_user, $db_pass);
 
 $respostas = $_POST;
 
 $soma = 0;
-
 foreach ($respostas as $valor) {
     $soma += (int)$valor;
 }
-
 $totalQuestoes = count($respostas);
 $soma = $soma / 2;
 
@@ -17,8 +18,11 @@ if ($soma > 6) {
 }else{
   $daltonismo = "sim";
 }
-//
+
+$resultado = new Resultado($pdo);
+$resultado->create($soma, $daltonismo);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
