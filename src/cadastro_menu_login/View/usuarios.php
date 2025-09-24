@@ -111,6 +111,11 @@ $result = $conn->query($sql);
     </style>
 </head>
 <body>
+
+    <?php 
+        include __DIR__ . '/navbar.php'; 
+    ?>
+
     <div class="background-video" aria-hidden="true">
         <video autoplay loop muted playsinline>
         <source src="../../../public/img/fundo_da_tela.mp4" type="video/mp4" />
@@ -155,7 +160,7 @@ $result = $conn->query($sql);
         <?php else: ?>
             <p class="no-data">Nenhum usuário encontrado.</p>
         <?php endif; ?>
-        <a href="menu.html" class="back-btn">⬅ Voltar</a>
+        <a href="menu.php" class="back-btn">⬅ Voltar</a>
     </div>
 </body>
 </html>
