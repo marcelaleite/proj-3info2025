@@ -1,26 +1,27 @@
 <?php
-include "../../../config/config.inc.php";
+require_once(dirname(__FILE__) . '/../../config/config.inc.php');
 
-class Database{
-    private static function abrirConexao(){
-        try{
-            return new PDO(DSN, USUARIO, SENHA);
-        }catch(PDOException $e){
-            echo "Erro ao conectar com o banco de dados: ".$e->getMessage();
+class Database {
+    private static $conexao = null;
+
+    public static function getConexao() {
+        if (self::$conexao === null) {
+            try {
+                self::$conexao = new PDO(DSN, USUARIO, SENHA);
+                self::$conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                echo "Erro ao conectar com o banco de dados: " . $e->getMessage();
+                die();
+            }
         }
+        return self::$conexao;
     }
-    private static function preparar($sql){
-        $conexao = self::abrirConexao();
-        return $conexao->prepare($sql);
-    }
-    private static function vincularParametros($comando,$parametros){
-        foreach($parametros as $chave=>$valor)
-            $comando->bindValue($chave,$valor);
-        return $comando;
-    }
-    public static function executar($sql, $parametros){
-        $comando = self::preparar($sql);
-        $comando = self::vincularParametros($comando,$parametros);
+
+    public static function executar($sql, $parametros) {
+        $comando = self::getConexao()->prepare($sql);
+        foreach ($parametros as $chave => $valor) {
+            $comando->bindValue($chave, $valor);
+        }
         $comando->execute();
         return $comando;
     }

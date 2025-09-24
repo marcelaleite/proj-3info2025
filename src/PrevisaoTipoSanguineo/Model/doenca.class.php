@@ -22,7 +22,7 @@ include_once  __DIR__.'../../DAO/Database.php';class Doenca {
     }
 
     public function setNome($nome) {
-        $this->nome = $nome;
+        $this->nome = $nome;//ooo
     }
 
 

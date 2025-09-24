@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Titillium Web", sans-serif;
+}
+/* EDITAR AS CORES PARA FICAR PADRÃO COM O SITE */
+body {
+    background: linear-gradient(to bottom right, #89a7b1, #05a862);
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+    background-size: cover; 
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+/* CONTAINER DAS GALERIAS */
+.container2 {
+    width: 100%;
+    max-width: 1200px;
+    margin: 80px auto; /* espaço entre galerias */
+    display: flex;
+    flex-wrap: wrap; /* permite quebrar no mobile */
+    justify-content: center;
+    gap: 40px; /* espaçamento entre os cards */
+    transform-style: preserve-3d;
+}
+
+/* CARDS */
+.container2 .card {
+    width: 300px;
+    height: 450px;
+    background: aqua;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    transform-style: preserve-3d;
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+}
+
+.container2 .card h2 {
+    color: #fff;
+    text-align: center;
+}
+
+.container2 .card .prof {
+    max-width: 250px;
+    transition: .5s;
+}
+
+/* EFEITO AO PASSAR O MOUSE */
+.container2 .card:hover .prof,
+.container2 .card:hover button {
+    transform: translate3d(0, 0, 100px);
+}
+
+/* BOTÕES */
+.container2 .card button {
+    padding: 10px 40px;
+    border: 2px solid #2bff6a;
+    border-radius: 20px;
+    color: #2bff6a;
+    background: transparent;
+    font-size: 18px;
+    cursor: pointer;
+    transition: .5s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.container2 .card button:hover {
+    color: #fff;
+}
+
+.container2 .card button::before {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;   
+    background-color: #2bff6a;
+    border-radius: 20px;
+    z-index: -1;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform .5s cubic-bezier(0.5, 1.6, 0.4, 0.7);
+    box-shadow: 5px 5px 15px rgba(6, 239, 134, 0.9);
+}
+
+.container2 .card button:hover::before {
+    transform: scaleX(1);
+}
+
+/* DIFERENTES CORES DE CARD */
+.container2 .card1 {
+    background-image: linear-gradient(45deg, #04ad04, #00f7ff);
+}
+
+.container2 .card2 {
+    background-image: linear-gradient(45deg, #04ad04, #8cdf8c);
+}
+
+/* TEXTO GRADIENTE */
+#profissio {
+    background: linear-gradient(45deg, #02f75c, #00f7ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 900px) {
+    .container2 {
+        gap: 20px;
+    }
+    .container2 .card {
+        width: 250px;
+        height: 380px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container2 {
+        flex-direction: column;
+        align-items: center;
+    }
+    .container2 .card {
+        width: 90%;
+        max-width: 350px;
+        margin: 10px 0;
+    }
+}
