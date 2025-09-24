@@ -27,7 +27,7 @@
         </div>
 
         <!-- Formulário -->
-        <form method="POST" action="cadastro.php">
+        <form method="POST" action="menu.html">
           <div class="row">
             <label>Nome completo</label>
             <input type="text" name="nome" placeholder="Seu nome completo" required />

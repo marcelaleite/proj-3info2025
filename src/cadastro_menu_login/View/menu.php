@@ -68,6 +68,7 @@
           <div class="mc-meta"><span class="badge dev">Em dev</span></div>
         </a>
 
+<<<<<<< HEAD:src/cadastro_menu_login/View/menu.php
         <!-- Doenças -->
         <a class="module-card" href="../../doencas/View/doenca.html" aria-label="Probabilidade de doenças">
           <div class="mc-title">Cálculo para probabilidade de doenças</div>
@@ -80,6 +81,14 @@
           <div class="mc-title">Calculadora de Tipo Sanguíneo</div>
           <div class="mc-desc">Calcule o tipo sanguíneo do seu filho.</div>
           <div class="mc-meta"><span class="badge dev">Em dev</span></div>
+=======
+        <a class="module-card" href="../../doencas/View/doenca.html" aria-label="Cálculo cor dos olhos">
+          <div class="mc-title">Cálculo para probabilidade de doenças</div>
+          <div class="mc-desc">Espaço para implementar o cálculo probabilístico dos fenótipos.</div>
+          <div class="mc-meta">
+            <span class="badge dev">Em dev</span>
+          </div>
+>>>>>>> bbcc962d89e91295b4d6f1c65f7584ca862e12b3:src/cadastro_menu_login/View/menu.html
         </a>
 
         <!-- Calculadora de Tipo Sanguíneo (versão HTML) -->
@@ -103,7 +112,11 @@
           <div class="mc-meta"><span class="badge ready">Template</span></div>
         </a>
 
+<<<<<<< HEAD:src/cadastro_menu_login/View/menu.php
         <!-- Galeria -->
+=======
+        <!-- Create new module CTA -->
+>>>>>>> bbcc962d89e91295b4d6f1c65f7584ca862e12b3:src/cadastro_menu_login/View/menu.html
         <a class="module-card module-create" href="novo-modulo.html" aria-label="Criar novo módulo">
           <div style="font-size:22px;">Galeria</div>
           <div>Registro de características hereditárias.</div>
