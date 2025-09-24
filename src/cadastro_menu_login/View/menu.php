@@ -11,8 +11,9 @@
 </head>
 <body id="page-menu">
 
-  <!-- Navbar (incluída por PHP) -->
-  <?php include __DIR__ . '/navbar.php'; ?>
+  <?php 
+    include __DIR__ . '/navbar.php'; 
+  ?>
 
   <!-- Vídeo de fundo -->
   <div class="background-video" aria-hidden="true">

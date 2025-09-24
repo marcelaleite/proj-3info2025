@@ -11,17 +11,8 @@
 </head>
 <body id="page-home">
 
-  <!--  
-  <header class="topbar" id="topbar" role="navigation" aria-label="Navegação principal">
-    <nav class="nav-inner" id="navInner">
-      <a href="sobre.html" class="nav-link">Sobre</a>
-      <a href="objetivo.html" class="nav-link">Objetivo</a>
-      <a href="contato.html" class="nav-link">Contato</a>
-    </nav>
-  </header> -->
-
   <?php
-  include 'navbar.php';
+    include 'navbar.php';
   ?>
 
   <!-- vídeo de fundo -->

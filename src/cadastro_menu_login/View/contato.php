@@ -11,15 +11,10 @@
 </head>
 <body id="page-home">
 
-  <!-- Top navigation bar -->
-  <header class="topbar" id="topbar" role="navigation" aria-label="Navegação principal">
-    <nav class="nav-inner" id="navInner">
-      <a href="sobre.html" class="nav-link">Sobre</a>
-      <a href="objetivo.html" class="nav-link">Objetivo</a>
-      <a href="homescreen.html" class="nav-link">Home</a>
-    </nav>
-  </header>
-fet
+  <?php 
+    include __DIR__ . '/navbar.php'; 
+  ?>
+
   <!-- vídeo de fundo -->
   <div class="background-video" aria-hidden="true">
     <video autoplay loop muted playsinline>
