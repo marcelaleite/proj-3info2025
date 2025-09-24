@@ -1,10 +1,7 @@
 <?php
-
 class TipoSanguineo {
+    private $conexao;
 
-<<<<<<< HEAD
-    public function calcularTipoSanguineo($pai_tipo, $mae_tipo) {
-=======
     public function __construct($db) {
         $this->conexao = $db;
     }
@@ -52,7 +49,6 @@ class TipoSanguineo {
         $mae_rh = $mae_info['fator'];
 
         // 4. A lógica de cálculo permanece a mesma
->>>>>>> origin/PrevisãoTipoSanguíneo
         $regras = [
             'A' => ['A' => ['A', 'O'], 'B' => ['A', 'B', 'AB', 'O'], 'AB' => ['A', 'B', 'AB'], 'O' => ['A', 'O']],
             'B' => ['A' => ['A', 'B', 'AB', 'O'], 'B' => ['B', 'O'], 'AB' => ['A', 'B', 'AB'], 'O' => ['B', 'O']],
@@ -60,19 +56,25 @@ class TipoSanguineo {
             'O' => ['A' => ['A', 'O'], 'B' => ['B', 'O'], 'AB' => ['A', 'B'], 'O' => ['O']]
         ];
 
-        return $regras[$pai_tipo][$mae_tipo];
-    }
+        $filho_tipos = $regras[$pai_tipo][$mae_tipo];
 
-    public function calcularFatorRh($pai_rh, $mae_rh) {
+        // Regras do fator Rh
         if ($pai_rh === '+' && $mae_rh === '+') {
-            return ['+', '-'];
+            $filho_rh = ['+', '-'];
         } elseif ($pai_rh === '+' && $mae_rh === '-') {
-            return ['+', '-'];
+            $filho_rh = ['+', '-'];
         } elseif ($pai_rh === '-' && $mae_rh === '+') {
-            return ['+', '-'];
+            $filho_rh = ['+', '-'];
         } else {
-            return ['-'];
+            $filho_rh = ['-'];
         }
+
+        return [
+            "pai" => "{$pai_tipo}{$pai_rh}",
+            "mae" => "{$mae_tipo}{$mae_rh}",
+            "filho_tipos" => $filho_tipos,
+            "filho_rh" => $filho_rh
+        ];
     }
 
     public function getUsuarios() {

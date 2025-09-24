@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   
+<style>
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.action-buttons button {
+  background: #2d3a4a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 1.05em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(45,58,74,0.08);
+  margin: 2px 0;
+  letter-spacing: 0.2px;
+}
+
+.action-buttons button:hover,
+.action-buttons button:focus {
+  background: #4e5d6c;
+  outline: 2px solid #2d3a4a;
+  outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+  .action-buttons {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .action-buttons button {
+    width: 100%;
+    font-size: 1em;
+    padding: 10px 0;
+  }
+}
+
+#myTable {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: rgba(255,255,255,0.92);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+  margin-bottom: 24px;
+  font-family: 'Poppins', Arial, sans-serif;
+}
+
+#myTable th, #myTable td {
+  padding: 14px 18px;
+  text-align: left;
+}
+
+#myTable th {
+  background: #2d3a4a;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #4e5d6c;
+}
+
+#myTable tr {
+  transition: background 0.2s;
+}
+
+#myTable tbody tr:nth-child(even) {
+  background: #f4f7fa;
+}
+
+#myTable tbody tr:hover {
+  background: #e0e7ef;
+}
+
+.select-container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.select-container select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #bfc9d1;
+  background: #fff;
+  font-size: 1em;
+  transition: border 0.2s;
+}
+
+.select-container select:focus {
+  border-color: #2d3a4a;
+  outline: none;
+}
+
+.select-container button,
+#myTable button {
+  background: #2d3a4a;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.98em;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  margin: 2px 0;
+}
+
+.select-container button:hover,
+#myTable button:hover {
+  background: #4e5d6c;
+  box-shadow: 0 2px 8px rgba(45,58,74,0.10);
+}
+
+@media (max-width: 700px) {
+  #myTable th, #myTable td {
+    padding: 10px 6px;
+    font-size: 0.98em;
+  }
+  .select-container {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Marcela — Module Template</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../public/css/styles.css" />
+</head>
+<body id="page-module-template">
+  <header class="topbar" role="navigation" aria-label="Navegação principal">
+    <nav class="nav-inner">
+      <a href="homescreen.html" class="nav-link">Home</a>
+      <a href="../../cadastro_menu_login/View/menu.html" class="nav-link">Menu</a>
+    </nav>
+  </header>
+
+  <div class="background-video" aria-hidden="true">
+    <video autoplay loop muted playsinline>
+      <source src="218955.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <div class="overlay" aria-hidden="true"></div>
+
+  <main style="padding:80px 20px; min-height:100vh;">
+    <div style="max-width:1100px; margin:0 auto; background: rgba(10,10,10,0.55); padding:24px; border-radius:12px;">
+      <h1>Nome do módulo</h1>
+      <p>Neste módulo poderás descobrir se podes ser daltônico com testes, e calcular a hereditariedade</p>
+
+      <section class="module-content" aria-label="Conteúdo do módulo"> <br>
+        <!-- Aqui a equipe deve colocar o HTML/CSS/JS do módulo -->
+        <p><em>O daltonismo é uma alteração genética da visão que dificulta ou impede a percepção correta das cores. Ele acontece por causa de mutações nos genes localizados no cromossomo X, que afetam os cones da retina responsáveis por identificar as cores.
+
+          Como o gene está no cromossomo X, os homens (XY) têm mais chance de ser daltônicos, pois basta um único gene alterado. Já as mulheres (XX) só apresentam daltonismo se os dois cromossomos X tiverem a alteração, o que é bem mais raro.
+          
+          Os principais tipos são:
+          
+          Deuteranopia/Deuteranomalia → dificuldade em perceber tons de verde.
+          
+          Protanopia/Protanomalia → dificuldade em perceber tons de vermelho.
+          
+          Tritanopia → dificuldade em perceber tons de azul (mais raro).
+          
+          O daltonismo não tem cura, mas existem óculos especiais que ajudam a diferenciar algumas cores.</em></p>
+      </section>
+    </div>
+    <p>Você pode fazer um teste simples de daltonismo aqui:</p>
+    <p style="margin-top:18px;"><a href="teste.php" class="btn ghost">Fazer teste</a></p>
+
+    <script src="app.js"></script>
+  <h2>Dynamic Table with Multiple Selects</h2>
+
+  <table id="myTable">
+      <thead>
+          <tr>
+              <th>Família 1</th>
+              <th>Ações</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>
+                  <div class="select-container">
+                      <select>
+                          <option value="1">Mulher normal</option>
+                          <option value="2">Mulher portadora</option>
+                          <option value="3">Mulher daltônica</option>
+                          <option value="4">Homem normal</option>
+                          <option value="5">Homem daltônico</option>
+                      </select>
+                      <button onclick="addSelect(this)">Adicionar Membro</button>
+                      <button onclick="removeSelect(this)">Remover Membro</button>
+                  </div>
+              </td>
+              <td><button onclick="removeRow(this)">Remover</button></td>
+          </tr>
+      </tbody>
+  </table>
+  
+  <table id="myTable">
+  <div class="action-buttons">
+  <button onclick="addRow()">Adicionar geração</button>
+  <button onclick="addColumn()">Adicionar Família</button>
+  <button onclick="removeColumn()">Remover Família</button>
+</div>
+  <script>
+  function addRow() {
+      const table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
+      const headerCells = document.getElementById("myTable").getElementsByTagName('thead')[0].rows[0].cells.length;
+      const newRow = table.insertRow();
+      for (let i = 0; i < headerCells; i++) {
+          if (i === headerCells - 1) {
+              newRow.insertCell(i).innerHTML = `<button onclick="removeRow(this)">Remover</button>`;
+          } else {
+              newRow.insertCell(i).innerHTML = `
+                  <div class="select-container">
+                      <button onclick="addSelect(this)">Adicionar Membro</button>
+                      <button onclick="removeSelect(this)">Remover Membro</button>
+                  </div>
+              `;
+          }
+      }
+  }
+  function addSelect(button) {
+      const container = button.parentNode;
+      const newSelect = document.createElement("select");
+      newSelect.innerHTML = `
+          <option value="1">Mulher normal</option>
+          <option value="2">Mulher portadora</option>
+          <option value="3">Mulher daltônica</option>
+          <option value="4">Homem normal</option>
+          <option value="5">Homem daltônica</option>
+      `;
+      container.insertBefore(newSelect, button);
+  }
+  function removeSelect(button) {
+      const container = button.parentNode;
+      const selects = container.querySelectorAll('select');
+      if (selects.length > 0) {
+          container.removeChild(selects[selects.length - 1]);
+      }
+  }
+  function removeRow(button) {
+      const row = button.parentNode.parentNode;
+      row.parentNode.removeChild(row);
+  }
+  function addColumn() {
+      const table = document.getElementById("myTable");
+      const thead = table.getElementsByTagName('thead')[0];
+      const tbody = table.getElementsByTagName('tbody')[0];
+      const th = document.createElement('th');
+      th.textContent = `Família ${thead.rows[0].cells.length}`;
+      thead.rows[0].insertBefore(th, thead.rows[0].cells[thead.rows[0].cells.length - 1]);
+      for (let row of tbody.rows) {
+          const td = document.createElement('td');
+          td.innerHTML = `
+              <div class="select-container">
+                  <button onclick="addSelect(this)">Adicionar Membro</button>
+                  <button onclick="removeSelect(this)">Remover Membro</button>
+              </div>
+          `;
+          row.insertBefore(td, row.cells[row.cells.length - 1]);
+      }
+  }
+  function removeColumn() {
+      const table = document.getElementById("myTable");
+      const thead = table.getElementsByTagName('thead')[0];
+      const tbody = table.getElementsByTagName('tbody')[0];
+      const headerCells = thead.rows[0].cells.length;
+      if (headerCells > 2) {
+          thead.rows[0].deleteCell(headerCells - 2);
+          for (let row of tbody.rows) {
+              row.deleteCell(headerCells - 2);
+          }
+      }
+  }
+  </script>
+
+  </main>
+  
+</body>
+</bvg 
+tml>                                                                                                                                                                                                        

@@ -11,14 +11,18 @@
 </head>
 <body id="page-home">
 
-  <!-- Top navigation bar -->
+  <!--  
   <header class="topbar" id="topbar" role="navigation" aria-label="Navegação principal">
     <nav class="nav-inner" id="navInner">
-      <a href="homescreen.html" class="nav-link">Home</a>
+      <a href="sobre.html" class="nav-link">Sobre</a>
       <a href="objetivo.html" class="nav-link">Objetivo</a>
       <a href="contato.html" class="nav-link">Contato</a>
     </nav>
-  </header>
+  </header> -->
+
+  <?php
+  include 'navbar.php';
+  ?>
 
   <!-- vídeo de fundo -->
   <div class="background-video" aria-hidden="true">
@@ -39,19 +43,12 @@
         Plataforma de pesquisa em genética,<br />
         simulação genética e árvore genealógica digital
       </p>
-      <p>
-        Nossa plataforma foi desenvolvida para unir ciência, tecnologia e acessibilidade em um só lugar. <br><br>
-        Aqui, você pode explorar informações genéticas de forma prática, simular padrões de herança e visualizar árvores genealógicas digitais de maneira interativa e intuitiva.
-        Com recursos de pesquisa em genética, oferecemos conteúdos atualizados, bases de dados e ferramentas de apoio para estudantes, pesquisadores e curiosos que desejam compreender melhor como os genes influenciam características e doenças. <br><br>
-        Através da simulação genética, é possível experimentar cenários hipotéticos e observar como determinados traços podem ser transmitidos entre gerações, auxiliando no aprendizado e na compreensão de conceitos fundamentais da biologia. <br><br>
-        Já a árvore genealógica digital permite criar representações familiares detalhadas, conectando informações de ancestrais e descendentes em um ambiente visual claro e organizado, ideal tanto para fins acadêmicos quanto pessoais. Nosso objetivo é tornar o estudo da genética mais acessível, interativo e útil, aproximando a ciência do cotidiano.<br><br>
-      </p>
-      <br>
+
       <!-- leva para a página de cadastro -->
       <a class="enter-button" href="cadastro.php" id="enterBtn">Entrar</a>
     </div>
 
-    <div class="website-link" id="websiteLink">www.MarcelaSHOW.com</div>
+    <div class="website-link" id="websiteLink">www.BioLineage.com</div>
   </main>
 
   <script src="../../../public/script/app.js"></script>

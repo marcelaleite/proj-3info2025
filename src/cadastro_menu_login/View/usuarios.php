@@ -155,7 +155,7 @@ $result = $conn->query($sql);
         <?php else: ?>
             <p class="no-data">Nenhum usuário encontrado.</p>
         <?php endif; ?>
-        <a href="index.php" class="back-btn">⬅ Voltar</a>
+        <a href="menu.html" class="back-btn">⬅ Voltar</a>
     </div>
 </body>
 </html>
