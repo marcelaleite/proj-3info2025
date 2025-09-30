@@ -33,34 +33,29 @@ class CovinhaController
         if ($fenotipo === null) {
             return ['CC'=>0.25, 'Cc'=>0.5, 'cc'=>0.25];
         }
-
         if ($fenotipo === 0) {
             return ['CC'=>0.0, 'Cc'=>0.0, 'cc'=>1.0];
         }
-
         foreach ($irmaosPerfis as $irm) {
             $fi = $irm[$campoCovinha] ?? null;
             if ($fi === 0) {
                 return ['CC'=>0.0, 'Cc'=>1.0, 'cc'=>0.0];
             }
         }
-
         if ($fenPais && ( ($fenPais['pai'] ?? 1) === 0 || ($fenPais['mae'] ?? 1) === 0 )) {
             return ['CC'=>0.0, 'Cc'=>1.0, 'cc'=>0.0];
         }
-
         foreach ($avosPerfis as $a) {
             if ($a === 0) {
                 return ['CC'=>0.4, 'Cc'=>0.6, 'cc'=>0.0];
             }
         }
-
         return ['CC'=>0.5, 'Cc'=>0.5, 'cc'=>0.0];
     }
 
     private function gametas(array $dist): array
     {
-        $pC = ($dist['CC'] ?? 0)*1.0 + ($dist['Cc'] ?? 0)*0.5 + ($dist['cc'] ?? 0)*0.0;
+        $pC = ($dist['CC'] ?? 0)*1.0 + ($dist['Cc'] ?? 0)*0.5;
         return ['C' => $pC, 'c' => 1.0 - $pC];
     }
 
@@ -100,6 +95,7 @@ class CovinhaController
         return array_values(array_filter($out, fn($v) => $v === 0 || $v === 1));
     }
 
+
     public function calcular(int $idPai, int $idMae): array
     {
         $perfilPai = $this->dao->getPerfilByUsuario($idPai);
@@ -110,81 +106,31 @@ class CovinhaController
         }
 
         $paiQ = $this->campo($perfilPai, 'cov_queixo');
-        $paiB = $this->campo($perfilPai, 'cov_bochecha');
         $maeQ = $this->campo($perfilMae, 'cov_queixo');
-        $maeB = $this->campo($perfilMae, 'cov_bochecha');
-
-        $avosPai = $this->dao->getAvosDeUsuario($idPai);
-        $avosMae = $this->dao->getAvosDeUsuario($idMae);
-
-        $irmaosPai = $this->dao->getIrmaos($idPai);
-        $irmaosMae = $this->dao->getIrmaos($idMae);
-
-        $paisDoPai = $this->dao->getPais($idPai);
-        $paisDaMae = $this->dao->getPais($idMae);
-
-        $fenPaisPaiQ = [
-            'pai' => $this->campo($this->dao->getPerfilByUsuario((int)($paisDoPai['id_pai'] ?? 0)), 'cov_queixo'),
-            'mae' => $this->campo($this->dao->getPerfilByUsuario((int)($paisDoPai['id_mae'] ?? 0)), 'cov_queixo'),
-        ];
-        $fenPaisMaeQ = [
-            'pai' => $this->campo($this->dao->getPerfilByUsuario((int)($paisDaMae['id_pai'] ?? 0)), 'cov_queixo'),
-            'mae' => $this->campo($this->dao->getPerfilByUsuario((int)($paisDaMae['id_mae'] ?? 0)), 'cov_queixo'),
-        ];
-
-        $fenPaisPaiB = [
-            'pai' => $this->campo($this->dao->getPerfilByUsuario((int)($paisDoPai['id_pai'] ?? 0)), 'cov_bochecha'),
-            'mae' => $this->campo($this->dao->getPerfilByUsuario((int)($paisDoPai['id_mae'] ?? 0)), 'cov_bochecha'),
-        ];
-        $fenPaisMaeB = [
-            'pai' => $this->campo($this->dao->getPerfilByUsuario((int)($paisDaMae['id_pai'] ?? 0)), 'cov_bochecha'),
-            'mae' => $this->campo($this->dao->getPerfilByUsuario((int)($paisDaMae['id_mae'] ?? 0)), 'cov_bochecha'),
-        ];
-
-        $distPaiQ = $this->deduzirDistribuicaoGenotipo(
-            $paiQ,
-            $fenPaisPaiQ,
-            $this->flattenAvos($avosPai, 'cov_queixo'),
-            $irmaosPai,
-            'cov_queixo'
-        );
-        $distMaeQ = $this->deduzirDistribuicaoGenotipo(
-            $maeQ,
-            $fenPaisMaeQ,
-            $this->flattenAvos($avosMae, 'cov_queixo'),
-            $irmaosMae,
-            'cov_queixo'
-        );
-        $gPaiQ = $this->gametas($distPaiQ);
-        $gMaeQ = $this->gametas($distMaeQ);
-        $filhoQGen = $this->cruzar($gPaiQ, $gMaeQ);
+        $distPaiQ = $this->deduzirDistribuicaoGenotipo($paiQ, null, [], [], 'cov_queixo');
+        $distMaeQ = $this->deduzirDistribuicaoGenotipo($maeQ, null, [], [], 'cov_queixo');
+        $filhoQGen = $this->cruzar($this->gametas($distPaiQ), $this->gametas($distMaeQ));
         $filhoQFen = $this->fenotipoFilho($filhoQGen);
 
-        $distPaiB = $this->deduzirDistribuicaoGenotipo(
-            $paiB, $fenPaisPaiB,
-            $this->flattenAvos($avosPai, 'cov_bochecha'),
-            $irmaosPai, 'cov_bochecha'
-        );
-        $distMaeB = $this->deduzirDistribuicaoGenotipo(
-            $maeB, $fenPaisMaeB,
-            $this->flattenAvos($avosMae, 'cov_bochecha'),
-            $irmaosMae, 'cov_bochecha'
-        );
-        $gPaiB = $this->gametas($distPaiB);
-        $gMaeB = $this->gametas($distMaeB);
-        $filhoBGen = $this->cruzar($gPaiB, $gMaeB);
+        $paiB = $this->campo($perfilPai, 'cov_bochecha');
+        $maeB = $this->campo($perfilMae, 'cov_bochecha');
+        $distPaiB = $this->deduzirDistribuicaoGenotipo($paiB, null, [], [], 'cov_bochecha');
+        $distMaeB = $this->deduzirDistribuicaoGenotipo($maeB, null, [], [], 'cov_bochecha');
+        $filhoBGen = $this->cruzar($this->gametas($distPaiB), $this->gametas($distMaeB));
         $filhoBFen = $this->fenotipoFilho($filhoBGen);
 
         return [
             'queixo' => [
-                'pais' => ['pai' => $paiQ, 'mae' => $maeQ],
-                'distPai' => $distPaiQ, 'distMae' => $distMaeQ,
-                'filhoGen' => $filhoQGen, 'filhoFen' => $filhoQFen,
+                'pais'     => ['pai' => $paiQ, 'mae' => $maeQ],
+                'genPais'  => ['pai' => $distPaiQ, 'mae' => $distMaeQ],
+                'filhoGen' => $filhoQGen,
+                'filhoFen' => $filhoQFen
             ],
             'bochecha' => [
-                'pais' => ['pai' => $paiB, 'mae' => $maeB],
-                'distPai' => $distPaiB, 'distMae' => $distMaeB,
-                'filhoGen' => $filhoBGen, 'filhoFen' => $filhoBFen,
+                'pais'     => ['pai' => $paiB, 'mae' => $maeB],
+                'genPais'  => ['pai' => $distPaiB, 'mae' => $distMaeB],
+                'filhoGen' => $filhoBGen,
+                'filhoFen' => $filhoBFen
             ]
         ];
     }

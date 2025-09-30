@@ -1,13 +1,26 @@
 <?php 
 use App\Covinhas\Controller\CovinhaController;
+use App\Covinhas\DAO\CovinhaDAO;
 
-require_once __DIR__ . '/../../../config/config.inc.php';
+
+$host = "localhost";
+$db   = "biolineage";   
+$user = "root";            
+$pass = "";                
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=utf8", $user, $pass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Erro na conexão com o banco: " . $e->getMessage());
+}
+
+
 require_once __DIR__ . '/../DAO/CovinhaDAO.class.php';
 require_once __DIR__ . '/../Control/CovinhaController.php';
-require_once('../valida_login.php');
 
 $controller = new CovinhaController($pdo);
-$dao = new \App\Covinhas\DAO\CovinhaDAO($pdo);
+$dao = new CovinhaDAO($pdo);
 $covinhasCompletas = $dao->listarPerfisComUsuarios();
 ?>
 <!doctype html>
@@ -45,7 +58,6 @@ $covinhasCompletas = $dao->listarPerfisComUsuarios();
     <p>Aqui estão os perfis cadastrados com suas características e vínculos familiares.</p>
   </div>
 
-
   <div class="table-wrap">
     <table class="list">
       <thead>
@@ -80,6 +92,75 @@ $covinhasCompletas = $dao->listarPerfisComUsuarios();
       </tbody>
     </table>
   </div>
+<?php
+if (count($covinhasCompletas) >= 2) {
+    $paiId = $covinhasCompletas[0]['id_perfil'];
+    $maeId = $covinhasCompletas[1]['id_perfil'];
+    $resultado = $controller->calcular($paiId, $maeId);
+?>
+  <div class="menu-card" style="margin-top:20px;">
+    <div class="menu-header">
+      <h2>Resultado das Probabilidades</h2>
+      <p>Baseado nos dois primeiros perfis listados.</p>
+    </div>
+
+    <!-- Tabela Queixo -->
+    <h3>Queixo</h3>
+    <table class="list">
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>CC</th>
+          <th>Cc</th>
+          <th>cc</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Genótipos</td>
+          <td><?= $resultado['queixo']['genotipos']['CC'] ?? '—' ?>%</td>
+          <td><?= $resultado['queixo']['genotipos']['Cc'] ?? '—' ?>%</td>
+          <td><?= $resultado['queixo']['genotipos']['cc'] ?? '—' ?>%</td>
+        </tr>
+        <tr>
+          <td>Fenótipos</td>
+          <td colspan="3">
+            Com: <?= $resultado['queixo']['fenotipos']['com'] ?? '—' ?>% |
+            Sem: <?= $resultado['queixo']['fenotipos']['sem'] ?? '—' ?>%
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Tabela Bochecha -->
+    <h3 style="margin-top:20px;">Bochecha</h3>
+    <table class="list">
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>CC</th>
+          <th>Cc</th>
+          <th>cc</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Genótipos</td>
+          <td><?= $resultado['bochecha']['genotipos']['CC'] ?? '—' ?>%</td>
+          <td><?= $resultado['bochecha']['genotipos']['Cc'] ?? '—' ?>%</td>
+          <td><?= $resultado['bochecha']['genotipos']['cc'] ?? '—' ?>%</td>
+        </tr>
+        <tr>
+          <td>Fenótipos</td>
+          <td colspan="3">
+            Com: <?= $resultado['bochecha']['fenotipos']['com'] ?? '—' ?>% |
+            Sem: <?= $resultado['bochecha']['fenotipos']['sem'] ?? '—' ?>%
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<?php } ?>
 
 </div>
 </section>

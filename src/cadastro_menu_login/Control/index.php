@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-require_once('../valida_login.php');
 require_once("../Model/Classe.class.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -30,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // else
     //     echo "Erro ao salvar dados: ". $usuario;
 }elseif ($_SERVER['REQUEST_METHOD'] == 'GET'){
-    $formulario = file_get_contents('cadastro.html');
+    $formulario = file_get_contents(__DIR__ . '/../View/cadastro.html');
 
     $id = isset($_GET['id'])?$_GET['id']:0;
     $resultado = Usuario::listar(1,$id);
