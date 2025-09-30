@@ -46,7 +46,7 @@
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <a class="module-card" href="../../covinhas/View/form_cad_covinhas.php" aria-label="Árvore genealógica">
+        <a class="module-card" href="../../covinhas/View/listagem_covinhas.php" aria-label="Árvore genealógica">
           <div class="mc-title">Covinhas</div>
           <div class="mc-desc">Cálculos de probabilidade de covinhas</div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>

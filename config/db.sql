@@ -121,3 +121,6 @@ CREATE TABLE cards (
     imagem VARCHAR(255) NOT NULL,
     link VARCHAR(255) NOT NULL
 );
+
+   left outer join usuario pai on (pai.id_usuario = pe.id_pai);
+;
