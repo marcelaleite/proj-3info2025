@@ -95,29 +95,15 @@
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-<<<<<<< HEAD
         <a class="module-card" href="../../PrevisaoTipoSanguineo/View/tipoSanquineo.html" aria-label="Tipo Sanguíneo">
-=======
-        <a class="module-card" href="../../PrevisaoTipoSanguineo/View/tipoSanquineo.html" aria-label="Calculadora de Tipo Sanguíneo">
->>>>>>> b0fb98dd8f8e6815634cb444df9f5b1398b1b58c
           <div class="mc-title">Tipo Sanguíneo</div>
           <div class="mc-desc">Calcule o tipo sanguíneo do seu filho.</div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
-<<<<<<< HEAD
 
-        <!-- INACABADO -->
-        <a class="module-card" href="../../covinhas/View/listagem_covinhas.php" aria-label="Traços Faciais">
-          <div class="mc-title">Covinhas</div>
-          <div class="mc-desc">Cálculos de covinhas.</div>
-          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
-        </a>
-
-=======
->>>>>>> b0fb98dd8f8e6815634cb444df9f5b1398b1b58c
       </nav>
     </div>
-  </main>q
+  </main>
 
   <script src="../../../public/script/app.js"></script>
 </body>
