@@ -46,6 +46,12 @@
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
+        <a class="module-card" href="../../covinhas/View/form_cad_covinhas.php" aria-label="Árvore genealógica">
+          <div class="mc-title">Covinhas</div>
+          <div class="mc-desc">Cálculos de probabilidade de covinhas</div>
+          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
+        </a>
+
         <a class="module-card" href="../../daltonismo/View/daltonismo.html" aria-label="Simulações">
           <div class="mc-title">Daltonismo</div>
           <div class="mc-desc">Cálculo para probabilidade de daltonismo.</div>
@@ -93,13 +99,6 @@
           <div class="mc-desc">Calcule o tipo sanguíneo do seu filho.</div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
-
-        <a class="module-card" href="../../arvore/View/arvore.html" aria-label="Árvore genealógica">
-          <div class="mc-title">Traços faciais</div>
-          <div class="mc-desc">Cálculos de traços faciais.</div>
-          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
-        </a>
-
       </nav>
     </div>
   </main>
