@@ -48,7 +48,7 @@
 
         <a class="module-card" href="../../covinhas/View/listagem_covinhas.php" aria-label="Árvore genealógica">
           <div class="mc-title">Covinhas</div>
-          <div class="mc-desc">Cálculos de probabilidade de covinhas</div>
+          <div class="mc-desc">Cálculos de probabilidade de covinhas.</div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
@@ -85,13 +85,13 @@
 
         <a class="module-card" href="../../sardas/View/form_cad_sarda.php" aria-label="Árvore genealógica">
           <div class="mc-title">Sardas</div>
-          <div class="mc-desc">Cálculo para probabilidade de sardas</div>
+          <div class="mc-desc">Cálculo para probabilidade de sardas.</div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
         <a class="module-card" href="../../origens/View/origens.php" aria-label="Árvore genealógica">
           <div class="mc-title">Simulador de mistura étnica</div>
-          <div class="mc-desc"></div>
+          <div class="mc-desc">Simular suas origens.</div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
@@ -100,14 +100,6 @@
           <div class="mc-desc">Calcule o tipo sanguíneo do seu filho.</div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
-
-        <!-- INACABADO -->
-        <a class="module-card" href="../../covinhas/View/listagem_covinhas.php" aria-label="Traços Faciais">
-          <div class="mc-title">Covinhas</div>
-          <div class="mc-desc">Cálculos de covinhas.</div>
-          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
-        </a>
-
       </nav>
     </div>
   </main>q
