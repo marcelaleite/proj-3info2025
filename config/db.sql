@@ -109,3 +109,14 @@ select
    inner join perfil pe on (pe.usuario_idusuario = u.id_usuario)
    left outer join usuario mae on (mae.id_usuario = pe.id_mae);
    left outer join usuario pai on (pai.id_usuario = pe.id_pai);
+
+   --galeria 
+   CREATE DATABASE galeria;
+USE galeria;
+
+CREATE TABLE cards (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    imagem VARCHAR(255) NOT NULL,
+    link VARCHAR(255) NOT NULL
+);
