@@ -3,7 +3,7 @@ class Database {
     private $host = "localhost";
     private $user = "root";
     private $pass = "";
-    private $db   = "galeria";
+    private $db   = "BioLineage";
     private $conn;
 
     public function getConnection() {
