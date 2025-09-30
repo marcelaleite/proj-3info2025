@@ -98,8 +98,6 @@
           <div class="mc-desc">O Simulador de Origem calcula a mistura de nacionalidades ao longo de suas gerações.</div>
           <div class="mc-meta"><span class="badge ready">Template</span></div>
         </a>
-
-
        
         <a class="module-card" href="../../galeria/View/galeria.php" aria-label="Galeria">
           <div class="mc-title">Galeria</div>
