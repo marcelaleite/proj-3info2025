@@ -101,16 +101,6 @@
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-<<<<<<< HEAD
-=======
-        <!-- INACABADO -->
-        <a class="module-card" href="../../covinhas/View/listagem_covinhas.php" aria-label="Traços Faciais">
-          <div class="mc-title">Covinhas</div>
-          <div class="mc-desc">Cálculos de covinhas.</div>
-          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
-        </a>
-
->>>>>>> 1c2b98e25eaa74248b25719d8d3e2541a42d21ae
       </nav>
     </div>
   </main>
