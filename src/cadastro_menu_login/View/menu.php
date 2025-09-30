@@ -76,13 +76,14 @@
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <a class="module-card" href="../../arvore/View/arvore.html" aria-label="Árvore genealógica">
+        <!-- INACABADO -->
+        <a class="module-card" href="../../punnet/View/" aria-label="Árvore genealógica">
           <div class="mc-title">Quadro de Punnett interativo</div>
           <div class="mc-desc"></div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <a class="module-card" href="../../arvore/View/arvore.html" aria-label="Árvore genealógica">
+        <a class="module-card" href="../../sardas/View/form_cad_sarda.php" aria-label="Árvore genealógica">
           <div class="mc-title">Sardas</div>
           <div class="mc-desc">Cálculo para probabilidade de sardas</div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
@@ -94,14 +95,22 @@
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <a class="module-card" href="../../PrevisaoTipoSanguineo/View/tipoSanquineo.html" aria-label="Calculadora de Tipo Sanguíneo">
+        <a class="module-card" href="../../PrevisaoTipoSanguineo/View/tipoSanquineo.html" aria-label="Tipo Sanguíneo">
           <div class="mc-title">Tipo Sanguíneo</div>
           <div class="mc-desc">Calcule o tipo sanguíneo do seu filho.</div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
+
+        <!-- INACABADO -->
+        <a class="module-card" href="../../covinhas/View/listagem_covinhas.php" aria-label="Traços Faciais">
+          <div class="mc-title">Covinhas</div>
+          <div class="mc-desc">Cálculos de covinhas.</div>
+          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
+        </a>
+
       </nav>
     </div>
-  </main>
+  </main>q
 
   <script src="../../../public/script/app.js"></script>
 </body>
