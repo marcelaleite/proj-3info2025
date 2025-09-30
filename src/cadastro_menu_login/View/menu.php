@@ -102,7 +102,7 @@
         </a>
       </nav>
     </div>
-  </main>q
+  </main>
 
   <script src="../../../public/script/app.js"></script>
 </body>
