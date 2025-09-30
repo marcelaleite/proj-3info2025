@@ -51,63 +51,238 @@ $cards = $cardObj->listar();
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@200;300;400;600;700;900&display=swap');
 
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Titillium Web', sans-serif; }
-body { background: linear-gradient(to bottom right, #89a7b1, #05a862); min-height:100vh; display:flex; flex-direction:column; align-items:center; color:#fff; }
-
-.container2 { width:100%; max-width:1200px; margin:80px auto; display:flex; flex-wrap:wrap; justify-content:center; gap:40px; }
-
-.card {
-  width:300px; height:450px; display:flex; flex-direction:column; align-items:center; justify-content:space-between;
-  padding:20px; border-radius:30px; transition: transform 0.3s ease; transform-style: preserve-3d;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Titillium Web', sans-serif;
 }
 
-.card h2 { text-align:center; color:#fff; font-weight:700; }
-.card .prof { max-width:250px; border-radius:15px; transition:0.5s; }
+body {
+  background: radial-gradient(circle at top left, #0d1b2a, #1b263b, #0f2027);
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  color:#e0e6ed;
+}
 
-.card:hover .prof,
-.card:hover .sobre-text { transform: translate3d(0,0,50px); }
+/* Container cards */
+.container2 {
+  width:100%;
+  max-width:1200px;
+  margin:80px auto;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:40px;
+}
 
+/* Cards */
+.card {
+  width:300px;
+  height:450px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px;
+  border-radius:20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+
+  /* 🔥 Novo esquema de cor */
+  background: rgba(20, 25, 40, 0.7); /* tom azul escuro translúcido */
+  border: 1px solid rgba(0, 200, 255, 0.25);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+  backdrop-filter: blur(12px);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 200, 255, 0.4),
+              0 0 20px rgba(123, 47, 247, 0.4);
+  border-color: rgba(123, 47, 247, 0.6);
+}
+
+.card h2 {
+  text-align:center;
+  color:#fff;
+  font-weight:700;
+}
+
+.card .prof {
+  max-width:250px;
+  border-radius:15px;
+  transition:0.5s;
+}
+
+/* Botão dentro do card */
 .sobre-text {
-  padding:10px 40px; border:2px solid #fff; border-radius:20px; color:#fff;
-  background:transparent; font-size:18px; font-weight:600;
-  transition:0.5s; position:relative;
+  padding:10px 40px;
+  border:2px solid #00f7ff;
+  border-radius:20px;
+  color:#00f7ff;
+  background:transparent;
+  font-size:18px;
+  font-weight:600;
+  transition:0.5s;
+  position:relative;
   text-decoration:none;
 }
-.sobre-text:hover { color:#000; }
+
+.sobre-text:hover {
+  color:#000;
+}
+
 .sobre-text::before {
-  content:''; position:absolute; top:0; left:0; width:100%; height:100%;
-  background-color:#fff; border-radius:20px; z-index:-1; transform-origin:left; transform:scaleX(0);
-  transition: transform 0.5s cubic-bezier(0.5,1.6,0.4,0.7); box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  content:'';
+  position:absolute;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:linear-gradient(135deg, #00f7ff, #7b2ff7);
+  border-radius:20px;
+  z-index:-1;
+  transform-origin:left;
+  transform:scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.5,1.6,0.4,0.7);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.6);
 }
-.sobre-text:hover::before { transform: scaleX(1); }
 
-.preview-box { margin:15px 0; text-align:center; }
-.preview-box img { max-width:200px; max-height:200px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.2); display:none; }
+.sobre-text:hover::before {
+  transform: scaleX(1);
+}
 
-@media (max-width:900px) { .card { width:250px; height:380px; } }
-@media (max-width:600px) { .container2 { flex-direction:column; align-items:center; } .card { width:90%; max-width:350px; margin:10px 0; } }
+/* Preview img */
+.preview-box {
+  margin:15px 0;
+  text-align:center;
+}
+.preview-box img {
+  max-width:200px;
+  max-height:200px;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.4);
+  display:none;
+}
 
-/* BOTÃO FLUTUANTE */
+/* Responsivo */
+@media (max-width:900px) {
+  .card { width:250px; height:380px; }
+}
+@media (max-width:600px) {
+  .container2 { flex-direction:column; align-items:center; }
+  .card { width:90%; max-width:350px; margin:10px 0; }
+}
+
+/* Botão flutuante */
 #openFormBtn {
-  position: fixed; top: 20px; left: 20px;
-  background: rgba(255,255,255,0.2);
-  color: #fff; border: none;
-  padding: 12px 14px; border-radius: 50%;
-  cursor: pointer; font-size: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 1100; transition: 0.3s;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: rgba(0,255,255,0.1);
+  color: #00f7ff;
+  border: 1px solid rgba(0,255,255,0.3);
+  padding: 12px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  z-index: 1100;
+  transition: 0.3s;
 }
-#openFormBtn:hover { background: #fff; color:#05a862; }
 
-/* MODAL */
-.modal { display: none; position: fixed; z-index: 1200; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); justify-content:center; align-items:center; }
-.modal-content { background: rgba(255,255,255,0.1); padding:30px; border-radius:20px; box-shadow:0 10px 25px rgba(0,0,0,0.3); width:100%; max-width:500px; color:#fff; }
-.modal-content h2 { margin-bottom:20px; font-size:26px; font-weight:700; text-align:center; }
-.modal-content label { display:block; text-align:left; font-weight:600; margin-bottom:5px; }
-.modal-content input { width:100%; padding:12px 15px; border:none; border-radius:10px; outline:none; font-size:16px; margin-bottom:15px; }
-.modal-content button { display:block; margin: 0 auto; padding:12px 40px; border:none; border-radius:25px; background:#fff; color:#05a862; font-weight:700; font-size:18px; cursor:pointer; transition:0.3s; }
-.modal-content button:hover { background:#00f7ff; color:#000; }
-.close { position:absolute; top:15px; right:20px; font-size:28px; color:#fff; cursor:pointer; }
+#openFormBtn:hover {
+  background: linear-gradient(135deg, #00f7ff, #7b2ff7);
+  color:#000;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1200;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.7);
+  justify-content:center;
+  align-items:center;
+}
+
+.modal-content {
+  background: rgba(255,255,255,0.05);
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.5);
+  width:100%; max-width:500px;
+  color:#fff;
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,0.1);
+}
+
+.modal-content h2 {
+  margin-bottom:20px;
+  font-size:26px;
+  font-weight:700;
+  text-align:center;
+}
+
+.modal-content label {
+  display:block;
+  text-align:left;
+  font-weight:600;
+  margin-bottom:5px;
+}
+
+.modal-content input {
+  width:100%;
+  padding:12px 15px;
+  border:none;
+  border-radius:10px;
+  outline:none;
+  font-size:16px;
+  margin-bottom:15px;
+  background: rgba(255,255,255,0.1);
+  color:#fff;
+}
+
+.modal-content button {
+  display:block;
+  margin: 0 auto;
+  padding:12px 40px;
+  border:none;
+  border-radius:25px;
+  background:linear-gradient(135deg, #00f7ff, #7b2ff7);
+  color:#000;
+  font-weight:700;
+  font-size:18px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.modal-content button:hover {
+  filter: brightness(1.2);
+}
+
+.close {
+  position:absolute;
+  top:15px;
+  right:20px;
+  font-size:28px;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: #00f7ff;
+  transition: color 0.5s ease;
+}
+a:hover {
+  color: #7b2ff7;
+}
+
 </style>
 </head>
 <body>
@@ -138,20 +313,35 @@ body { background: linear-gradient(to bottom right, #89a7b1, #05a862); min-heigh
 
 <!-- GALERIA FIXA -->
 <div class="container2">
-  <div class="card" style="background: linear-gradient(45deg,#04ad04,#00f7ff);">
+  <div class="card" style="background: linear-gradient(45deg, rgba(30,30,40,0.95), rgba(60,60,80,0.95));">
     <h2>COVINHAS</h2>
     <img src="../../../public/img/covinha.png" class="prof">
-    <div class="sobre-text">SOBRE</div>
+    <div class="sobre-text"><a href="https://www.uol.com.br/vivabem/noticias/redacao/2020/11/12/adoravel-fofa-e-charmosa-sabia-que-a-covinha-e-um-defeito-congenito.htm">SOBRE</a></div>
   </div>
-  <div class="card" style="background: linear-gradient(45deg,#04ad04,#8cdf8c);">
+  <div class="card" style="background: linear-gradient(45deg, rgba(30,30,40,0.95), rgba(60,60,80,0.95));">
     <h2>SARDAS</h2>
     <img src="../../../public/img/sardas.png" class="prof">
-    <div class="sobre-text">SOBRE</div>
+    <div class="sobre-text"><a href="https://sbdrj.org.br/o-que-sao-e-como-surgem-as-sardas/">SOBRE</a></div>
   </div>
-  <div class="card" style="background: linear-gradient(45deg,#00f7ff,#05a862);">
-    <h2>LÓBULOS DA ORELHA</h2>
-    <img src="public/img/LOBULO.webp" class="prof">
-    <div class="sobre-text">SOBRE</div>
+  <div class="card" style="background: linear-gradient(45deg, rgba(30,30,40,0.95), rgba(60,60,80,0.95));">
+    <h2>LÓBULO LIVRE</h2>
+    <img src="../../../public/img/lobulol.jpg" class="prof">
+    <div class="sobre-text"><a href="https://www.verywellhealth.com/earlobe-anatomy-5092216">SOBRE</a></div>
+  </div>
+   <div class="card" style="background: linear-gradient(45deg, rgba(30,30,40,0.95), rgba(60,60,80,0.95));">
+    <h2>LÓBULO PRESO</h2>
+    <img src="../../../public/img/lobulop.webp" class="prof">
+    <div class="sobre-text"><a href="https://www.verywellhealth.com/earlobe-anatomy-5092216">SOBRE</a></div>
+  </div>
+   <div class="card" style="background: linear-gradient(45deg, rgba(30,30,40,0.95), rgba(60,60,80,0.95));">
+    <h2>ALBINISMO</h2>
+    <img src="../../../public/img/albiii.png" class="prof">
+    <div class="sobre-text"><a href="https://vidasaudavel.einstein.br/albinismo/">SOBRE</a></div>
+  </div>
+   <div class="card" style="background: linear-gradient(45deg, rgba(30,30,40,0.95), rgba(60,60,80,0.95));">
+    <h2>GRUPO SANGUÍNEO</h2>
+    <img src="../../../public/img/sangue.webp" class="prof">
+    <div class="sobre-text"><a href="https://www.todamateria.com.br/tipos-sanguineos/">SOBRE</a></div>
   </div>
 </div>
 
@@ -171,10 +361,13 @@ $gradientes = [
 foreach($cards as $i => $card):
   $bg = $gradientes[$i % count($gradientes)];
 ?>
-  <div class="card" style="background: <?= $bg ?>;">
+ <?php< foreach($cards as $card): ?>
+  <div class="card">
     <h2><?= htmlspecialchars($card['nome']) ?></h2>
     <img src="<?= htmlspecialchars($card['imagem']) ?>" class="prof">
-    <a href="<?= htmlspecialchars($card['link']) ?>" class="sobre-text" target="_blank">SOBRE</a>
+    <div class="sobre-text">
+      <a href="<?= htmlspecialchars($card['link']) ?>" target="_blank">SOBRE</a>
+    </div>
   </div>
 <?php endforeach; ?>
 </div>
