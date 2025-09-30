@@ -46,66 +46,60 @@
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <a class="module-card" href="calc-olhos.html" aria-label="Cálculo cor dos olhos">
-          <div class="mc-title">Cor dos olhos</div>
-          <div class="mc-desc">Cálculo de cor dos olhos.</div>
-          <div class="mc-meta"><span class="badge ready">Em dev</span></div>
-        </a>
-
         <a class="module-card" href="simulacoes.html" aria-label="Simulações">
           <div class="mc-title">Daltonismo</div>
           <div class="mc-desc">Cálculo para probabilidade de daltonismo.</div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <!-- Doenças -->
         <a class="module-card" href="../../doencas/View/doenca.html" aria-label="Probabilidade de doenças">
           <div class="mc-title">Doenças genéticas</div>
           <div class="mc-desc">Cálculo para probabilidade de doenças genéticas.</div>
-          <div class="mc-meta"><span class="badge dev">Em dev</span></div>
+          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
+        </a>
+
+        <a class="module-card" href="../../app/Control/controle_TipoSanguineo.php" aria-label="Calculadora de Tipo Sanguíneo">
+          <div class="mc-title">Galeria de traços</div>
+          <div class="mc-desc">Registro de características hereditárias.</div>
+          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
+        </a>
+
+        <a class="module-card" href="../../app/View/tipoSanquineo.html" aria-label="Calculadora de Tipo Sanguíneo">
+          <div class="mc-title">Orelha</div>
+          <div class="mc-desc">Cálculo de probabilidade do lóbulo da orelha ser preso ou solto.</div>
+          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
         <a class="module-card" href="../../arvore/View/arvore.html" aria-label="Árvore genealógica">
-          <div class="mc-title">Covinha</div>
-          <div class="mc-desc">Cálculo para probabilidade de ter covinha</div>
-          <div class="mc-meta"><span class="badge ready">Template</span></div>
+          <div class="mc-title">Quadro de Punnett interativo</div>
+          <div class="mc-desc"></div>
+          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <!-- Calculadora de Tipo Sanguíneo (controle em PHP) -->
-        <a class="module-card" href="../../app/Control/controle_TipoSanguineo.php" aria-label="Calculadora de Tipo Sanguíneo">
-          <div class="mc-title">Calculadora de Tipo Sanguíneo</div>
-          <div class="mc-desc">Calcule o tipo sanguíneo do seu filho.</div>
-          <div class="mc-meta"><span class="badge dev">Em dev</span></div>
+        <a class="module-card" href="../../arvore/View/arvore.html" aria-label="Árvore genealógica">
+          <div class="mc-title">Sardas</div>
+          <div class="mc-desc">Cálculo para probabilidade de sardas</div>
+          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <!-- Calculadora de Tipo Sanguíneo (versão HTML) -->
+        <a class="module-card" href="../../arvore/View/arvore.html" aria-label="Árvore genealógica">
+          <div class="mc-title">Simulador de mistura étnica</div>
+          <div class="mc-desc"></div>
+          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
+        </a>
+
         <a class="module-card" href="../../app/View/tipoSanquineo.html" aria-label="Calculadora de Tipo Sanguíneo">
-          <div class="mc-title">Calculadora de Tipo Sanguíneo</div>
+          <div class="mc-title">Tipo Sanguíneo</div>
           <div class="mc-desc">Calcule o tipo sanguíneo do seu filho.</div>
-          <div class="mc-meta"><span class="badge dev">Em dev</span></div>
+          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <!-- Albinismo -->
-        <a class="module-card" href="../../app/View/albinismo.html" aria-label="Cálculo para probabilidade de albinismo">
-          <div class="mc-title">Cálculo para probabilidade de albinismo</div>
-          <div class="mc-desc">Espaço para implementar o cálculo probabilístico dos fenótipos.</div>
-          <div class="mc-meta"><span class="badge dev">Em dev</span></div>
+        <a class="module-card" href="../../arvore/View/arvore.html" aria-label="Árvore genealógica">
+          <div class="mc-title">Traços faciais</div>
+          <div class="mc-desc">Cálculos de traços faciais.</div>
+          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <!-- Origem -->
-        <a class="module-card" href="../../origens/View/origens.php" aria-label="Origem">
-          <div class="mc-title">Origem</div>
-          <div class="mc-desc">O Simulador de Origem calcula a mistura de nacionalidades ao longo de suas gerações.</div>
-          <div class="mc-meta"><span class="badge ready">Template</span></div>
-        </a>
-       
-        <a class="module-card" href="../../galeria/View/galeria.php" aria-label="Galeria">
-          <div class="mc-title">Galeria</div>
-          <div class="mc-desc">Registro de características hereditarias.</div>
-          <div class="mc-meta">
-            <span class="badge ready">Template</span> 
-          </div>
-        </a>
       </nav>
     </div>
   </main>
