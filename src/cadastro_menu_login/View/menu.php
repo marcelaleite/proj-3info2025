@@ -34,46 +34,41 @@
       </header>
 
       <nav class="menu-grid" aria-label="Opções do menu">
-        <!-- Dashboard -->
         <a class="module-card" href="../../albinismo/view/albinismo.php" aria-label="Albinismo">
           <div class="mc-title">Albinismo</div>
-          <div class="mc-desc">Visão geral do usuário, notificações e atalhos rápidos.</div>
-          <div class="mc-meta"><span class="badge ready">Template</span></div>
+          <div class="mc-desc">Cálculo para probabilidade de albinismo.</div>
+          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <!-- Projetos -->
         <a class="module-card" href="projetos.html" aria-label="Projetos">
           <div class="mc-title">Árvore genealógica</div>
-          <div class="mc-desc">Área para listar e gerenciar projetos e pesquisas.</div>
-          <div class="mc-meta"><span class="badge dev">Em dev</span></div>
+          <div class="mc-desc">Cadastre sua árvore genealógica.</div>
+          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <!-- Simulações -->
-        <a class="module-card" href="simulacoes.html" aria-label="Simulações">
-          <div class="mc-title">Simulações</div>
-          <div class="mc-desc">Módulo para simulação genética (placeholder).</div>
-          <div class="mc-meta"><span class="badge dev">Em dev</span></div>
-        </a>
-
-        <!-- Árvore genealógica -->
-        <a class="module-card" href="../../arvore/View/arvore.html" aria-label="Árvore genealógica">
-          <div class="mc-title">Árvore genealógica</div>
-          <div class="mc-desc">Template para integrar a visualização e edição de árvores.</div>
-          <div class="mc-meta"><span class="badge ready">Template</span></div>
-        </a>
-
-        <!-- Cálculo cor dos olhos -->
         <a class="module-card" href="calc-olhos.html" aria-label="Cálculo cor dos olhos">
-          <div class="mc-title">Cálculo cor dos olhos</div>
-          <div class="mc-desc">Espaço para implementar o cálculo probabilístico dos fenótipos.</div>
-          <div class="mc-meta"><span class="badge dev">Em dev</span></div>
+          <div class="mc-title">Cor dos olhos</div>
+          <div class="mc-desc">Cálculo de cor dos olhos.</div>
+          <div class="mc-meta"><span class="badge ready">Em dev</span></div>
+        </a>
+
+        <a class="module-card" href="simulacoes.html" aria-label="Simulações">
+          <div class="mc-title">Daltonismo</div>
+          <div class="mc-desc">Cálculo para probabilidade de daltonismo.</div>
+          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
         <!-- Doenças -->
         <a class="module-card" href="../../doencas/View/doenca.html" aria-label="Probabilidade de doenças">
-          <div class="mc-title">Cálculo para probabilidade de doenças</div>
-          <div class="mc-desc">Espaço para implementar o cálculo probabilístico das doenças hereditárias.</div>
+          <div class="mc-title">Doenças genéticas</div>
+          <div class="mc-desc">Cálculo para probabilidade de doenças genéticas.</div>
           <div class="mc-meta"><span class="badge dev">Em dev</span></div>
+        </a>
+
+        <a class="module-card" href="../../arvore/View/arvore.html" aria-label="Árvore genealógica">
+          <div class="mc-title">Covinha</div>
+          <div class="mc-desc">Cálculo para probabilidade de ter covinha</div>
+          <div class="mc-meta"><span class="badge ready">Template</span></div>
         </a>
 
         <!-- Calculadora de Tipo Sanguíneo (controle em PHP) -->

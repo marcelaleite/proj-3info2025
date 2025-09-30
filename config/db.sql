@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS usuario (
   descricao VARCHAR(45) NULL
 );
 
+select * from usuario;
 -- ==========================
 -- TABELA DOENÇA
 -- ==========================

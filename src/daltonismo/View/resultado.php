@@ -1,5 +1,5 @@
 <?php
-include_once '../../../config/config.inc.php';
+include_once '../../config/config.inc.php';
 include_once 'Resultado.class.php';
 
 $pdo = new PDO("mysql:host=$db_host;dbname=$db_name;charset=utf8", $db_user, $db_pass);

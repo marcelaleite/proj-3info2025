@@ -1,7 +1,7 @@
 <?php
 
 define('USUARIO', 'root'); 
-define('SENHA', '87270039'); // 
+define('SENHA', ''); // 
 define('HOST', 'localhost');
 define('PORT', '3306'); 
 define('DB', 'biolineage'); 

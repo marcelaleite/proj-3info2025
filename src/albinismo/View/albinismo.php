@@ -4,7 +4,9 @@ use App\Albinismo\Control\Controle;
 require_once __DIR__ . '/../../../config/config.inc.php';
 require_once __DIR__ . '/../Model/AlbinismoDAO.class.php';
 require_once __DIR__ . '/../Control/controle.php';
+require_once __DIR__ . '/../../DAO/Database.class.php';
 
+$pdo = Database::getConexao();
 $controller = new Controle($pdo);
 
 $usuarios = $controller->listarUsuarios();
