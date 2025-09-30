@@ -103,9 +103,6 @@
           <div class="mc-desc">O Simulador de Origem calcula a mistura de nacionalidades ao longo de suas gerações.</div>
           <div class="mc-meta"><span class="badge ready">Template</span></div>
         </a>
-
-<<<<<<< HEAD:src/cadastro_menu_login/View/menu.html
-
        
         <a class="module-card" href="../../galeria/View/galeria.php" aria-label="Galeria">
           <div class="mc-title">Galeria</div>
@@ -113,13 +110,6 @@
           <div class="mc-meta">
             <span class="badge ready">Template</span> 
           </div>
-=======
-        <!-- Galeria -->
-        <a class="module-card module-create" href="novo-modulo.html" aria-label="Criar novo módulo">
-          <div style="font-size:22px;">Galeria</div>
-          <div>Registro de características hereditárias.</div>
-          <div class="mc-meta"><span class="badge dev">Em dev</span></div>
->>>>>>> 470f30a664e9c0cb9b65eec70a1ba39a9e8a5ed0:src/cadastro_menu_login/View/menu.php
         </a>
       </nav>
     </div>
