@@ -88,7 +88,7 @@
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <a class="module-card" href="../../arvore/View/arvore.html" aria-label="Árvore genealógica">
+        <a class="module-card" href="../../origens/View/origens.php" aria-label="Árvore genealógica">
           <div class="mc-title">Simulador de mistura étnica</div>
           <div class="mc-desc"></div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
