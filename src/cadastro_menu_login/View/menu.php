@@ -40,13 +40,19 @@
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <a class="module-card" href="projetos.html" aria-label="Projetos">
+        <a class="module-card" href="../../arvore/View/index.php" aria-label="Projetos">
           <div class="mc-title">Árvore genealógica</div>
           <div class="mc-desc">Cadastre sua árvore genealógica.</div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <a class="module-card" href="simulacoes.html" aria-label="Simulações">
+        <a class="module-card" href="../../covinhas/View/listagem_covinhas.php" aria-label="Árvore genealógica">
+          <div class="mc-title">Covinhas</div>
+          <div class="mc-desc">Cálculos de probabilidade de covinhas</div>
+          <div class="mc-meta"><span class="badge ready">Acessar</span></div>
+        </a>
+
+        <a class="module-card" href="../../daltonismo/View/daltonismo.html" aria-label="Simulações">
           <div class="mc-title">Daltonismo</div>
           <div class="mc-desc">Cálculo para probabilidade de daltonismo.</div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
@@ -58,13 +64,13 @@
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <a class="module-card" href="../../app/Control/controle_TipoSanguineo.php" aria-label="Calculadora de Tipo Sanguíneo">
+        <a class="module-card" href="../../galeria/View/galeria.php" aria-label="Calculadora de Tipo Sanguíneo">
           <div class="mc-title">Galeria de traços</div>
           <div class="mc-desc">Registro de características hereditárias.</div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
-        <a class="module-card" href="../../app/View/tipoSanquineo.html" aria-label="Calculadora de Tipo Sanguíneo">
+        <a class="module-card" href="../../orelha/index.php" aria-label="Calculadora de Tipo Sanguíneo">
           <div class="mc-title">Orelha</div>
           <div class="mc-desc">Cálculo de probabilidade do lóbulo da orelha ser preso ou solto.</div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
@@ -89,11 +95,16 @@
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
+<<<<<<< HEAD
         <a class="module-card" href="../../PrevisaoTipoSanguineo/View/tipoSanquineo.html" aria-label="Tipo Sanguíneo">
+=======
+        <a class="module-card" href="../../PrevisaoTipoSanguineo/View/tipoSanquineo.html" aria-label="Calculadora de Tipo Sanguíneo">
+>>>>>>> b0fb98dd8f8e6815634cb444df9f5b1398b1b58c
           <div class="mc-title">Tipo Sanguíneo</div>
           <div class="mc-desc">Calcule o tipo sanguíneo do seu filho.</div>
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
+<<<<<<< HEAD
 
         <!-- INACABADO -->
         <a class="module-card" href="../../covinhas/View/listagem_covinhas.php" aria-label="Traços Faciais">
@@ -102,6 +113,8 @@
           <div class="mc-meta"><span class="badge ready">Acessar</span></div>
         </a>
 
+=======
+>>>>>>> b0fb98dd8f8e6815634cb444df9f5b1398b1b58c
       </nav>
     </div>
   </main>q
