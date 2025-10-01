@@ -7,9 +7,9 @@ $baseCadastro = __DIR__ . '/src/cadastro_menu_login/View/';
 // Rotas
 $routes = [
     // fluxo inicial
-    'homescreen' => $baseCadastro . 'homescreen.html',
-    'cadastro'   => $baseCadastro . 'cadastro.html',
-    'menu'       => $baseCadastro . 'menu.html',
+    'homescreen' => $baseCadastro . 'homescreen.php',
+    'cadastro'   => $baseCadastro . 'cadastro.php',
+    'menu'       => $baseCadastro . 'menu.php',
 
     // páginas internas do grupo cadastro_menu_login
     'dashboard'  => $baseCadastro . 'dashboard.html',
