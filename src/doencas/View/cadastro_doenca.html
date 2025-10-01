@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Doença</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Doença</title>
+
 </head>
 <body>
+  <form action="cadastrar_doenca.php" method="post">
     <h1>Cadastrar Nova Doença</h1>
-    <form action="cadastrar_doenca.php" method="post">
-        <label for="nomeDoenca">Nome da Doença:</label>
-        <input type="text" id="nomeDoenca" name="nomeDoenca" required>
-        <button type="submit">Cadastrar</button>
-    </form>
+    <label for="nomeDoenca">Nome da Doença:</label>
+    <input type="text" id="nomeDoenca" name="nomeDoenca" required>
+    <button type="submit">Cadastrar</button>
+  </form>
 </body>
 </html>
