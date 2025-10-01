@@ -1,52 +1,59 @@
 <?php
+require_once __DIR__ . "/../../DAO/Database.class.php";
+
 class Probabilidade {
-    private $conexao;
 
-    public function __construct($db) {
-        $this->conexao = $db;
-    }
+    public function calcular($idUsuario, $idDoenca) {
+        $db = Database::getConexao(); // conexão PDO
 
-    public function calcular($idUsuario, $doenca) {
-        
-        $query = "SELECT id_pai, id_mae FROM perfil WHERE usuario_idusuario = :id";
-        $stmt = $this->conexao->prepare($query);
-        $stmt->bindParam(":id", $idUsuario);
-        $stmt->execute();
-        $perfil = $stmt->fetch(PDO::FETCH_ASSOC);
+        // Busca o id_pai e id_mae do usuário
+        $sql = "SELECT id_pai, id_mae 
+                  FROM perfil 
+                 WHERE usuario_idusuario = ?";
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$idUsuario]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if (!$perfil) {
-            return "Usuário não encontrado.";
+        if (!$row) {
+            return "Usuário sem perfil cadastrado.";
         }
 
-        $idPai = $perfil['id_pai'];
-        $idMae = $perfil['id_mae'];
+        $idPai = $row['id_pai'];
+        $idMae = $row['id_mae'];
 
-        
-        $queryPai = "SELECT doenca_genealogica FROM perfil WHERE usuario_idusuario = :id";
-        $stmtPai = $this->conexao->prepare($queryPai);
-        $stmtPai->bindParam(":id", $idPai);
-        $stmtPai->execute();
-        $pai = $stmtPai->fetch(PDO::FETCH_ASSOC);
+        // Verifica se o pai tem a doença
+        $paiTemDoenca = false;
+        if ($idPai) {
+            $sqlPai = "SELECT 1 
+                         FROM perfil 
+                        WHERE usuario_idusuario = ? 
+                          AND doenca_genealogica = ?";
+            $stmt = $db->prepare($sqlPai);
+            $stmt->execute([$idPai, $idDoenca]);
+            $paiTemDoenca = $stmt->fetch() ? true : false;
+        }
 
-    
-        $queryMae = "SELECT doenca_genealogica FROM perfil WHERE usuario_idusuario = :id";
-        $stmtMae = $this->conexao->prepare($queryMae);
-        $stmtMae->bindParam(":id", $idMae);
-        $stmtMae->execute();
-        $mae = $stmtMae->fetch(PDO::FETCH_ASSOC);
+        // Verifica se a mãe tem a doença
+        $maeTemDoenca = false;
+        if ($idMae) {
+            $sqlMae = "SELECT 1 
+                         FROM perfil 
+                        WHERE usuario_idusuario = ? 
+                          AND doenca_genealogica = ?";
+            $stmt = $db->prepare($sqlMae);
+            $stmt->execute([$idMae, $idDoenca]);
+            $maeTemDoenca = $stmt->fetch() ? true : false;
+        }
 
-        
-        $temPai = ($pai && $pai['doenca_genealogica'] == $doenca);
-        $temMae = ($mae && $mae['doenca_genealogica'] == $doenca);
-
-        if ($temPai && $temMae) {
+        // Cálculo da probabilidade
+        if ($paiTemDoenca && $maeTemDoenca) {
             $prob = 75;
-        } elseif ($temPai || $temMae) {
+        } elseif ($paiTemDoenca || $maeTemDoenca) {
             $prob = 50;
         } else {
             $prob = 0;
         }
 
-        return "Probabilidade de ter {$doenca}: {$prob}%";
+        return "Probabilidade de ter a doença (ID {$idDoenca}): {$prob}%";
     }
 }
