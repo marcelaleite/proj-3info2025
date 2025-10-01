@@ -1,4 +1,5 @@
 <?php
+require_once'../../DAO/Database.class.php';
 class Usuario{
     private $id;
     private $nome;
