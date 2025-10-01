@@ -1,0 +1,339 @@
+
+        /* Estilos para Nós */
+        .node {
+            position: absolute;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        .node:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .node.selected .male, .node.selected .female {
+            border-color: #10b981; /* Verde para seleção */
+            box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+        }
+
+        /* Estilos para Formas de Gênero */
+        .male {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border: 2px solid #374151;
+            border-radius: 0; /* Quadrado */
+        }
+        .female {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border: 2px solid #374151;
+            border-radius: 50%; /* Círculo */
+        }
+
+        /* Estilos para Traços Genéticos */
+        .trait-presence {
+            background-color: #10b981; /* Verde */
+        }
+        .trait-absence {
+            background-color: #1f2937; /* Cinza Escuro */
+        }
+
+        /* Estilos para Linhas de Conexão */
+        .connection-line {
+            position: absolute;
+            background-color: #374151;
+            z-index: 1;
+        }
+        .vertical-line {
+            width: 2px;
+        }
+        .horizontal-line {
+            height: 2px;
+        }
+        .marriage-line {
+            height: 2px;
+            background-color: #374151;
+        }
+        .sibling-line {
+            height: 2px;
+            background-color: #6366f1; /* Roxo para irmãos */
+        }
+
+        /* Estilos para Rótulos */
+        .label {
+            text-align: center;
+            font-size: 12px;
+            margin-top: 5px;
+            color: #374151;
+            max-width: 80px;
+            word-wrap: break-word;
+        }
+
+        /* Estilos para o Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: relative; /* Para o botão de fechar */
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+        .close:hover {
+            color: black;
+        }
+
+        /* Estilos para Formulários */
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #374151;
+        }
+        .row {
+            margin-bottom: 15px;
+        }
+        .two-cols {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #d1d5da;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .checkbox-group, .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 5px;
+        }
+        .checkbox-label, .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        /* Estilos para Botões */
+        .btn {
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            text-align: center;
+            display: inline-block;
+            border: none;
+            transition: background-color 0.2s;
+        }
+        .btn.primary {
+            background-color: #10b981; /* Verde */
+            color: white;
+        }
+        .btn.primary:hover {
+            background-color: #059669;
+        }
+        .btn.ghost {
+            background-color: transparent;
+            color: #374151;
+            border: 1px solid #d1d5da;
+        }
+        .btn.ghost:hover {
+            background-color: #f3f4f6;
+        }
+
+        /* Estilos para a Legenda */
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .legend-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            border: 2px solid #374151;
+        }
+        .legend-icon.male-legend {
+            border-radius: 0;
+        }
+        .legend-icon.female-legend {
+            border-radius: 50%;
+        }
+
+        /* Estilos para o Painel de Ferramentas */
+        .tool-panel {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .tool-btn {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 8px;
+            border-radius: 50%;
+            background-color: #f3f4f6;
+            border: 1px solid #d1d5da;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+        }
+        .tool-btn:hover {
+            background-color: #e5e7eb;
+        }
+        .tool-btn.active {
+            background-color: #10b981; /* Verde para ativo */
+            color: white;
+        }
+
+        /* Estilos para o Container da Árvore */
+        .tree-container {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            overflow: auto;
+            border: 1px solid #d1d5da;
+            border-radius: 8px;
+            background-color: #f9fafb;
+            margin-top: 100px; /* Espaço para o painel de ferramentas e legenda */
+        }
+        .drag-handle {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: grab;
+            z-index: 0;
+        }
+
+        /* Estilos para Controles de Zoom */
+        .zoom-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .zoom-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            border: 1px solid #d1d5da;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .zoom-btn:hover {
+            background-color: #f3f4f6;
+        }
+        .zoom-level {
+            width: 60px;
+            text-align: center;
+            background-color: white;
+            padding: 5px;
+            border-radius: 4px;
+            border: 1px solid #d1d5da;
+            font-size: 14px;
+        }
+
+        /* Estilos para Conexões */
+        .connections-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Linhas não devem interferir nos cliques */
+            z-index: 5;
+        }
+
+        /* Estilos para Switch de Vida/Morte */
+        .alive-switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
+        .alive-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 20px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #10b981; /* Verde quando marcado */
+        }
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+
+        /* Estilos para Opções de Traço */
+        .trait-container {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
