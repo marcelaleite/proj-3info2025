@@ -46,16 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </option>
             <?php endforeach; ?>
         </select><br><br>
-
-        <label>
-            <input type="checkbox" name="pai_tem" value="1" <?= $pai_tem ? 'checked' : '' ?>>
-            O pai tem a doença
-        </label><br><br>
-
-        <label>
-            <input type="checkbox" name="mae_tem" value="1" <?= $mae_tem ? 'checked' : '' ?>>
-            A mãe tem a doença
-        </label><br><br>
+        <br><br>
 
         <input type="submit" value="Calcular">
     </form>
