@@ -56,7 +56,7 @@ if (array_key_exists($page, $routes)) {
     }
 } else {
     // rota inválida → homescreen
-    $html = file_get_contents($baseCadastro . 'homescreen.html');
+    $html = file_get_contents($baseCadastro . 'homescreen.php');
     $html = preg_replace(
         '/<head>/i',
         '<head><base href="/proj-3info2025/src/cadastro_menu_login/View/">',

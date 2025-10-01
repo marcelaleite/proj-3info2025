@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
-$user = "root"; // ajuste se seu MySQL tiver usuário/senha diferentes
-$pass = "";
+$user = "marcela"; // ajuste se seu MySQL tiver usuário/senha diferentes
+$pass = "marcela01";
 $dbname = "BioLineage";
 
 $conn = new mysqli($host, $user, $pass, $dbname);
