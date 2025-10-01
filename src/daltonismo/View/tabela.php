@@ -9,7 +9,7 @@
   gap: 10px;
   margin-bottom: 18px;
   flex-wrap: wrap;
-}
+} 
 
 .action-buttons button {
   background: #2d3a4a;
@@ -29,7 +29,7 @@
 .action-buttons button:hover,
 .action-buttons button:focus {
   background: #4e5d6c;
-  outline: 2px solid #2d3a4a;
+  outline: 2px solid black;
   outline-offset: 2px;
 }
 
@@ -63,7 +63,7 @@
 }
 
 #myTable th {
-  background: #2d3a4a;
+  background: black;
   color: #fff;
   font-weight: 600;
   letter-spacing: 0.5px;
@@ -142,8 +142,7 @@
 <body id="page-module-template">
   <header class="topbar" role="navigation" aria-label="Navegação principal">
     <nav class="nav-inner">
-      <a href="homescreen.html" class="nav-link">Home</a>
-      <a href="../../cadastro_menu_login/View/menu.html" class="nav-link">Menu</a>
+      <a href="daltonismo.html" class="nav-link">Retornar</a>
     </nav>
   </header>
 
@@ -157,186 +156,235 @@
 
   <main style="padding:80px 20px; min-height:100vh;">
     <div style="max-width:1100px; margin:0 auto; background: rgba(10,10,10,0.55); padding:24px; border-radius:12px;">
-      <h1>Nome do módulo</h1>
-      <p>Neste módulo poderás registrar os genes dos familiares que você sabe em uma tabela</p>
-    <p style="margin-top:18px;"><a href="daltonismo.html" class="btn ghost">Voltar</a></p>
-
+    <h1>Criação de tabela familiar</h1>
+    <p>Neste módulo você poderá registrar os genes dos familiares que você sabe em uma tabela</p><br>
     <script src="app.js"></script>
 
-  <table id="myTable">
-      <thead>
-          <tr>
-              <th>Casal 1</th>
-              <th>Ações</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <td>
-                  <div class="select-container">
-                      <select>
-                          <option value="1">Mulher normal</option>
-                          <option value="2">Mulher portadora</option>
-                          <option value="3">Mulher daltônica</option>
-                          <option value="4">Homem normal</option>
-                          <option value="5">Homem daltônico</option>
-                      </select>
-                      <button onclick="addSelect(this)">Adicionar Membro</button>
-                      <button onclick="removeSelect(this)">Remover Membro</button>
-                  </div>
-              </td>
-              <td><button onclick="removeRow(this)">Remover</button></td>
-          </tr>
-      </tbody>
-  </table>
+  <!-- Tabela (substitua sua versão atual por esta) -->
+<table id="myTable">
+  <thead>
+    <tr>
+      <th>Casal 1</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- linhas serão geradas dinamicamente -->
+  </tbody>
+</table>
 
-    <table id="myTable">
-        <div class="action-buttons">
-            <button onclick="addRow()">Adicionar geração</button>
-            <button onclick="addColumn()">Adicionar Casal</button>
-            <button onclick="removeColumn()">Remover Casal</button>
-        </div>
-        <div class="action-buttons">
-            <button onclick="exportTableToJSON()">Salvar em JSON</button>
-            <button onclick="loadTableFromJSON()">Carregar do JSON</button>
-        </div>
+<!-- Botões de ação OUTSIDE da table -->
+<div class="action-buttons" style="margin-top:12px;">
+  <button onclick="addRow()">Adicionar geração</button>
+  <button onclick="addColumn()">Adicionar Casal</button>
+  <button onclick="removeColumn()">Remover Casal</button>
+  <button onclick="exportTableToJSON()">Salvar em JSON</button>
+  <button onclick="loadTableFromJSON()">Carregar do JSON</button>
+</div>
 
-  <script>
-    function loadTableFromJSON() {
-    fetch("../Control/carregar.php")
-        .then(response => response.json())
-        .then(data => {
-            const tabela = data.tabela || [];
-            const table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
-            table.innerHTML = "";
+<script>
+/* === Helpers === */
+function buildSelectHTML(selectedValue) {
+  return `<select>
+            <option value="1" ${selectedValue === "1" ? "selected" : ""}>Mulher normal</option>
+            <option value="2" ${selectedValue === "2" ? "selected" : ""}>Mulher portadora</option>
+            <option value="3" ${selectedValue === "3" ? "selected" : ""}>Mulher daltônica</option>
+            <option value="4" ${selectedValue === "4" ? "selected" : ""}>Homem normal</option>
+            <option value="5" ${selectedValue === "5" ? "selected" : ""}>Homem daltônico</option>
+          </select>`;
+}
 
-            tabela.forEach(rowData => {
-                const newRow = table.insertRow();
-                rowData.forEach((cellData, i) => {
-                    if (i === rowData.length - 1) {
-                        newRow.insertCell(i).innerHTML = `<button onclick="removeRow(this)">Remover</button>`;
-                    } else {
-                        newRow.insertCell(i).innerHTML = `
-                            <div class="select-container">
-                                <select>
-                                    <option value="1" ${cellData === "1" ? "selected" : ""}>Mulher normal</option>
-                                    <option value="2" ${cellData === "2" ? "selected" : ""}>Mulher portadora</option>
-                                    <option value="3" ${cellData === "3" ? "selected" : ""}>Mulher daltônica</option>
-                                    <option value="4" ${cellData === "4" ? "selected" : ""}>Homem normal</option>
-                                    <option value="5" ${cellData === "5" ? "selected" : ""}>Homem daltônico</option>
-                                </select>
-                                <button onclick="addSelect(this)">Adicionar Membro</button>
-                                <button onclick="removeSelect(this)">Remover Membro</button>
-                            </div>
-                        `;
-                    }
-                });
+function rebuildHeader(numFamilies) {
+  const table = document.getElementById("myTable");
+  const thead = table.querySelector("thead");
+  const row = thead.rows[0];
+  row.innerHTML = "";
+  for (let i = 1; i <= numFamilies; i++) {
+    const th = document.createElement("th");
+    th.textContent = `Casal ${i}`;
+    row.appendChild(th);
+  }
+  const thActions = document.createElement("th");
+  thActions.textContent = "Ações";
+  row.appendChild(thActions);
+}
+
+/* === Carregar === */
+function loadTableFromJSON() {
+  fetch("../Control/carregar.php")
+    .then(response => response.json())
+    .then(data => {
+      const tabela = data.tabela || [];
+      const table = document.getElementById("myTable");
+      const tbody = table.querySelector("tbody");
+      tbody.innerHTML = "";
+
+      // determina o maior número de famílias entre as gerações (para reconstruir header)
+      const maxFamilies = tabela.reduce((max, row) => Math.max(max, row.length), 0) || 1;
+      rebuildHeader(maxFamilies);
+
+      tabela.forEach(rowData => {
+        const tr = tbody.insertRow();
+
+        // para cada familia (0..maxFamilies-1)
+        for (let i = 0; i < maxFamilies; i++) {
+          const cellData = rowData[i] || []; // pode ser undefined -> tratamos como []
+          const td = tr.insertCell();
+          const container = document.createElement("div");
+          container.className = "select-container";
+
+          // se houver membros (valores) cria os selects correspondentes
+          if (Array.isArray(cellData) && cellData.length > 0) {
+            cellData.forEach(val => {
+              // val é string (ex: "1")
+              const wrapper = document.createElement("span");
+              wrapper.innerHTML = buildSelectHTML(String(val));
+              container.appendChild(wrapper.firstElementChild);
             });
-        })
-        .catch(err => {
-            console.error("Erro ao carregar JSON:", err);
-        });
-}
+          }
+          // sempre adiciona os botões de adicionar/remover membro
+          const btnAdd = document.createElement("button");
+          btnAdd.textContent = "Adicionar Membro";
+          btnAdd.onclick = function() { addSelect(this); };
+          const btnRemove = document.createElement("button");
+          btnRemove.textContent = "Remover Membro";
+          btnRemove.onclick = function() { removeSelect(this); };
 
-function exportTableToJSON() {
-    const table = document.getElementById("myTable");
-    const data = [];
-
-    for (let i = 1; i < table.rows.length; i++) {
-        const row = table.rows[i];
-        const rowData = [];
-        for (let j = 0; j < row.cells.length - 1; j++) {
-            const selects = row.cells[j].querySelectorAll("select");
-            const valores = [];
-            selects.forEach(sel => valores.push(sel.value));
-            rowData.push(valores);
+          container.appendChild(btnAdd);
+          container.appendChild(btnRemove);
+          td.appendChild(container);
         }
-        data.push(rowData);
-    }
 
-    fetch("../Control/salvar.php", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ tabela: data })
+        // célula de ações (sempre a última)
+        const tdActions = tr.insertCell();
+        tdActions.innerHTML = `<button onclick="removeRow(this)">Remover</button>`;
+      });
     })
-    .then(res => res.json())
-    .then(resp => alert(resp.mensagem))
-    .catch(err => console.error(err));
+    .catch(err => {
+      console.error("Erro ao carregar JSON:", err);
+      alert("Erro ao carregar tabela. Veja console.");
+    });
 }
-  function addRow() {
-      const table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
-      const headerCells = document.getElementById("myTable").getElementsByTagName('thead')[0].rows[0].cells.length;
-      const newRow = table.insertRow();
-      for (let i = 0; i < headerCells; i++) {
-          if (i === headerCells - 1) {
-              newRow.insertCell(i).innerHTML = `<button onclick="removeRow(this)">Remover</button>`;
-          } else {
-              newRow.insertCell(i).innerHTML = `
-                  <div class="select-container">
-                      <button onclick="addSelect(this)">Adicionar Membro</button>
-                      <button onclick="removeSelect(this)">Remover Membro</button>
-                  </div>
-              `;
-          }
-      }
-  }
-  function addSelect(button) {
-      const container = button.parentNode;
-      const newSelect = document.createElement("select");
-      newSelect.innerHTML = `
-          <option value="1">Mulher normal</option>
-          <option value="2">Mulher portadora</option>
-          <option value="3">Mulher daltônica</option>
-          <option value="4">Homem normal</option>
-          <option value="5">Homem daltônico</option>
-      `;
-      container.insertBefore(newSelect, button);
+
+/* === Exportar === */
+function exportTableToJSON() {
+  const table = document.getElementById("myTable");
+  const tbody = table.querySelector("tbody");
+  const data = [];
+
+  for (let r = 0; r < tbody.rows.length; r++) {
+    const row = tbody.rows[r];
+    const rowData = [];
+    const actionIndex = row.cells.length - 1; // última célula = Ações
+    for (let c = 0; c < actionIndex; c++) {
+      const selects = row.cells[c].querySelectorAll("select");
+      const valores = [];
+      selects.forEach(sel => valores.push(sel.value));
+      rowData.push(valores);
+    }
+    data.push(rowData);
   }
 
-  function removeSelect(button) {
-      const container = button.parentNode;
-      const selects = container.querySelectorAll('select');
-      if (selects.length > 0) {
-          container.removeChild(selects[selects.length - 1]);
-      }
+  fetch("../Control/salvar.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ tabela: data })
+  })
+  .then(res => res.json())
+  .then(resp => alert(resp.mensagem))
+  .catch(err => {
+    console.error(err);
+    alert("Erro ao salvar. Veja console.");
+  });
+}
+
+/* === Funções UI existentes (ajustadas pra trabalhar com header dinâmico) === */
+function addRow() {
+  const table = document.getElementById("myTable");
+  const tbody = table.querySelector("tbody");
+  const headerCells = table.querySelector("thead").rows[0].cells.length;
+  const newRow = tbody.insertRow();
+
+  for (let i = 0; i < headerCells; i++) {
+    if (i === headerCells - 1) {
+      newRow.insertCell(i).innerHTML = `<button onclick="removeRow(this)">Remover</button>`;
+    } else {
+      newRow.insertCell(i).innerHTML = `
+        <div class="select-container">
+          <button onclick="addSelect(this)">Adicionar Membro</button>
+          <button onclick="removeSelect(this)">Remover Membro</button>
+        </div>
+      `;
+    }
   }
-  function removeRow(button) {
-      const row = button.parentNode.parentNode;
-      row.parentNode.removeChild(row);
+}
+
+function addSelect(button) {
+  const container = button.parentNode;
+  const newSelect = document.createElement("select");
+  newSelect.innerHTML = `
+      <option value="1">Mulher normal</option>
+      <option value="2">Mulher portadora</option>
+      <option value="3">Mulher daltônica</option>
+      <option value="4">Homem normal</option>
+      <option value="5">Homem daltônico</option>
+  `;
+  // insere novo select antes do botão "Adicionar Membro"
+  container.insertBefore(newSelect, button);
+}
+
+function removeSelect(button) {
+  const container = button.parentNode;
+  const selects = container.querySelectorAll('select');
+  if (selects.length > 0) {
+    container.removeChild(selects[selects.length - 1]);
   }
-  function addColumn() {
-      const table = document.getElementById("myTable");
-      const thead = table.getElementsByTagName('thead')[0];
-      const tbody = table.getElementsByTagName('tbody')[0];
-      const th = document.createElement('th');
-      th.textContent = `Casal ${thead.rows[0].cells.length}`;
-      thead.rows[0].insertBefore(th, thead.rows[0].cells[thead.rows[0].cells.length - 1]);
-      for (let row of tbody.rows) {
-          const td = document.createElement('td');
-          td.innerHTML = `
-              <div class="select-container">
-                  <button onclick="addSelect(this)">Adicionar Membro</button>
-                  <button onclick="removeSelect(this)">Remover Membro</button>
-              </div>
-          `;
-          row.insertBefore(td, row.cells[row.cells.length - 1]);
-      }
+}
+
+function removeRow(button) {
+  const row = button.parentNode.parentNode;
+  row.parentNode.removeChild(row);
+}
+
+function addColumn() {
+  const table = document.getElementById("myTable");
+  const thead = table.querySelector('thead');
+  const tbody = table.querySelector('tbody');
+  const headerCells = thead.rows[0].cells.length;
+  // insere um novo th antes da última coluna (Ações)
+  const th = document.createElement('th');
+  th.textContent = `Casal ${headerCells}`;
+  thead.rows[0].insertBefore(th, thead.rows[0].cells[headerCells - 1]);
+  // adiciona uma td em cada linha, antes da última coluna
+  for (let row of tbody.rows) {
+    const td = document.createElement('td');
+    td.innerHTML = `
+        <div class="select-container">
+            <button onclick="addSelect(this)">Adicionar Membro</button>
+            <button onclick="removeSelect(this)">Remover Membro</button>
+        </div>
+    `;
+    row.insertBefore(td, row.cells[row.cells.length - 1]);
   }
-  function removeColumn() {
-      const table = document.getElementById("myTable");
-      const thead = table.getElementsByTagName('thead')[0];
-      const tbody = table.getElementsByTagName('tbody')[0];
-      const headerCells = thead.rows[0].cells.length;
-      if (headerCells > 2) {
-          thead.rows[0].deleteCell(headerCells - 2);
-          for (let row of tbody.rows) {
-              row.deleteCell(headerCells - 2);
-          }
-      }
+}
+
+function removeColumn() {
+  const table = document.getElementById("myTable");
+  const thead = table.querySelector('thead');
+  const tbody = table.querySelector('tbody');
+  const headerCells = thead.rows[0].cells.length;
+  if (headerCells > 2) { // mantém pelo menos 1 casal + ações
+    thead.rows[0].deleteCell(headerCells - 2);
+    for (let row of tbody.rows) {
+      row.deleteCell(headerCells - 2);
+    }
   }
-  </script>
+}
+
+/* === Inicializa (se quiser carregar ao abrir) === */
+// loadTableFromJSON(); // descomente se quiser carregar automaticamente ao abrir
+</script>
+
 
   </main>
   
