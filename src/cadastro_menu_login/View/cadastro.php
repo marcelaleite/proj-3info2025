@@ -76,7 +76,7 @@
           </div>
 
           <div class="form-actions">
-            <a class="btn ghost" href="homescreen.html">Voltar</a>
+            <a class="btn ghost" href="homescreen.php">Voltar</a>
             <button type="submit" class="btn primary">Cadastrar</button>
           </div>
         </form>
