@@ -132,6 +132,13 @@
     gap: 4px;
   }
 }
+.bottom{
+  text-align: center;
+}
+.botoesbottom{
+  display: flex;
+  justify-content: center;
+}
 </style>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -142,8 +149,7 @@
 <body id="page-module-template">
   <header class="topbar" role="navigation" aria-label="Navegação principal">
     <nav class="nav-inner">
-      <a href="homescreen.html" class="nav-link">Home</a>
-      <a href="../../cadastro_menu_login/View/menu.html" class="nav-link">Menu</a>
+      <a href="../../cadastro_menu_login/View/menu.php" class="nav-link">Retornar</a>
     </nav>
   </header>
 
@@ -176,10 +182,16 @@
           O daltonismo não tem cura, mas existem óculos especiais que ajudam a diferenciar algumas cores.</em></p>
       </section>
     </div>
-    <p>Você pode fazer um teste simples de daltonismo aqui:</p>
-    <p style="margin-top:18px;"><a href="teste.php" class="btn ghost">Fazer teste</a></p>
-    <p style="margin-top:18px;"><a href="tabela.php" class="btn ghost">Ver tabela familiar</a></p>
-    <p style="margin-top:18px;"><a href="chance.php" class="btn ghost">Calcular chance</a></p>
+    <div class="bottom">
+      <h2>Mais funcionalidades aqui:</h2>
+      <div class="botoesbottom">
+        <p style="margin-top:18px;"><a href="teste.php" class="btn ghost">Teste de Daltonismo</a></p>
+        <p style="margin-top:18px;"><a href="tabela.php" class="btn ghost">Criar Tabela Familiar</a></p>
+        <p style="margin-top:18px;"><a href="chance.php" class="btn ghost">Calcular chance</a></p>
+      </div>
+      
+    </div>
+    
 
   </main>
   

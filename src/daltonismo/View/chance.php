@@ -1,275 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-   
-<style>
-
-.action-buttons {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 18px;
-  flex-wrap: wrap;
-}
-
-.action-buttons button {
-  background: #2d3a4a;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 10px 20px;
-  font-size: 1.05em;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(45,58,74,0.08);
-  margin: 2px 0;
-  letter-spacing: 0.2px;
-}
-
-.action-buttons button:hover,
-.action-buttons button:focus {
-  background: #4e5d6c;
-  outline: 2px solid #2d3a4a;
-  outline-offset: 2px;
-}
-
-@media (max-width: 700px) {
-  .action-buttons {
-    flex-direction: column;
-    gap: 6px;
-  }
-  .action-buttons button {
-    width: 100%;
-    font-size: 1em;
-    padding: 10px 0;
-  }
-}
-
-#myTable {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  background: rgba(255,255,255,0.92);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
-  margin-bottom: 24px;
-  font-family: 'Poppins', Arial, sans-serif;
-}
-
-#myTable th, #myTable td {
-  padding: 14px 18px;
-  text-align: left;
-}
-
-#myTable th {
-  background: #2d3a4a;
-  color: #fff;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  border-bottom: 2px solid #4e5d6c;
-}
-
-#myTable tr {
-  transition: background 0.2s;
-}
-
-#myTable tbody tr:nth-child(even) {
-  background: #f4f7fa;
-}
-
-#myTable tbody tr:hover {
-  background: #e0e7ef;
-}
-
-.select-container {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.select-container select {
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid #bfc9d1;
-  background: #fff;
-  font-size: 1em;
-  transition: border 0.2s;
-}
-
-.select-container select:focus {
-  border-color: #2d3a4a;
-  outline: none;
-}
-
-.select-container button,
-#myTable button {
-  background: #2d3a4a;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 6px 14px;
-  font-size: 0.98em;
-  cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s;
-  margin: 2px 0;
-}
-
-.select-container button:hover,
-#myTable button:hover {
-  background: #4e5d6c;
-  box-shadow: 0 2px 8px rgba(45,58,74,0.10);
-}
-
-@media (max-width: 700px) {
-  #myTable th, #myTable td {
-    padding: 10px 6px;
-    font-size: 0.98em;
-  }
-  .select-container {
-    flex-direction: column;
-    gap: 4px;
-  }
-}
-</style>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Marcela — Module Template</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../public/css/styles.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body id="page-module-template">
-  <header class="topbar" role="navigation" aria-label="Navegação principal">
-    <nav class="nav-inner">
-      <a href="homescreen.html" class="nav-link">Home</a>
-      <a href="../../cadastro_menu_login/View/menu.html" class="nav-link">Menu</a>
-    </nav>
-  </header>
+<body class="bg-black min-h-screen flex items-center justify-center">
 
-  <div class="background-video" aria-hidden="true">
-    <video autoplay loop muted playsinline>
-      <source src="218955.mp4" type="video/mp4" />
-    </video>
+  <div class="w-full max-w-3xl bg-white shadow-lg rounded-xl overflow-hidden">
+    <div class="bg-gray-800 text-white font-semibold text-lg px-6 py-4">
+      Chance de <a href="daltonismo.html">Daltonismo</a>
+    </div>
+    <div class="p-6">
+      <p class="mb-6 text-gray-700">Selecione as características do pai e da mãe:</p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse rounded-lg shadow-sm">
+          <thead>
+            <tr class="bg-gray-800 text-white">
+              <th class="px-4 py-3 text-left">Pai</th>
+              <th class="px-4 py-3 text-left">Mãe</th>
+              <th class="px-4 py-3 text-left">Resultado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="odd:bg-gray-50 even:bg-gray-100 hover:bg-gray-200 transition">
+              <td class="px-4 py-3">
+                <select id="pai" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-700">
+                  <option value="N">Homem normal</option>
+                  <option value="D">Homem daltônico</option>
+                </select>
+              </td>
+              <td class="px-4 py-3">
+                <select id="mae" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-700">
+                  <option value="N">Mulher normal</option>
+                  <option value="P">Mulher portadora</option>
+                  <option value="D">Mulher daltônica</option>
+                </select>
+              </td>
+              <td class="px-4 py-3">
+                <textarea id="resultado" readonly placeholder="Resultado aparecerá aqui"
+                  class="w-full h-20 border border-gray-300 rounded-lg px-3 py-2 bg-gray-50 text-gray-700 resize-none focus:outline-none"></textarea>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+        <div class="flex flex-wrap gap-4 mt-6">
+          <button onclick="calcular()" class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold shadow transition">
+            Calcular
+          </button>
+        </div>
+    </div>
   </div>
 
-  <div class="overlay" aria-hidden="true"></div>
-
-  <main style="padding:80px 20px; min-height:100vh;">
-    <div style="max-width:1100px; margin:0 auto; background: rgba(10,10,10,0.55); padding:24px; border-radius:12px;">
-      <h1>Nome do módulo</h1>
-      <p>Neste módulo poderás registrar os genes dos familiares que você sabe em uma tabela</p>
-    <p style="margin-top:18px;"><a href="daltonismo.html" class="btn ghost">Voltar</a></p>
-
-    <script src="app.js"></script>
-
-  <table id="myTable">
-      <thead>
-          <tr>
-              <th>Família 1</th>
-              <th>Ações</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr>
-              <td>
-                  <div class="select-container">
-                      <select>
-                          <option value="1">Mulher normal</option>
-                          <option value="2">Mulher portadora</option>
-                          <option value="3">Mulher daltônica</option>
-                          <option value="4">Homem normal</option>
-                          <option value="5">Homem daltônico</option>
-                      </select>
-                      <button onclick="addSelect(this)">Adicionar Membro</button>
-                      <button onclick="removeSelect(this)">Remover Membro</button>
-                  </div>
-              </td>
-              <td><button onclick="removeRow(this)">Remover</button></td>
-          </tr>
-      </tbody>
-  </table>
-  
-  <table id="myTable">
-  <div class="action-buttons">
-  <button onclick="addRow()">Adicionar geração</button>
-  <button onclick="addColumn()">Adicionar Família</button>
-  <button onclick="removeColumn()">Remover Família</button>
-</div>
   <script>
-  function addRow() {
-      const table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
-      const headerCells = document.getElementById("myTable").getElementsByTagName('thead')[0].rows[0].cells.length;
-      const newRow = table.insertRow();
-      for (let i = 0; i < headerCells; i++) {
-          if (i === headerCells - 1) {
-              newRow.insertCell(i).innerHTML = `<button onclick="removeRow(this)">Remover</button>`;
-          } else {
-              newRow.insertCell(i).innerHTML = `
-                  <div class="select-container">
-                      <button onclick="addSelect(this)">Adicionar Membro</button>
-                      <button onclick="removeSelect(this)">Remover Membro</button>
-                  </div>
-              `;
-          }
-      }
-  }
-  function addSelect(button) {
-      const container = button.parentNode;
-      const newSelect = document.createElement("select");
-      newSelect.innerHTML = `
-          <option value="1">Mulher normal</option>
-          <option value="2">Mulher portadora</option>
-          <option value="3">Mulher daltônica</option>
-          <option value="4">Homem normal</option>
-          <option value="5">Homem daltônica</option>
-      `;
-      container.insertBefore(newSelect, button);
-  }
-  function removeSelect(button) {
-      const container = button.parentNode;
-      const selects = container.querySelectorAll('select');
-      if (selects.length > 0) {
-          container.removeChild(selects[selects.length - 1]);
-      }
-  }
-  function removeRow(button) {
-      const row = button.parentNode.parentNode;
-      row.parentNode.removeChild(row);
-  }
-  function addColumn() {
-      const table = document.getElementById("myTable");
-      const thead = table.getElementsByTagName('thead')[0];
-      const tbody = table.getElementsByTagName('tbody')[0];
-      const th = document.createElement('th');
-      th.textContent = `Família ${thead.rows[0].cells.length}`;
-      thead.rows[0].insertBefore(th, thead.rows[0].cells[thead.rows[0].cells.length - 1]);
-      for (let row of tbody.rows) {
-          const td = document.createElement('td');
-          td.innerHTML = `
-              <div class="select-container">
-                  <button onclick="addSelect(this)">Adicionar Membro</button>
-                  <button onclick="removeSelect(this)">Remover Membro</button>
-              </div>
-          `;
-          row.insertBefore(td, row.cells[row.cells.length - 1]);
-      }
-  }
-  function removeColumn() {
-      const table = document.getElementById("myTable");
-      const thead = table.getElementsByTagName('thead')[0];
-      const tbody = table.getElementsByTagName('tbody')[0];
-      const headerCells = thead.rows[0].cells.length;
-      if (headerCells > 2) {
-          thead.rows[0].deleteCell(headerCells - 2);
-          for (let row of tbody.rows) {
-              row.deleteCell(headerCells - 2);
-          }
-      }
+  function calcular() {
+    const pai = document.getElementById("pai").value;
+    const mae = document.getElementById("mae").value;
+    let chanceHomem = "";
+    let chanceMulher = "";
+
+    // Exemplo baseado em herança ligada ao X (como hemofilia/daltonismo)
+    if (pai === "N" && mae === "N") {
+      chanceHomem = "0%";
+      chanceMulher = "0%";
+    } 
+    else if (pai === "N" && mae === "P") {
+      chanceHomem = "50%";
+      chanceMulher = "0%";
+    } 
+    else if (pai === "N" && mae === "D") {
+      chanceHomem = "100%";
+      chanceMulher = "0%";
+    } 
+    else if (pai === "D" && mae === "N") {
+      chanceHomem = "0%";
+      chanceMulher = "100% portadoras";
+    } 
+    else if (pai === "D" && mae === "P") {
+      chanceHomem = "50%";
+      chanceMulher = "50% (deficientes ou portadoras)";
+    } 
+    else if (pai === "D" && mae === "D") {
+      chanceHomem = "100%";
+      chanceMulher = "100%";
+    }
+
+    document.getElementById("resultado").value =
+      `Chance (Homem): ${chanceHomem} | Chance (Mulher): ${chanceMulher}`;
   }
   </script>
-
-  </main>
-  
 </body>
 </html>

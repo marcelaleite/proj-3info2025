@@ -1,5 +1,4 @@
 <?php
-require_once '../../cadastro_menu_login/Model/Classe.class.php';
 
 class Resultado {
     private $pdo;
